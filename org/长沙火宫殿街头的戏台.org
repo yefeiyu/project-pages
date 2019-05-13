@@ -1,0 +1,13 @@
+#+STARTUP: showall
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:t tags:nil toc:nil timestamps:t
+#+LAYOUT: post
+#+AUTHOR: yefeiyu
+#+DATE: 2017-04-22 六 14:49
+#+TITLE: 长沙火宫殿街头的戏台
+#+DESCRIPTION: travel
+#+TAGS: life,opera study, 长沙, 火宫殿,游记 试验 
+#+CATEGORIES: life
+
+今天我们来到了长沙，下了车直接就到了火宫殿。
+

@@ -1,0 +1,14 @@
+#+STARTUP: showall
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:t tags:nil toc:nil timestamps:t
+#+LAYOUT: post
+#+AUTHOR: yefeiyu
+#+DATE: 2018-03-30 周五 15:37
+#+TITLE: The hero in dreams
+#+DESCRIPTION: Some water, some water
+#+TAGS: life
+#+CATEGORIES: life
+#+EXTRA-YAML-HEADERS: theme: \nplugin: \nscheme-text: "#eee"\nscheme-link: "#"\nscheme-hover: "#"\nscheme-code: "#"\nscheme-bg: "#cc0"\nscheme-hero-text: "#cc0"\nscheme-hero-link: "#"\nscheme-hero-bg: "#eee"\nscheme-bg-light: false\n
+
+Several nights in a row, I did some dreams, in these dreams, I became a hero. Just like last night, my car was reported illegal. I am puzzled about this, so I sternly criticized the two polices. At last, they catch the thieves by my help.
+

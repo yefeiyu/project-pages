@@ -1,0 +1,19 @@
+#+STARTUP: showall
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:nil tags:nil toc:nil timestamps:t
+#+LAYOUT: post
+#+AUTHOR: yefeiyu
+#+DATE: 2019-05-13 Mon 00:02
+#+TITLE: Beautifule Morning
+#+DESCRIPTION: This is the bird' creaming
+#+TAGS: life,say
+#+CATEGORIES: life
+
+* To do
+Sunday is finished.https://github.com/yefeiyu/yefeiyuold/tree/master/_app/assets/themes/curtana/_less
+
+* Today
+<2019-05-13 Mon>
+
+** bye
+to everybody.

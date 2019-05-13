@@ -1,0 +1,23 @@
+#+STARTUP: showall
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:t tags:nil toc:nil timestamps:t
+#+LAYOUT: post
+#+AUTHOR: yefeiyu
+#+DATE: 2018-05-16 三 16:15
+#+TITLE: resolved iOS 10.3.3 JB error
+#+DESCRIPTION: 
+#+TAGS: iphone iOS 10 jailbreak error
+#+CATEGORIES: mobile
+
+yalu越狱每周签名，直接使用Impackor会出现错误，需要先清理锁定项。步骤如下：
+插上手机，打开943程序，点选xcode-revolke，去掉上次遗留在手机里的锁定项。
+退出943。
+打开944程序，Device-InstallPackage-yalu102_beta7.ipa(此处不必使用10.0版本可以直接用10.3.3版本的ipa)
+jb。
+
+944 download address:
+https://cache.saurik.com/impactor/l64/Impactor64_0.9.44.tgz
+943 download address:
+https://cache.saurik.com/impactor/l64/Impactor64_0.9.43.tgz
+yalu102 download address:
+https://yalujailbreak.org/files/yalu102_beta7.ipa

@@ -1,0 +1,53 @@
+#+STARTUP: showall
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:t tags:nil toc:nil timestamps:t
+#+LAYOUT: post
+#+AUTHOR: yefeiyu
+#+DATE: 2018-05-03 四 15:31
+#+TITLE: 重拾kindle dxg，做第二显示屏
+#+DESCRIPTION: 古董重发光
+#+TAGS: dxg, kindle, vnc, vncviewer, x11vnc, ssh, scp, 有线, 无线, 传书
+#+CATEGORIES: mobile
+
+主机使用debian
+* vnc第二显示屏
+安装x11vnc
+use openbox desktop, and add the conf fill to ~/.config/autostart/x11vnc.desktop
+#+BEGIN_SRC conf
+[Desktop Entry]
+Type=Application
+Name=X11VNC Server
+Exec=x11vnc -forever
+Terminal=false
+Hidden=false
+#+END_SRC
+
+kindle dxg jailbreak, install usbnetwork, install launchpad
+connect to debian: =;debugOn=, =`usbNetwork=.
+the launchpad/kindlevncviewer.ini is
+#+BEGIN_SRC conf
+[Actions]
+;; start kindlevncviewer, connect to 192.168.50.1:1
+X Z = !/mnt/us/kindlevncviewer/kvncviewer.sh 192.168.2.1:1 &
+X X = !/mnt/us/kindlevncviewer/kvncviewer.sh 192.168.2.1:0 &
+X F = !/mnt/us/usbnet/refresh_kindledxg &
+;; start kindlevncviewer, connect to somehostviawifi:1
+X W = !/mnt/us/kindlevncviewer/kvncviewer.sh somehostviawifi:1 &
+;; example with a password:
+;V W = !/mnt/us/kindlevncviewer/kvncviewer.sh -password this_is_the_password so
+;; stop kindlevncviewer
+X Q = !killall kindlevncviewer
+#+END_SRC
+connect debian with Shift X X
+* sent book to dxg
+download kindlegen from Amazon.com 
+[[https://www.amazon.com/gp/feature.html?docId=1000765211]]
+tar xvzf kindelgen...tar.gz
+=./kindlegen book.epub or txt=
+=scp book.mobi root@192.168.2.2:/mnt/us/document/=
+
+add a file which name is =refresh_kindledxg= to /usbnet/, the content is 
+#+BEGIN_SRC conf
+dbus-send --system /default com.lab126.powerd.resuming int32:1
+#+END_SRC
+use Shift X F refresh

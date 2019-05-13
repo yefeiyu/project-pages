@@ -1,0 +1,61 @@
+#+STARTUP: showall
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:t tags:nil toc:nil timestamps:t
+#+LAYOUT: post
+#+AUTHOR: yefeiyu
+#+DATE: 2018-05-03 四 10:51
+#+TITLE: 通过css修改org-mode生成的begin_src代码颜色
+#+DESCRIPTION: 使用代码更好读
+#+TAGS: begin_src, html, md, color, org, mode, css
+#+CATEGORIES: soft
+
+* 通过babel方式在org-mode中插入代码
+譬如 <s-Tab可以生成
+#+BEGIN_EXAMPLE
+#+BEGIN_SRC c (or css or lisp or ruby)
+
+#+END_SRC
+#+END_EXAMPLE
+在其中插入代码。需要注意的是，不同的代码需要在'SRC'后面定义，如c或`lisp`。
+
+* 通过M-x org-html-htmlize-generate-css在emacs中找到适合的颜色控制
+#+BEGIN_SRC css
+<style type="text/css">
+    <!--
+      body {
+        color: #000000;
+        background-color: #ffffff;
+      }
+      .org-bold {
+        /* bold */
+        font-weight: bold;
+      }
+      .org-bold-italic {
+        /* bold-italic */
+        font-weight: bold;
+        font-style: italic;
+      }
+      .org-border {
+      }
+      .org-buffer-menu-buffer {
+        /* buffer-menu-buffer */
+#+END_SRC
+拷贝至博客的css控制文件中。在本博客中是/home/xx/gh/yefeiyu.github.io/_app/assets/themes/curtana/_less/common.less文件。注意去年文件头<style>和尾。
+
+* 可以进一步修改code基本颜色，
+在/home/xx/gh/yefeiyu.github.io/_app/assets/themes/curtana/_less/variables.less文件中。
+
+* 附加一个短引用的格式，org-mode中使用的
+
+    =hello= Renders as verbatim
+    ~hello~ Renders as code
+    =hello'= Fails to render as verbatim
+    ~hello'~ Fails to render as code
+#+BEGIN_EXAMPLE
+
+    =hello= Renders as verbatim
+    ~hello~ Renders as code
+    =hello'= Fails to render as verbatim
+    ~hello'~ Fails to render as code
+
+#+END_EXAMPLE

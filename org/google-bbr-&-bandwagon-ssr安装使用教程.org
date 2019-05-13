@@ -1,0 +1,24 @@
+#+STARTUP: showall
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:t tags:nil toc:nil timestamps:t
+#+LAYOUT: post
+#+AUTHOR: yefeiyu
+#+DATE: 2018-06-29 周五 16:19
+#+TITLE: google bbr & bandwagon ssr安装使用教程
+#+DESCRIPTION: 
+#+TAGS: google cloud platform, bbr, ssr, shadowsocks, shadowsocksr, 教程
+#+CATEGORIES: soft
+
+* computer engine-VM 实例-ssh-在浏览器窗口中打开
+* 遇到问题删除，新建
+CentOS7-勾选http https防火墙（防火墙规则已建）
+VPC网络-外部IP地址（释放原来的）
+* bbr开启
+https://teddysun.com/489.html
+* ssr一键安装脚本
+https://shadowsocks.be/9.html
+* Windows客户端下载地址：
+https://github.com/shadowsocksr-backup/shadowsocksr-csharp/releases
+pac:
+https://doub.io/ss-jc59/
+or derect download: https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/other/pac.txt

@@ -1,0 +1,62 @@
+#+STARTUP: showall
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:nil tags:nil toc:nil timestamps:t
+#+LAYOUT: post
+#+AUTHOR: yefeiyu
+#+DATE: 2018-04-10 二 14:58
+#+TITLE: Use docker for jekyll blog, which is the 在github中搭建用org-mode和org2jekyll发布及用lunr.js中文搜索的jekyll静态独立博客 II
+#+DESCRIPTION: 使用docker集成jekyll的环境，一次配置，多处使用
+#+TAGS: soft, docker, debian, jekyll, blog
+#+CATEGORIES: soft
+#+EXTRA-YAML-HEADERS: theme: \nplugin: \nscheme-text: "#2b003b"\nscheme-link: "#00008b"\nscheme-hover: "#"\nscheme-code: "#"\nscheme-bg: "#ffe7e5"\nscheme-hero-text: "#ffc3c3"\nscheme-hero-link: "#daab87"\nscheme-hero-bg: "#5b005b"\nscheme-bg-light: true\n
+
+For a long time ago, I writed the blog [https://yefeiyu.github.io/soft/2016/05/02/%E5%9C%A8github%E4%B8%AD%E6%90%AD%E5%BB%BA%E7%94%A8org-mode%E5%92%8Corg2jekyll%E5%8F%91%E5%B8%83%E5%8F%8A%E7%94%A8lunr.js%E4%B8%AD%E6%96%87%E6%90%9C%E7%B4%A2%E7%9A%84jekyll%E9%9D%99%E6%80%81%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2.html](《在github中搭建用org-mode和org2jekyll发布及用lunr.js中文搜索的jekyll静态独立博客》), now there is a new method of build entire environment of jekyll-blog. Use the Docker CE, only 3 steps to complete the complex methods writen in the previous blog post.
+Let's start.
+Install the new stretch OS of Debian 9, If we to configurate the blog environment of Ruby, Node, NPM, Grunt..., it will waste too many times. So We use Docker.
+* Install docker CE through Docker's official tutorial. The address is 
+[https://docs.docker.com/install/linux/docker-ce/debian/#install-using-the-repository](Get Docker CE for Debian)
+#+BEGIN_SRC c
+sudo apt-get install      apt-transport-https      ca-certificates      curl      gnupg2      software-properties-common
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/debian \
+   $(lsb_release -cs) \
+   stable"
+sudo apt-get update
+sudo apt-get install docker-ce
+#+END_SRC
+* Pull my docker repository 
+#+BEGIN_SRC c
+s docker pull xxmm/ruby-node-grunt:v1
+#+END_SRC
+xxmm/ruby-node-grunt:v1 FROM starefossen/ruby-node, the Dockerfile is:
+#+BEGIN_SRC ruby
+FROM starefossen/ruby-node
+
+RUN apt-get update && \
+    apt-get -y install apt-utils sudo && \
+    useradd -d /home/xx -m -s /bin/bash xx && \
+    echo xx:xx | chpasswd && \
+    adduser xx sudo && \
+    npm install -g bower grunt-cli
+USER xx
+RUN mkdir /home/xx/.ssh/ && \
+    mkdir /home/xx/mt/ && \
+    mkdir -p /home/xx/gh/yefeiyu.github.io/
+COPY .bash_aliases /home/xx/
+COPY Gemfile /home/xx/gh/yefeiyu.github.io/
+COPY package.json /home/xx/gh/yefeiyu.github.io/
+WORKDIR /home/xx/gh/yefeiyu.github.io/
+RUN bundle install && \
+    rm *
+#+END_SRC
+As we seen, which add the user of xx, and created the environment needed for the blog. The steps is created 3 folders, copy 3 documents which build environment needed and bundle install. 
+* Use docker for jekyll blog
+#+BEGIN_SRC c
+docker run -ti --rm -u 0 -p 4321:4321 -p 35729:35729 -v /home/xx/gh/yefeiyu.github.io/:/home/xx/gh/yefeiyu.github.io/ -v /home/xx/.ssh/:/home/xx/.ssh/ xxmm/ruby-node-grunt:v1 grunt serve
+#+END_SRC
+
+It's so simple! 
+If we want to use docker under Windows 10, which need to OPEN the hyper-V in windows system settings of applications.
+* Because I mount github.io folder by -v, I need git clone the git repository first, and write the blog at local. 
+The local need the node_modules folder.

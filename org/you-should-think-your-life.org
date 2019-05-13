@@ -1,0 +1,16 @@
+#+STARTUP: showall
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:t tags:nil toc:nil timestamps:t
+#+LAYOUT: post
+#+AUTHOR: yefeiyu
+#+DATE: 2018-03-27 周二 15:51
+#+TITLE: You should think your life
+#+DESCRIPTION: say say now
+#+TAGS: attitude
+#+CATEGORIES: attitude
+
+* Why are we here?
+I think this is a problem.
+
+* Think life is a happy thing.
+Because we are human!
