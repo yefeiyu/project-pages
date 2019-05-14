@@ -7,7 +7,7 @@
 #+TITLE: 在github中搭建用org-mode和org2jekyll发布及用lunr.js中文搜索的jekyll静态独立博客
 #+DESCRIPTION: New blog build
 #+TAGS: github,emacs,org-mode,org2jekyll,lunr.js,jekyll-lunr-js-search,lunr-languages,gem,bundle,bundler,npm,ruby,scheme,color,markdown,html,md,blog,switype,博客
-#+CATEGORIES: soft
+#+CATEGORIES: 一个说明文档
 #+EXTRA-YAML-HEADERS: theme: \nplugin: \nscheme-text: "#2b003b"\nscheme-link: "#00008b"\nscheme-hover: "#"\nscheme-code: "#"\nscheme-bg: "#ffe7e5"\nscheme-hero-text: "#ffc3c3"\nscheme-hero-link: "#daab87"\nscheme-hero-bg: "#5b005b"\nscheme-bg-light: true\n
  *本教程旨在推荐一种可以从零开始，搭建一个简洁、快速，没有广告和令人眼花缭乱的界面，长期稳定、高效和易于访问并完全属于个人的独立博客。*
 - _使用三大神器，github、emacs、org-mode_
@@ -22,7 +22,7 @@
 * 选择主题
   官方主题在http://jekyllthemes.org/， 选择你喜欢的一款使用。我选用的是[[http://sparanoid.com/lab/amsf/getting-started.html ][Almace Scaffolding]]，优点是简洁舒适，极具时尚感，并且特别适合手机浏览。
 #+BEGIN_HTML
-<img src="/assets/img/img_2016_05_02__13_27_36.png" alt="img_2016_05_02__13_27_36.png"><br >
+[[https://yefeiyu.github.io/img/2016/img_2016_05_02__13_27_36.png]]
 #+END_HTML
   本主题要求用bundle和npm安装部分gem packages，因此有一点环境搭建的需求。
 ** 安装node.js
@@ -223,7 +223,10 @@ group :jekyll_plugins do
 在_data文件夹中打开curtana文件，将subscription:   false改为true
 * 增加评论
 采用disqus评论，功能齐全、使用广泛，注册后在各个采用disqus的地方的评论都可以统一管理、查看。此外还可以在色调等上面达到较好统一。
-在disqus注册后将网站生成的代码放置于 ~/_includes/themes/curtana/layouts/post.html~ 中。
+在disqus注册后将网站生成的代码放置于 
+~/_includes/themes/curtana/
+layouts/post.html~ 
+中。
 #+BEGIN_SRC lisp
 <font size= 1>[建议注册disqus以保存全网评论历史]</font>
 <div id="disqus_thread"></div>
@@ -241,7 +244,8 @@ group :jekyll_plugins do
 #+END_SRC
 * 增加标签云
 ** 在includes中建立tags_cloud文件
-具体位置是/_includes/themes/curtana/includes
+具体位置是
+/_includes/themes/curtana/ includes
 #+BEGIN_EXAMPLE
 <a href="{{ site.JB.tags_path }}" title="查看所有标签"><i class="icon-fixed-width icon-tags"></i> 标签云</a>
 <span title="标签总数">{{ site.tags | size }}</span>
@@ -331,7 +335,7 @@ desc: 標签雲・ ワークス・TBC
 #+END_SRC
 其中 ~<a style="font-size: {{ tag | last | size | times: 1000 | divided_by: site.tags.size | plus:70 }}%"  href="#{{ tag | first | slugize }}">~ 中的 ~times~ 控制标签云中字体大小比例变化，如果标签较小的话把数值设小点。
 markdown的文件头（---三个中横线中的内容）用来生成 单独页面。
-** 在/_includes/themes/curtana/includes中的css-variables.html中添加css的格式设置
+** 在/_includes/themes/curtana /includes中的css-variables.html中添加css的格式设置
 #+BEGIN_SRC lisp
 <style>
 {\% for tag in site.tags \%}
@@ -505,9 +509,10 @@ C-c，C-e，h或m
 **** 在.emacs中写入 ~(require 'blog-pack)~
 *** 自定义markdown头文件。
 根据下面的例子，可以自定义多种属于自己的md head。下例中scheme就是定义文章的字体、链接及背景等颜色的。调用颜色可以直接使用自定义的组合键C-x j l 或者M-x list-colors-display
-#+BEGIN_HTML
-<img src="/assets/img/img_2016_05_03__19_36_18.png" alt="img_2016_05_03__19_36_18.png"><br >
-#+END_HTML
+
+[[https://yefeiyu.github.io/img/2016/img_2016_05_02__13_27_36.png]]
+[[https://yefeiyu.github.io/img/2016/img_2016_05_03__19_36_18.png]]
+
 #+BEGIN_SRC lisp
 (defun yefeiyu-read-extra-yaml-headers ()
   "Read some pre-formatted extra yaml headers from user.

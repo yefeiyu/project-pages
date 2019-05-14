@@ -5,7 +5,7 @@
 #+AUTHOR: yefeiyu
 #+DATE: 2017-05-31 三 10:31
 #+TITLE: 理解并编写ackermann函数的scheme公式
-#+DESCRIPTION: 
+#+DESCRIPTION: 学习笔记
 #+TAGS: scheme, sicp, ackermann, soft, 函数, 学习
 #+CATEGORIES: soft
 
@@ -31,6 +31,7 @@ A(m,n)={\begin{cases}n+1&{\mbox{if }}m=0\\A(m-1,1)&{\mbox{if }}m>0{\mbox{ and }}
  Values of A(m, n) 
 
 | m\n |  0 |     1 |        2 |      3 |         4 | n                     |
+|-----+----+-------+----------+--------+-----------+-----------------------|
 |   0 |  1 |     2 |        3 |      4 |         5 | n+1                   |
 |   1 |  2 |     3 |        4 |      5 |         6 | n+2=2+(n+3)-3         |
 |   2 |  3 |     5 |        7 |      9 |        11 | 2n+3=2\cdot(n+3)-3    |

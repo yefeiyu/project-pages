@@ -5,13 +5,12 @@
 #+AUTHOR: yefeiyu
 #+DATE: 2016-06-05 日 18:29
 #+TITLE: 这些年的六四
-#+DESCRIPTION: 
+#+DESCRIPTION: 谨为纪念
 #+TAGS: 六四,纪念,回忆,生活
 #+CATEGORIES: life
 #+EXTRA-YAML-HEADERS: theme: \nplugin: \nscheme-text: "#dddddd"\nscheme-link: "#dddddd"\nscheme-hover: "#dddddd"\nscheme-code: "#dddddd"\nscheme-bg: "#000000"\nscheme-hero-text: "#000000"\nscheme-hero-link: "#333333"\nscheme-hero-bg: "#dddddd"\nscheme-bg-light: \n
-#+BEGIN_HTML 
-<img src="/assets/img/img_2016_06_05__23_50_17.png">
-#+END_HTML
+[[http://yefeiyu.github.io/img/2016/img_2016_06_05__23_50_17.png]]
+
 * 
 昨天是六四,终其一天,什么也没做。
 想想去年，至少发了一则朋友圈，配有最有名的那幅图片，西直门立交桥上，是冰冷的坦克车，桥下是一对情侣，女孩坐在自行车后座上，男青年抬头上望，气氛紧张凝固。论坛配文非常好，“所谓爱情，就是她坐在自行车后座上，从背后轻轻搂着他，大气也不敢喘一口”。
@@ -24,9 +23,9 @@
 今年的这天，只是浏览了一些相关内容。
 看到关于爱情和坦克车的图案，只是截取的比较好，今天看到另一张照片，显示着同样西直门桥上的是废弃毁坏的汽车、散乱停放没有炮手的坦克，桥下骑自行车超过的人群。
 读到了一篇小说，《逃兵》，讲述“我”在六四期间恰在美国新闻媒体工作，受托把一盒录相带送到机场匆匆返美的外国人，然后辞职。许久后才知道那盒影带中就有那幅以一己之躯挡坦克车的照片[fn:1]。
-#+BEGIN_HTML 
-<img src="/assets/img/img_2016_06_05__23_24_31.png">
-#+END_HTML
+
+[[http://yefeiyu.github.io/img/2016/img_2016_06_05__23_24_31.png]]
+
 (图片说明：六四天安门事件期间，这个被称作「王维林」的年轻人正在用自己的身体阻挡一队在天安门附近长安街上的坦克。这张照片是美联社记者Jeff Widener在1989年6月5日，离事发地半英里外的北京饭店6楼，用一支400mm镜头拍摄的。)
 
 往前想就是开始六四版块及其他所有政治版块被关停，再往后西祠胡同也没落。当你不维护说话的权力的时候，终有一天，任何人都不能发声。

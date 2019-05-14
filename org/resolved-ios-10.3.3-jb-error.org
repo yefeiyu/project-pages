@@ -5,7 +5,7 @@
 #+AUTHOR: yefeiyu
 #+DATE: 2018-05-16 三 16:15
 #+TITLE: resolved iOS 10.3.3 JB error
-#+DESCRIPTION: 
+#+DESCRIPTION: 小教程
 #+TAGS: iphone iOS 10 jailbreak error
 #+CATEGORIES: mobile
 
@@ -16,8 +16,8 @@ yalu越狱每周签名，直接使用Impackor会出现错误，需要先清理�
 jb。
 
 944 download address:
-https://cache.saurik.com/impactor/l64/Impactor64_0.9.44.tgz
+[[https://cache.saurik.com/impactor/l64/Impactor64_0.9.44.tgz][HERE]]
 943 download address:
-https://cache.saurik.com/impactor/l64/Impactor64_0.9.43.tgz
+[[https://cache.saurik.com/impactor/l64/Impactor64_0.9.43.tgz][HERE]]
 yalu102 download address:
-https://yalujailbreak.org/files/yalu102_beta7.ipa
+[[https://yalujailbreak.org/files/yalu102_beta7.ipa][and Here]]

@@ -40,10 +40,17 @@
       .org-buffer-menu-buffer {
         /* buffer-menu-buffer */
 #+END_SRC
-拷贝至博客的css控制文件中。在本博客中是/home/xx/gh/yefeiyu.github.io/_app/assets/themes/curtana/_less/common.less文件。注意去年文件头<style>和尾。
-
+拷贝至博客的css控制文件中。在本博客中是
+#+BEGIN_SRC css
+/home/xx/gh/yefeiyu.github.io/_app/assets/themes/curtana/_less/common.less
+#+END_SRC
+文件。注意去年文件头<style>和尾。
 * 可以进一步修改code基本颜色，
-在/home/xx/gh/yefeiyu.github.io/_app/assets/themes/curtana/_less/variables.less文件中。
+在
+#+BEGIN_SRC css
+/home/xx/gh/yefeiyu.github.io/_app/assets/themes/curtana/_less/variables.less
+#+END_SRC
+文件中。
 
 * 附加一个短引用的格式，org-mode中使用的
 

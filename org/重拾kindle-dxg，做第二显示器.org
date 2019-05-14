@@ -41,7 +41,7 @@ X Q = !killall kindlevncviewer
 connect debian with Shift X X
 * sent book to dxg
 download kindlegen from Amazon.com 
-[[https://www.amazon.com/gp/feature.html?docId=1000765211]]
+[[https://www.amazon.com/gp/feature.html?docId=1000765211][KindleGen]]
 tar xvzf kindelgen...tar.gz
 =./kindlegen book.epub or txt=
 =scp book.mobi root@192.168.2.2:/mnt/us/document/=

@@ -5,13 +5,13 @@
 #+AUTHOR: yefeiyu
 #+DATE: 2017-09-05 二 14:05
 #+TITLE: 微调几项cool reader的launcher vlasov参数
-#+DESCRIPTION: 
+#+DESCRIPTION: 阅读工具
 #+TAGS: vlasov, cool reader, vlasovsoft, vlasovsoftlauncher, eink, kobo, koreader, fonts, font size
 #+CATEGORIES: soft
 
 * 
 下面这行是最新版coolreader发行网址。直接解压到kobo 根文件夹中的.add文件夹中。替换原vlasovsoft文件夹。
-http://pbchess.vlasovsoft.net/en/
+[[http://pbchess.vlasovsoft.net/en/][Chess]]
 * 
 下面这部分是修改dictionary字体。这里只提供了修改所有字体的方法。
 eink.qss - magic file - customize everything you want!

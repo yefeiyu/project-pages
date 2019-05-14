@@ -147,13 +147,13 @@ proxychains4 bash winetricks dotnet40
 wget kegel.com/wine/winetricks && sh winetricks ie8 ;;this is too old.
 
 emacs: error while loading shared libraries: libpng12.so.0: cannot open shared object file: No such file or directory
-https://packages.debian.org/jessie/libpng12-0
+[[https://packages.debian.org/jessie/libpng12-0][HERE]]
 s dpkg -i lib*
 s apt-get install -f
 
 * <2017-03-02 四>
 install wine-qq on debian
-http://www.longene.org/forum/viewtopic.php?f=6&t=30516
+[[http://www.longene.org/forum/viewtopic.php?f=6&t=30516][HERE]]
 
 * <2017-01-24 二>
 change emacs' color in terminator, add this line to .bashrc
@@ -173,7 +173,7 @@ define the font by #gnome-tweak-tool
 * <2016-08-23 二>
 .emacs
 L625
-  (setq myvar/relative-filename (concat "http://yefeiyu.github.io/assets/img/" myvar/img-name))
+  (setq myvar/relative-filename (concat "[[http://yefeiyu.github.io/img/][Here]]" myvar/img-name))
 * <2016-08-25 四>
 sudo apt-get install bleachbit
 sudo apt-get install sweeper 
