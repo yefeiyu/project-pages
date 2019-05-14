@@ -1,0 +1,112 @@
+---
+layout: post
+title: Use docker for jekyll blog, which is the 在github中搭建用org-mode和org2jekyll发布及用lunr.js中文搜索的jekyll静态独立博客 II
+date: 2018-04-10
+categories: 
+- soft
+tags: 
+- soft
+- docker
+- debian
+- jekyll
+- blog
+author: yefeiyu
+excerpt: 使用docker集成jekyll的环境，一次配置，多处使用
+theme: 
+plugin: 
+scheme-text: "#2b003b"
+scheme-link: "#00008b"
+scheme-hover: "#"
+scheme-code: "#"
+scheme-bg: "#ffe7e5"
+scheme-hero-text: "#ffc3c3"
+scheme-hero-link: "#daab87"
+scheme-hero-bg: "#5b005b"
+scheme-bg-light: true
+---
+<p>
+For a long time ago, I writed the blog [<a href="https://yefeiyu.github.io/soft/2016/05/02/%E5%9C%A8github%E4%B8%AD%E6%90%AD%E5%BB%BA%E7%94%A8org-mode%E5%92%8Corg2jekyll%E5%8F%91%E5%B8%83%E5%8F%8A%E7%94%A8lunr.js%E4%B8%AD%E6%96%87%E6%90%9C%E7%B4%A2%E7%9A%84jekyll%E9%9D%99%E6%80%81%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2.html">https://yefeiyu.github.io/soft/2016/05/02/%E5%9C%A8github%E4%B8%AD%E6%90%AD%E5%BB%BA%E7%94%A8org-mode%E5%92%8Corg2jekyll%E5%8F%91%E5%B8%83%E5%8F%8A%E7%94%A8lunr.js%E4%B8%AD%E6%96%87%E6%90%9C%E7%B4%A2%E7%9A%84jekyll%E9%9D%99%E6%80%81%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2.html</a>](《在github中搭建用org-mode和org2jekyll发布及用lunr.js中文搜索的jekyll静态独立博客》), now there is a new method of build entire environment of jekyll-blog. Use the Docker CE, only 3 steps to complete the complex methods writen in the previous blog post.<br >
+Let's start.<br >
+Install the new stretch OS of Debian 9, If we to configurate the blog environment of Ruby, Node, NPM, Grunt&#x2026;, it will waste too many times. So We use Docker.<br >
+</p>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Install docker CE through Docker's official tutorial. The address is</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+[<a href="https://docs.docker.com/install/linux/docker-ce/debian/#install-using-the-repository">https://docs.docker.com/install/linux/docker-ce/debian/#install-using-the-repository</a>](Get Docker CE for Debian)<br >
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c"><span class="org-type">sudo</span> <span class="org-variable-name">apt</span>-get install      apt-transport-https      ca-certificates      curl      gnupg2      software-properties-common
+curl -fsSL https:<span class="org-comment-delimiter">//</span><span class="org-comment">download.docker.com/linux/debian/gpg | sudo apt-key add -</span>
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository    <span class="org-string">"deb [arch=amd64] https://download.docker.com/linux/debian \</span>
+<span class="org-string">   $(lsb_release -cs) \</span>
+<span class="org-string">   stable"</span>
+sudo apt-get update
+sudo apt-get install docker-ce
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Pull my docker repository</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+
+<pre class="src src-c">s docker <span class="org-type">pull</span> <span class="org-variable-name">xxmm</span>/ruby-node-grunt:v1
+</pre>
+</div>
+<p>
+xxmm/ruby-node-grunt:v1 FROM starefossen/ruby-node, the Dockerfile is:<br >
+</p>
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span class="org-type">FROM</span> starefossen/ruby-node
+
+<span class="org-type">RUN</span> apt-get update &amp;&amp; \
+    apt-get -y install apt-utils sudo &amp;&amp; \
+    useradd -d /home/xx -m -s /bin/bash xx &amp;&amp; \
+    echo xx<span class="org-constant">:xx</span> | chpasswd &amp;&amp; \
+    adduser xx sudo &amp;&amp; \
+    npm install -g bower grunt-cli
+<span class="org-type">USER</span> xx
+<span class="org-type">RUN</span> mkdir /home/xx/.ssh/ &amp;&amp; \
+    mkdir /home/xx/mt/ &amp;&amp; \
+    mkdir -<span class="org-builtin">p</span> /home/xx/gh/yefeiyu.github.io/
+<span class="org-type">COPY</span> .bash_aliases /home/xx/
+<span class="org-type">COPY</span> <span class="org-type">Gemfile</span> /home/xx/gh/yefeiyu.github.io/
+<span class="org-type">COPY</span> package.json /home/xx/gh/yefeiyu.github.io/
+<span class="org-type">WORKDIR</span> /home/xx/gh/yefeiyu.github.io/
+<span class="org-type">RUN</span> bundle install &amp;&amp; \
+    rm *
+</pre>
+</div>
+<p>
+As we seen, which add the user of xx, and created the environment needed for the blog. The steps is created 3 folders, copy 3 documents which build environment needed and bundle install.<br >
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">Use docker for jekyll blog</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+
+<pre class="src src-c"><span class="org-type">docker</span> <span class="org-variable-name">run</span> -ti --rm -u 0 -p 4321:4321 -p 35729:35729 -v /home/xx/gh/yefeiyu.github.io/:/home/xx/gh/yefeiyu.github.io/ -v /home/xx/.ssh/:/home/xx/.ssh/ xxmm/ruby-node-grunt:v1 grunt serve
+</pre>
+</div>
+
+<p>
+It's so simple!<br >
+If we want to use docker under Windows 10, which need to OPEN the hyper-V in windows system settings of applications.<br >
+</p>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">Because I mount github.io folder by -v, I need git clone the git repository first, and write the blog at local.</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+The local need the node_modules folder.<br >
+</p>
+</div>
+</div>

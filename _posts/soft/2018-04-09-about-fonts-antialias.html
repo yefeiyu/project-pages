@@ -1,0 +1,448 @@
+---
+layout: post
+title: About fonts antialias
+date: 2018-04-09
+categories: 
+- soft
+tags: 
+- pc
+- fonts
+- antialise
+author: yefeiyu
+excerpt: change the fonts to antialiasing
+---
+<p>
+Add this code to `/etc/fonts/fonts.conf`<br >
+&lt;match target="font" &gt;<br >
+  &lt;edit mode="assign" name="antialias" &gt;<br >
+   &lt;bool&gt;false&lt;/bool&gt;<br >
+  &lt;/edit&gt;<br >
+ &lt;/match&gt;<br >
+</p>
+<div class="org-src-container">
+
+<pre class="src src-ruby">function eink_page (<span class="org-type">I</span>) {
+var styles=
+    <span class="org-string">'* { background: white !important; color: black !important; font-family: Caecilia !important; font-size: 23pt !important; line-height: 45px !important; }'</span>+
+    <span class="org-string">':link, :link * { color: #333333 !important; }'</span>+
+    <span class="org-string">':visited, :visited * { color: #d75047 !important; }'</span>;
+    var document = <span class="org-type">I</span>.buffer.document;
+    var newSS=document.createElement(<span class="org-string">'link'</span>);
+    newSS.rel=<span class="org-string">'stylesheet'</span>;
+    newSS.href=<span class="org-string">'data:text/css,'</span>+escape(styles);
+    document.getElementsByTagName(<span class="org-string">"head"</span>)[0].appendChild(newSS);
+}
+interactive(<span class="org-string">"eink-page"</span>,
+<span class="org-string">"Eink the page in an attempt to save your eyes."</span>, eink_page);
+define_key(content_buffer_normal_keymap, <span class="org-string">"p"</span>, <span class="org-string">"eink-page"</span>);
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-lisp">function eink_page (I) {
+var styles=
+    '* { background: white !important<span class="org-comment">; color: black !important; font-family: Caecilia !important; font-size: 23pt !important; line-height: 45px !important; }'+</span>
+    '<span class="org-builtin">:link</span>, <span class="org-builtin">:link</span> * { color: #333333 !important<span class="org-comment">; }'+</span>
+    '<span class="org-builtin">:visited</span>, <span class="org-builtin">:visited</span> * { color: #d75047 !important<span class="org-comment">; }';</span>
+    var document = I.buffer.document<span class="org-comment">;</span>
+    var newSS=document.createElement('link')<span class="org-comment">;</span>
+    newSS.rel='stylesheet'<span class="org-comment">;</span>
+    newSS.href='data:text/css,'+escape(styles)<span class="org-comment">;</span>
+    document.getElementsByTagName(<span class="org-string">"head"</span>)[0].appendChild(newSS)<span class="org-comment">;</span>
+}
+interactive(<span class="org-string">"eink-page"</span>,
+<span class="org-string">"Eink the page in an attempt to save your eyes."</span>, eink_page)<span class="org-comment">;</span>
+define_key(content_buffer_normal_keymap, <span class="org-string">"p"</span>, <span class="org-string">"eink-page"</span>)<span class="org-comment">;</span>
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-c"><span class="org-type">function</span> <span class="org-function-name">eink_page</span> (I) {
+<span class="org-type">var</span> <span class="org-variable-name">styles</span>=
+    <span class="org-string">'* { background: white !important; color: black !important; font-family: Caecilia !important; font-size: 23pt !important; line-height: 45px !important; }'</span>+
+    <span class="org-string">':link, :link * { color: #333333 !important; }'</span>+
+    <span class="org-string">':visited, :visited * { color: #d75047 !important; }'</span>;
+    <span class="org-type">var</span> <span class="org-variable-name">document</span> = I.buffer.document;
+    <span class="org-type">var</span> <span class="org-variable-name">newSS</span>=document.createElement(<span class="org-string">'link'</span>);
+    newSS.rel=<span class="org-string">'stylesheet'</span>;
+    newSS.href=<span class="org-string">'data:text/css,'</span>+escape(styles);
+    document.getElementsByTagName(<span class="org-string">"head"</span>)[0].appendChild(newSS);
+}
+interactive(<span class="org-string">"eink-page"</span>,
+        <span class="org-string">"Eink the page in an attempt to save your eyes."</span>, eink_page);
+define_key(content_buffer_normal_keymap, <span class="org-string">"p"</span>, <span class="org-string">"eink-page"</span>);
+</pre>
+</div>
+<p>
+;;s        #+beginsrc        …        #+endsrc<br >
+</p>
+<div class="org-src-container">
+
+<pre class="src src-java"><span class="org-type">FROM</span> <span class="org-variable-name">starefossen</span>/ruby-node
+
+RUN apt-get update &amp;&amp; \
+    apt-get -y install apt-utils sudo &amp;&amp; \
+    useradd -d /home/xx -m -s /bin/bash xx &amp;&amp; \
+    echo xx:xx | chpasswd &amp;&amp; \
+    adduser xx sudo &amp;&amp; \
+    npm install -g bower grunt-cli
+USER xx
+RUN mkdir /home/xx/.ssh/ &amp;&amp; \
+    mkdir /home/xx/mt/ &amp;&amp; \
+    mkdir -p /home/xx/gh/yefeiyu.github.io/
+COPY .bash_aliases /home/xx/
+COPY Gemfile /home/xx/gh/yefeiyu.github.io/
+COPY <span class="org-keyword">package</span>.json /home/xx/gh/yefeiyu.github.io/
+WORKDIR /home/xx/gh/yefeiyu.github.io/
+RUN bundle install &amp;&amp; \
+    rm *
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-lisp">FROM starefossen/ruby-node
+
+RUN apt-get update <span class="org-type">&amp;&amp;</span> \
+    apt-get -y install apt-utils sudo <span class="org-type">&amp;&amp;</span> \
+    useradd -d /home/xx -m -s /bin/bash xx <span class="org-type">&amp;&amp;</span> \
+    echo xx:xx | chpasswd <span class="org-type">&amp;&amp;</span> \
+    adduser xx sudo <span class="org-type">&amp;&amp;</span> \
+    npm install -g bower grunt-cli
+USER xx
+RUN mkdir /home/xx/.ssh/ <span class="org-type">&amp;&amp;</span> \
+    mkdir /home/xx/mt/ <span class="org-type">&amp;&amp;</span> \
+    mkdir -p /home/xx/gh/yefeiyu.github.io/
+COPY .bash_aliases /home/xx/
+COPY Gemfile /home/xx/gh/yefeiyu.github.io/
+COPY package.json /home/xx/gh/yefeiyu.github.io/
+WORKDIR /home/xx/gh/yefeiyu.github.io/
+RUN bundle install <span class="org-type">&amp;&amp;</span> \
+    rm *
+</pre>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span class="org-type">FROM</span> starefossen/ruby-node
+
+<span class="org-type">RUN</span> apt-get update &amp;&amp; \
+    apt-get -y install apt-utils sudo &amp;&amp; \
+    useradd -d /home/xx -m -s /bin/bash xx &amp;&amp; \
+    echo xx<span class="org-constant">:xx</span> | chpasswd &amp;&amp; \
+    adduser xx sudo &amp;&amp; \
+    npm install -g bower grunt-cli
+<span class="org-type">USER</span> xx
+<span class="org-type">RUN</span> mkdir /home/xx/.ssh/ &amp;&amp; \
+    mkdir /home/xx/mt/ &amp;&amp; \
+    mkdir -<span class="org-builtin">p</span> /home/xx/gh/yefeiyu.github.io/
+<span class="org-type">COPY</span> .bash_aliases /home/xx/
+<span class="org-type">COPY</span> <span class="org-type">Gemfile</span> /home/xx/gh/yefeiyu.github.io/
+<span class="org-type">COPY</span> package.json /home/xx/gh/yefeiyu.github.io/
+<span class="org-type">WORKDIR</span> /home/xx/gh/yefeiyu.github.io/
+<span class="org-type">RUN</span> bundle install &amp;&amp; \
+    rm *
+</pre>
+</div>
+
+<p>
+;;e        #+beginexample        …        #+endexample<br >
+</p>
+<pre class="example">
+FROM starefossen/ruby-node
+
+RUN apt-get update &amp;&amp; \
+    apt-get -y install apt-utils sudo &amp;&amp; \
+    useradd -d /home/xx -m -s /bin/bash xx &amp;&amp; \
+    echo xx:xx | chpasswd &amp;&amp; \
+    adduser xx sudo &amp;&amp; \
+    npm install -g bower grunt-cli
+USER xx
+RUN mkdir /home/xx/.ssh/ &amp;&amp; \
+    mkdir /home/xx/mt/ &amp;&amp; \
+    mkdir -p /home/xx/gh/yefeiyu.github.io/
+COPY .bash_aliases /home/xx/
+COPY Gemfile /home/xx/gh/yefeiyu.github.io/
+COPY package.json /home/xx/gh/yefeiyu.github.io/
+WORKDIR /home/xx/gh/yefeiyu.github.io/
+RUN bundle install &amp;&amp; \
+    rm *
+</pre>
+<p>
+;;q        #+beginquote        …        #+endquote<br >
+</p>
+<blockquote>
+<p>
+<br >
+</p>
+
+<p>
+FROM starefossen/ruby-node<br >
+</p>
+
+<p>
+RUN apt-get update &amp;&amp; \<br >
+    apt-get -y install apt-utils sudo &amp;&amp; \<br >
+    useradd -d /home/xx -m -s /bin/bash xx &amp;&amp; \<br >
+    echo xx:xx | chpasswd &amp;&amp; \<br >
+    adduser xx sudo &amp;&amp; \<br >
+    npm install -g bower grunt-cli<br >
+USER xx<br >
+RUN mkdir <i>home/xx</i>.ssh/ &amp;&amp; \<br >
+    mkdir <i>home/xx/mt</i> &amp;&amp; \<br >
+    mkdir -p <i>home/xx/gh/yefeiyu.github.io</i><br >
+COPY .bash_aliases <i>home/xx</i><br >
+COPY Gemfile <i>home/xx/gh/yefeiyu.github.io</i><br >
+COPY package.json <i>home/xx/gh/yefeiyu.github.io</i><br >
+WORKDIR <i>home/xx/gh/yefeiyu.github.io</i><br >
+RUN bundle install &amp;&amp; \<br >
+    rm *<br >
+</p>
+</blockquote>
+<p>
+;;v        #+beginverse        …        #+endverse<br >
+</p>
+<p class="verse">
+<br ><br >
+FROM starefossen/ruby-node<br ><br >
+<br ><br >
+RUN apt-get update &amp;&amp; \<br ><br >
+&#xa0;&#xa0;&#xa0;&#xa0;apt-get -y install apt-utils sudo &amp;&amp; \<br ><br >
+&#xa0;&#xa0;&#xa0;&#xa0;useradd -d /home/xx -m -s /bin/bash xx &amp;&amp; \<br ><br >
+&#xa0;&#xa0;&#xa0;&#xa0;echo xx:xx | chpasswd &amp;&amp; \<br ><br >
+&#xa0;&#xa0;&#xa0;&#xa0;adduser xx sudo &amp;&amp; \<br ><br >
+&#xa0;&#xa0;&#xa0;&#xa0;npm install -g bower grunt-cli<br ><br >
+USER xx<br ><br >
+RUN mkdir <i>home/xx</i>.ssh/ &amp;&amp; \<br ><br >
+&#xa0;&#xa0;&#xa0;&#xa0;mkdir <i>home/xx/mt</i> &amp;&amp; \<br ><br >
+&#xa0;&#xa0;&#xa0;&#xa0;mkdir -p <i>home/xx/gh/yefeiyu.github.io</i><br ><br >
+COPY .bash_aliases <i>home/xx</i><br ><br >
+COPY Gemfile <i>home/xx/gh/yefeiyu.github.io</i><br ><br >
+COPY package.json <i>home/xx/gh/yefeiyu.github.io</i><br ><br >
+WORKDIR <i>home/xx/gh/yefeiyu.github.io</i><br ><br >
+RUN bundle install &amp;&amp; \<br ><br >
+&#xa0;&#xa0;&#xa0;&#xa0;rm *<br ><br >
+</p>
+<p>
+;;c        #+begincenter        …        #+endcenter<br >
+</p>
+<div class="center">
+<p>
+<br >
+</p>
+
+<p>
+FROM starefossen/ruby-node<br >
+</p>
+
+<p>
+RUN apt-get update &amp;&amp; \<br >
+    apt-get -y install apt-utils sudo &amp;&amp; \<br >
+    useradd -d /home/xx -m -s /bin/bash xx &amp;&amp; \<br >
+    echo xx:xx | chpasswd &amp;&amp; \<br >
+    adduser xx sudo &amp;&amp; \<br >
+    npm install -g bower grunt-cli<br >
+USER xx<br >
+RUN mkdir <i>home/xx</i>.ssh/ &amp;&amp; \<br >
+    mkdir <i>home/xx/mt</i> &amp;&amp; \<br >
+    mkdir -p <i>home/xx/gh/yefeiyu.github.io</i><br >
+COPY .bash_aliases <i>home/xx</i><br >
+COPY Gemfile <i>home/xx/gh/yefeiyu.github.io</i><br >
+COPY package.json <i>home/xx/gh/yefeiyu.github.io</i><br >
+WORKDIR <i>home/xx/gh/yefeiyu.github.io</i><br >
+RUN bundle install &amp;&amp; \<br >
+    rm *<br >
+</p>
+</div>
+<p>
+;;l        #+beginlatex        …        #+endlatex<br >
+</p>
+<p>
+;;L        #+latex:<br >
+</p>
+<p>
+FROM starefossen/ruby-node<br >
+</p>
+
+<p>
+RUN apt-get update &amp;&amp; \<br >
+    apt-get -y install apt-utils sudo &amp;&amp; \<br >
+    useradd -d /home/xx -m -s /bin/bash xx &amp;&amp; \<br >
+    echo xx:xx | chpasswd &amp;&amp; \<br >
+    adduser xx sudo &amp;&amp; \<br >
+    npm install -g bower grunt-cli<br >
+USER xx<br >
+RUN mkdir <i>home/xx</i>.ssh/ &amp;&amp; \<br >
+    mkdir <i>home/xx/mt</i> &amp;&amp; \<br >
+    mkdir -p <i>home/xx/gh/yefeiyu.github.io</i><br >
+COPY .bash_aliases <i>home/xx</i><br >
+COPY Gemfile <i>home/xx/gh/yefeiyu.github.io</i><br >
+COPY package.json <i>home/xx/gh/yefeiyu.github.io</i><br >
+WORKDIR <i>home/xx/gh/yefeiyu.github.io</i><br >
+RUN bundle install &amp;&amp; \<br >
+    rm *<br >
+</p>
+<p>
+;;h        #+beginhtml        …        #+endhtml<br >
+</p>
+
+FROM starefossen/ruby-node
+
+RUN apt-get update && \
+    apt-get -y install apt-utils sudo && \
+    useradd -d /home/xx -m -s /bin/bash xx && \
+    echo xx:xx | chpasswd && \
+    adduser xx sudo && \
+    npm install -g bower grunt-cli
+USER xx
+RUN mkdir /home/xx/.ssh/ && \
+    mkdir /home/xx/mt/ && \
+    mkdir -p /home/xx/gh/yefeiyu.github.io/
+COPY .bash_aliases /home/xx/
+COPY Gemfile /home/xx/gh/yefeiyu.github.io/
+COPY package.json /home/xx/gh/yefeiyu.github.io/
+WORKDIR /home/xx/gh/yefeiyu.github.io/
+RUN bundle install && \
+    rm *
+<p>
+;;H        #+html:<br >
+</p>
+
+<p>
+FROM starefossen/ruby-node<br >
+</p>
+
+<p>
+RUN apt-get update &amp;&amp; \<br >
+    apt-get -y install apt-utils sudo &amp;&amp; \<br >
+    useradd -d /home/xx -m -s /bin/bash xx &amp;&amp; \<br >
+    echo xx:xx | chpasswd &amp;&amp; \<br >
+    adduser xx sudo &amp;&amp; \<br >
+    npm install -g bower grunt-cli<br >
+USER xx<br >
+RUN mkdir <i>home/xx</i>.ssh/ &amp;&amp; \<br >
+    mkdir <i>home/xx/mt</i> &amp;&amp; \<br >
+    mkdir -p <i>home/xx/gh/yefeiyu.github.io</i><br >
+COPY .bash_aliases <i>home/xx</i><br >
+COPY Gemfile <i>home/xx/gh/yefeiyu.github.io</i><br >
+COPY package.json <i>home/xx/gh/yefeiyu.github.io</i><br >
+WORKDIR <i>home/xx/gh/yefeiyu.github.io</i><br >
+RUN bundle install &amp;&amp; \<br >
+    rm *<br >
+;;a        #+beginascii        …        #+endascii<br >
+</p>
+<p>
+;;A        #+ascii:<br >
+</p>
+<p>
+FROM starefossen/ruby-node<br >
+</p>
+
+<p>
+RUN apt-get update &amp;&amp; \<br >
+    apt-get -y install apt-utils sudo &amp;&amp; \<br >
+    useradd -d /home/xx -m -s /bin/bash xx &amp;&amp; \<br >
+    echo xx:xx | chpasswd &amp;&amp; \<br >
+    adduser xx sudo &amp;&amp; \<br >
+    npm install -g bower grunt-cli<br >
+USER xx<br >
+RUN mkdir <i>home/xx</i>.ssh/ &amp;&amp; \<br >
+    mkdir <i>home/xx/mt</i> &amp;&amp; \<br >
+    mkdir -p <i>home/xx/gh/yefeiyu.github.io</i><br >
+COPY .bash_aliases <i>home/xx</i><br >
+COPY Gemfile <i>home/xx/gh/yefeiyu.github.io</i><br >
+COPY package.json <i>home/xx/gh/yefeiyu.github.io</i><br >
+WORKDIR <i>home/xx/gh/yefeiyu.github.io</i><br >
+RUN bundle install &amp;&amp; \<br >
+    rm *<br >
+;;i        #+index:        line<br >
+</p>
+<p>
+FROM starefossen/ruby-node<br >
+</p>
+
+<p>
+RUN apt-get update &amp;&amp; \<br >
+    apt-get -y install apt-utils sudo &amp;&amp; \<br >
+    useradd -d /home/xx -m -s /bin/bash xx &amp;&amp; \<br >
+    echo xx:xx | chpasswd &amp;&amp; \<br >
+    adduser xx sudo &amp;&amp; \<br >
+    npm install -g bower grunt-cli<br >
+USER xx<br >
+RUN mkdir <i>home/xx</i>.ssh/ &amp;&amp; \<br >
+    mkdir <i>home/xx/mt</i> &amp;&amp; \<br >
+    mkdir -p <i>home/xx/gh/yefeiyu.github.io</i><br >
+COPY .bash_aliases <i>home/xx</i><br >
+COPY Gemfile <i>home/xx/gh/yefeiyu.github.io</i><br >
+COPY package.json <i>home/xx/gh/yefeiyu.github.io</i><br >
+WORKDIR <i>home/xx/gh/yefeiyu.github.io</i><br >
+RUN bundle install &amp;&amp; \<br >
+    rm *<br >
+;;I        #+include:        line<br >
+&lt;I<br >
+</p>
+
+<p>
+FROM starefossen/ruby-node<br >
+</p>
+
+<p>
+RUN apt-get update &amp;&amp; \<br >
+    apt-get -y install apt-utils sudo &amp;&amp; \<br >
+    useradd -d /home/xx -m -s /bin/bash xx &amp;&amp; \<br >
+    echo xx:xx | chpasswd &amp;&amp; \<br >
+    adduser xx sudo &amp;&amp; \<br >
+    npm install -g bower grunt-cli<br >
+USER xx<br >
+RUN mkdir <i>home/xx</i>.ssh/ &amp;&amp; \<br >
+    mkdir <i>home/xx/mt</i> &amp;&amp; \<br >
+    mkdir -p <i>home/xx/gh/yefeiyu.github.io</i><br >
+COPY .bash_aliases <i>home/xx</i><br >
+COPY Gemfile <i>home/xx/gh/yefeiyu.github.io</i><br >
+COPY package.json <i>home/xx/gh/yefeiyu.github.io</i><br >
+WORKDIR <i>home/xx/gh/yefeiyu.github.io</i><br >
+RUN bundle install &amp;&amp; \<br >
+    rm *<br >
+;;s        #+beginsrc        …        #+endsrc<br >
+</p>
+<pre class="example">
+#+BEGIN_SRC 
+COPY package.json /home/xx/gh/yefeiyu.github.io/COPY package.json /home/xx/gh/yefeiyu.github.io/
+</pre>
+
+<p>
+#+END_SRC<br >
+;;e        #+beginexample        …        #+endexample<br >
+;;q        #+beginquote        …        #+endquote<br >
+;;v        #+beginverse        …        #+endverse<br >
+;;c        #+begincenter        …        #+endcenter<br >
+;;l        #+beginlatex        …        #+endlatex<br >
+;;L        #+latex:<br >
+;;h        #+beginhtml        …        #+endhtml<br >
+;;H        #+html:<br >
+;;a        #+beginascii        …        #+endascii<br >
+;;A        #+ascii:<br >
+;;i        #+index:        line<br >
+;;I        #+include:        line<br >
+</p>
+
+<p>
+FROM starefossen/ruby-node<br >
+</p>
+
+<p>
+RUN apt-get update &amp;&amp; \<br >
+    apt-get -y install apt-utils sudo &amp;&amp; \<br >
+    useradd -d /home/xx -m -s /bin/bash xx &amp;&amp; \<br >
+    echo xx:xx | chpasswd &amp;&amp; \<br >
+    adduser xx sudo &amp;&amp; \<br >
+    npm install -g bower grunt-cli<br >
+USER xx<br >
+RUN mkdir <i>home/xx</i>.ssh/ &amp;&amp; \<br >
+    mkdir <i>home/xx/mt</i> &amp;&amp; \<br >
+    mkdir -p <i>home/xx/gh/yefeiyu.github.io</i><br >
+COPY .bash_aliases <i>home/xx</i><br >
+COPY Gemfile <i>home/xx/gh/yefeiyu.github.io</i><br >
+COPY package.json <i>home/xx/gh/yefeiyu.github.io</i><br >
+WORKDIR <i>home/xx/gh/yefeiyu.github.io</i><br >
+RUN bundle install &amp;&amp; \<br >
+    rm *<br >
+</p>

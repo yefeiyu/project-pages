@@ -1,0 +1,90 @@
+---
+layout: post
+title: 重拾kindle dxg，做第二显示屏
+date: 2018-05-03
+categories: 
+- mobile
+tags: 
+- dxg
+- kindle
+- vnc
+- vncviewer
+- x11vnc
+- ssh
+- scp
+- 有线
+- 无线
+- 传书
+author: yefeiyu
+excerpt: 古董重发光
+---
+<p>
+主机使用debian<br >
+</p>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> vnc第二显示屏</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+安装x11vnc<br >
+use openbox desktop, and add the conf fill to ~/.config/autostart/x11vnc.desktop<br >
+</p>
+<div class="org-src-container">
+
+<pre class="src src-conf">[<span class="org-type">Desktop Entry</span>]
+<span class="org-variable-name">Type</span>=Application
+<span class="org-variable-name">Name</span>=X11VNC Server
+<span class="org-variable-name">Exec</span>=x11vnc -forever
+<span class="org-variable-name">Terminal</span>=false
+<span class="org-variable-name">Hidden</span>=false
+</pre>
+</div>
+
+<p>
+kindle dxg jailbreak, install usbnetwork, install launchpad<br >
+connect to debian: <code>;debugOn</code>, <code>`usbNetwork</code>.<br >
+the launchpad/kindlevncviewer.ini is<br >
+</p>
+<div class="org-src-container">
+
+<pre class="src src-conf">[<span class="org-type">Actions</span>]
+;; start kindlevncviewer, connect to 192.168.50.1:1
+<span class="org-variable-name">X Z</span> = !/mnt/us/kindlevncviewer/kvncviewer.sh 192.168.2.1:1 &amp;
+<span class="org-variable-name">X X</span> = !/mnt/us/kindlevncviewer/kvncviewer.sh 192.168.2.1:0 &amp;
+<span class="org-variable-name">X F</span> = !/mnt/us/usbnet/refresh_kindledxg &amp;
+;; start kindlevncviewer, connect to somehostviawifi:1
+<span class="org-variable-name">X W</span> = !/mnt/us/kindlevncviewer/kvncviewer.sh somehostviawifi:1 &amp;
+;; example with a password:
+<span class="org-variable-name">;V W</span> = !/mnt/us/kindlevncviewer/kvncviewer.sh -password this_is_the_password so
+;; stop kindlevncviewer
+<span class="org-variable-name">X Q</span> = !killall kindlevncviewer
+</pre>
+</div>
+<p>
+connect debian with Shift X X<br >
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> sent book to dxg</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+download kindlegen from Amazon.com<br >
+<a href="https://www.amazon.com/gp/feature.html?docId=1000765211">https://www.amazon.com/gp/feature.html?docId=1000765211</a><br >
+tar xvzf kindelgen&#x2026;tar.gz<br >
+<code>./kindlegen book.epub or txt</code><br >
+<code>scp book.mobi root@192.168.2.2:/mnt/us/document/</code><br >
+</p>
+
+<p>
+add a file which name is <code>refresh_kindledxg</code> to <i>usbnet</i>, the content is<br >
+</p>
+<div class="org-src-container">
+
+<pre class="src src-conf">dbus-send --system /default com.lab126.powerd.resuming int32:1
+</pre>
+</div>
+<p>
+use Shift X F refresh<br >
+</p>
+</div>
+</div>
