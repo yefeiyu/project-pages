@@ -1,9 +1,5 @@
 ---
-layout: post
-title: anki deck production
 date: 2018-07-04
-categories: 
-- soft
 tags: 
 - anki
 - deck
@@ -14,84 +10,71 @@ tags:
 - ASChange
 - speed
 author: yefeiyu
-excerpt: 
-theme: 
-plugin: 
-scheme-text: "#ffffff"
-scheme-link: "#ff8540"
-scheme-hover: "#"
-scheme-code: "#"
-scheme-bg: "#6b1606"
-scheme-hero-text: "#8d3700"
-scheme-hero-link: "#ee4000"
-scheme-hero-bg: "#ffb580"
+layout: post
+title: anki deck production
+subtitle: 学习小工具
+categories: 
+- soft
 ---
 
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> Download *.mkv film or U.S.drama</h2>
+<div id="outline-container-orgbd5d41b" class="outline-2">
+<h2 id="orgbd5d41b"><span class="section-number-2">1</span> Download *.mkv film or U.S.drama</h2>
 </div>
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> MKVExtractGUI2</h2>
+<div id="outline-container-org5331e51" class="outline-2">
+<h2 id="org5331e51"><span class="section-number-2">2</span> MKVExtractGUI2</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-a. Download mkvtoolnix-20-0-0-64-bit, the latest version is 23rd, what we need is 20th here.<br >
-Installed<br >
-b. Download MKVExtractGUI2, the latest version is 2.4.0.0, what we need is 1.6.4.1 here.<br >
-put MKVExtractGUI2 into mkvtoolnix's installation folder.<br >
-c. Use MKVExtractGUI2 to seperate *.mkv into video, music, and subtitle files.<br >
-d. Use mkvtoolnix to combine video and music files into a new *.mkv file.<br >
+a. Download mkvtoolnix-20-0-0-64-bit, the latest version is 23rd, what we need is 20th here.
+Installed 
+b. Download MKVExtractGUI2, the latest version is 2.4.0.0, what we need is 1.6.4.1 here.
+put MKVExtractGUI2 into mkvtoolnix's installation folder.
+c. Use MKVExtractGUI2 to seperate *.mkv into video, music, and subtitle files.
+d. Use mkvtoolnix to combine video and music files into a new *.mkv file.
 </p>
 </div>
 </div>
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> Use SrtEdit to convert subtitle file and adjust the timeline.</h2>
+<div id="outline-container-org031156b" class="outline-2">
+<h2 id="org031156b"><span class="section-number-2">3</span> Use SrtEdit to convert subtitle file and adjust the timeline.</h2>
 </div>
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> aboboo</h2>
+<div id="outline-container-org03de913" class="outline-2">
+<h2 id="org03de913"><span class="section-number-2">4</span> aboboo</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-a. Add *mkv file, load subtitles, remove short sentence. Save original and translated subtitles in *srt UTF-8 format seperately.<br >
-b. (You can also make aboboo mobile courseware.<sup><a id="fnr.1" name="fnr.1" class="footref" href="#fn.1">1</a></sup>)<br >
+a. Add *mkv file, load subtitles, remove short sentence. Save original and translated subtitles in *srt UTF-8 format seperately.
+b. (You can also make aboboo mobile courseware.[1])
 </p>
 </div>
 </div>
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> subs2srs</h2>
+<div id="outline-container-orgbbf5158" class="outline-2">
+<h2 id="orgbbf5158"><span class="section-number-2">5</span> subs2srs</h2>
 <div class="outline-text-2" id="text-5">
 <p>
-a. Subs1, Original subtitle; Subs2, translated; Check the Normalize Audio box; modify Generalte Audio Clips into 320, modify Generate Snapshots and Video Clips into best quality; modify Bitrates into 3200 and 320 kb/s; Name of deck as XX.S01, and E01 is defined by First Episode. Now you can preview it.<br >
-b. The generated files is in the Output folder. The *.mp3.<br >
+a. Subs1, Original subtitle; Subs2, translated; Check the Normalize Audio box; modify Generalte Audio Clips into 320, modify Generate Snapshots and Video Clips into best quality; modify Bitrates into 3200 and 320 kb/s; Name of deck as XX.S01, and E01 is defined by First Episode. Now you can preview it.
+b. The generated files is in the Output folder. The *.mp3.
 </p>
 </div>
 </div>
-<div id="outline-container-sec-6" class="outline-2">
-<h2 id="sec-6"><span class="section-number-2">6</span> anki</h2>
+<div id="outline-container-org1647ed9" class="outline-2">
+<h2 id="org1647ed9"><span class="section-number-2">6</span> anki</h2>
 <div class="outline-text-2" id="text-6">
 <p>
-a. First, you need modify the **.S01.tsv‘s contents,remove the first <code>Tab</code> symbol for each line.<br >
-b. Open anki, <code>Import File</code><br >
-c. Type is subs2srs, Deck is U.S.drama::[Yours deck's name]::espode number, and <code>Import</code> it.<br >
+a. First, you need modify the **.S01.tsv‘s contents,remove the first <code>Tab</code> symbol for each line.
+b. Open anki, <code>Import File</code>
+c. Type is subs2srs, Deck is U.S.drama::[Yours deck's name]::espode number, and <code>Import</code> it.
 </p>
 </div>
 </div>
-<div id="outline-container-sec-7" class="outline-2">
-<h2 id="sec-7"><span class="section-number-2">7</span> ASChange</h2>
+<div id="outline-container-org79123f0" class="outline-2">
+<h2 id="org79123f0"><span class="section-number-2">7</span> ASChange</h2>
 <div class="outline-text-2" id="text-7">
 <p>
-a. add all mp3 files, select all, hit <code>Convert</code><br >
-b. <code>Format</code> tag, Max. Quality; <code>Extras</code> tag, Don't check <code>Normalize volume</code> box, if you had adjusted th volume by check the <code>Normalize Audio</code> option in <code>subs2srs</code>.<br >
+a. add all mp3 files, select all, hit <code>Convert</code>
+b. <code>Format</code> tag, Max. Quality; <code>Extras</code> tag, Don't check <code>Normalize volume</code> box, if you had adjusted th volume by check the <code>Normalize Audio</code> option in <code>subs2srs</code>.
 </p>
-</div>
-</div>
-<div id="footnotes">
-<h2 class="footnotes">Footnotes: </h2>
-<div id="text-footnotes">
 
-<div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p class="footpara">
-I'll write a other tutorial.<br >
-</p></div>
-
-
+<p>
+[1] I'll write a other tutorial.
+</p>
 </div>
 </div>

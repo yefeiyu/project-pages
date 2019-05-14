@@ -7,13 +7,6 @@ tag:
 - 自我
 - 哲学
 - 转载
-scheme-text: "#c982b8"
-scheme-link: "#a50091"
-scheme-hover: "#84c4f5"
-scheme-code: "#bb3d00"
-scheme-bg: "#ecf6ff"
-scheme-bg-light: true
-plugin: intense
 ---
 
 # 千古之謎－－我是誰？

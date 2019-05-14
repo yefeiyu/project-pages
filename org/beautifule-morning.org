@@ -10,7 +10,7 @@
 #+CATEGORIES: life
 
 * To do
-Sunday is finished.https://github.com/yefeiyu/yefeiyuold/tree/master/_app/assets/themes/curtana/_less
+Sunday is finished.
 
 * Today
 <2019-05-13 Mon>

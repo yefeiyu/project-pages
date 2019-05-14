@@ -5,7 +5,7 @@
 #+AUTHOR: yefeiyu
 #+DATE: 2018-07-04 周三 11:27
 #+TITLE: anki deck production
-#+DESCRIPTION: 
+#+DESCRIPTION: 学习小工具
 #+TAGS: anki, deck, subs2srs, aboboo, MKVExtractGUI2, SrtEdit, ASChange, speed
 #+CATEGORIES: soft
 #+EXTRA-YAML-HEADERS: theme: \nplugin: \nscheme-text: "#ffffff"\nscheme-link: "#ff8540"\nscheme-hover: "#"\nscheme-code: "#"\nscheme-bg: "#6b1606"\nscheme-hero-text: "#8d3700"\nscheme-hero-link: "#ee4000"\nscheme-hero-bg: "#ffb580"\n
