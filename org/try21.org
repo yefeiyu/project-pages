@@ -1,0 +1,12 @@
+#+STARTUP: showall
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:nil tags:nil toc:nil timestamps:t
+#+LAYOUT: post
+#+AUTHOR: yefeiyu
+#+DATE: 2020-01-18 Sat 13:53
+#+TITLE: try21
+#+DESCRIPTION: a
+#+TAGS: a
+#+CATEGORIES: a
+
+* 

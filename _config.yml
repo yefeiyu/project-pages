@@ -21,7 +21,7 @@ project_repository: yefeiyu.github.io
 disqus_shortname: y.g.i
 g-analytics: UA-75881392-1
 altmetric: true
-
+ 
 # Build settings
 plugins: [jekyll-paginate]
 markdown: kramdown
