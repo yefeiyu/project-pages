@@ -10,7 +10,7 @@
 #+CATEGORIES: life
 
 * To do
-Sunday is finished.
+Sunday is finished, today.
 
 * Today
 <2019-05-13 Mon>
