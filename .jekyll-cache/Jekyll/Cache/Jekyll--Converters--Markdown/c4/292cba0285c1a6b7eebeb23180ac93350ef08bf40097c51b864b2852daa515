@@ -1,0 +1,1039 @@
+I"�<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgec44f05">1. 基础搭建</a>
+<ul>
+<li><a href="#org9b9c605">1.1. 在http://www.github.com 上注册帐号，建立博客。</a></li>
+<li><a href="#org7eb8620">1.2. 生成ssh密钥，以备上传下载、文章发布。</a></li>
+</ul>
+</li>
+<li><a href="#org93b393e">2. 选择主题</a>
+<ul>
+<li><a href="#orgc3aa8f5">2.1. 安装node.js</a></li>
+<li><a href="#org2753154">2.2. 安装ruby。不建议使用vpm进行包安装。安装后自带gem</a></li>
+<li><a href="#orga6cc844">2.3. 安装bundler</a></li>
+<li><a href="#orgb78406f">2.4. 安装npm</a></li>
+<li><a href="#orgb34ba37">2.5. 安装诸多packages的时候，由于中国政府GFW的封杀，需要翻墙</a></li>
+</ul>
+</li>
+<li><a href="#org2e0ee15">3. 理清博客结构</a>
+<ul>
+<li><a href="#orgede9c40">3.1. 根目录</a></li>
+<li><a href="#org2df71fc">3.2. _app文件夹内容</a></li>
+</ul>
+</li>
+<li><a href="#org5d66d2f">4. 增加邮箱定阅</a></li>
+<li><a href="#org5ee25a3">5. 增加rss定阅</a></li>
+<li><a href="#orgfa7bc59">6. 增加评论</a></li>
+<li><a href="#orgf5821b8">7. 增加标签云</a>
+<ul>
+<li><a href="#org9589b6e">7.1. 在includes中建立tags<sub>cloud文件</sub></a></li>
+<li><a href="#orgb38797c">7.2. 在<sub>pages中建立tags.html文件</sub></a></li>
+<li><a href="#orge2dd60a">7.3. 在/<sub>includes</sub>/themes/curtana /includes中的css-variables.html中添加css的格式设置</a></li>
+<li><a href="#org06ba9a0">7.4. 在<sub>includes</sub>/themes/curtana/layouts的post.html中为每篇文章添加引用tag的模板</a></li>
+</ul>
+</li>
+<li><a href="#orgb0236f2">8. 添加中文搜索</a>
+<ul>
+<li><a href="#org3122f92">8.1. 使用jekyll-lunr-js-search</a></li>
+<li><a href="#orgb70b131">8.2. 其他</a></li>
+</ul>
+</li>
+<li><a href="#org9d3e003">9. 使用org-mode撰写和发布</a>
+<ul>
+<li><a href="#orgcad025f">9.1. 博客直接使用.org文件</a></li>
+<li><a href="#org1d1f246">9.2. 自带.org文件转.html或.md文件</a></li>
+<li><a href="#org51b26d4">9.3. 使用org2jekyll</a></li>
+<li><a href="#org43cf2a1">9.4. 使用一键截图</a></li>
+</ul>
+</li>
+<li><a href="#orgc5dd0dc">10. 简化发布流程</a></li>
+</ul>
+</div>
+</div>
+<p>
+<b>本教程旨在推荐一种可以从零开始，搭建一个简洁、快速，没有广告和令人眼花缭乱的界面，长期稳定、高效和易于访问并完全属于个人的独立博客。</b>
+</p>
+<ul class="org-ul">
+<li><span class="underline">使用三大神器，github、emacs、org-mode</span></li>
+<li><span class="underline">org格式直接生成html或md格式</span></li>
+<li><span class="underline">结合aliases缩写命令行，可以一键发布</span></li>
+<li><span class="underline">具备标签云功能</span></li>
+<li><span class="underline">自建中文全文搜索</span></li>
+</ul>
+<div id="outline-container-orgec44f05" class="outline-2">
+<h2 id="orgec44f05"><span class="section-number-2">1</span> 基础搭建</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org9b9c605" class="outline-3">
+<h3 id="org9b9c605"><span class="section-number-3">1.1</span> 在<a href="http://www.github.com">http://www.github.com</a> 上注册帐号，建立博客。</h3>
+</div>
+<div id="outline-container-org7eb8620" class="outline-3">
+<h3 id="org7eb8620"><span class="section-number-3">1.2</span> 生成ssh密钥，以备上传下载、文章发布。</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+网上相关教程繁多，搜索阅读即可完成此步。
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org93b393e" class="outline-2">
+<h2 id="org93b393e"><span class="section-number-2">2</span> 选择主题</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+官方主题在<a href="http://jekyllthemes.org/">http://jekyllthemes.org/</a>， 选择你喜欢的一款使用。我选用的是<a href="http://sparanoid.com/lab/amsf/getting-started.html%20">Almace Scaffolding</a>，优点是简洁舒适，极具时尚感，并且特别适合手机浏览。
+</p>
+<div class="HTML">
+
+<div class="figure">
+<p><img src="https://yefeiyu.github.io/img/2016/img_2016_05_02__13_27_36.png" alt="img_2016_05_02__13_27_36.png" />
+</p>
+</div>
+
+</div>
+<p>
+本主题要求用bundle和npm安装部分gem packages，因此有一点环境搭建的需求。
+</p>
+</div>
+<div id="outline-container-orgc3aa8f5" class="outline-3">
+<h3 id="orgc3aa8f5"><span class="section-number-3">2.1</span> 安装node.js</h3>
+<div class="outline-text-3" id="text-2-1">
+<div class="org-src-container">
+<pre class="src src-lisp">wget -N http://nodejs.org/dist/node-latest.tar.gz
+tar xzvf node-latest.tar.gz &amp;&amp; cd node-v*
+./configure
+make
+sudo make install
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org2753154" class="outline-3">
+<h3 id="org2753154"><span class="section-number-3">2.2</span> 安装ruby。不建议使用vpm进行包安装。安装后自带gem</h3>
+<div class="outline-text-3" id="text-2-2">
+<div class="org-src-container">
+<pre class="src src-lisp">wget https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.0.tar.gz
+tar xzvf ruby-2.3.0.tar.gz
+./configure
+make
+sudo make install
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orga6cc844" class="outline-3">
+<h3 id="orga6cc844"><span class="section-number-3">2.3</span> 安装bundler</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+<code>gem install bundler</code> ,  <code>emacs Gemfile</code> ,
+</p>
+<div class="org-src-container">
+<pre class="src src-lisp">group :jekyll_plugins do
+  gem 'jekyll', '3.1.2'
+  gem 'jekyll-last-modified-at'
+  gem 'nokogiri'
+  gem 'therubyracer'
+  gem 'stringex'
+</pre>
+</div>
+<p>
+<code>bundle install</code>
+</p>
+</div>
+</div>
+<div id="outline-container-orgb78406f" class="outline-3">
+<h3 id="orgb78406f"><span class="section-number-3">2.4</span> 安装npm</h3>
+<div class="outline-text-3" id="text-2-4">
+<div class="org-src-container">
+<pre class="src src-lisp">npm install -g grunt-cli
+npm install grunt --save-dev
+npm install grunt
+npm install
+</pre>
+</div>
+<p>
+注意此处安装的顺序应该是，先npm install -g grunt-cli，再sudo npm install grunt
+如果使用gem安装grunt，目前会造成grunt版本过低，是0.0.3版，实际应该是0.4.5版以上。
+或者选择安装的版本号 <code>sudo npm install grunt@v0.4.5 --save-dev</code>
+</p>
+</div>
+</div>
+<div id="outline-container-orgb34ba37" class="outline-3">
+<h3 id="orgb34ba37"><span class="section-number-3">2.5</span> 安装诸多packages的时候，由于中国政府GFW的封杀，需要翻墙</h3>
+<div class="outline-text-3" id="text-2-5">
+</div>
+<ol class="org-ol">
+<li><a id="orgfccb297"></a>编辑 Gemfile，添加 <a href="https://ruby.taobao.org/">https://ruby.taobao.org/</a> 源的方法<br />
+<div class="outline-text-4" id="text-2-5-1">
+<div class="org-src-container">
+<pre class="src src-lisp">$ gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/
+$ gem sources -l
+</pre>
+</div>
+<p>
+<b>请确保只有 ruby.taobao.org</b> 
+如果你使用 Gemfile 和 Bundle (例如：Rails 项目)
+你可以用 Bundler 的 Gem 源代码镜像命令。
+</p>
+<div class="org-src-container">
+<pre class="src src-lisp">$ bundle config mirror.https://rubygems.org https://ruby.taobao.org
+</pre>
+</div>
+<p>
+   这样你不用改你的 Gemfile 的 source。
+<code>source 'https://rubygems.org/'</code> 
+</p>
+</div>
+</li>
+<li><a id="org51c2705"></a>使用term代理的方法<br />
+<div class="outline-text-4" id="text-2-5-2">
+<p>
+如果不添加taobao源，也可以使用proxychains4在terminal中使用代理。
+参见<a href="http://yefeiyu.github.io/soft/2016/04/11/terminal%E4%BD%BF%E7%94%A8proxychains%E4%BB%A3%E7%90%86.html">Terminal无法代理的解决</a>
+</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org2e0ee15" class="outline-2">
+<h2 id="org2e0ee15"><span class="section-number-2">3</span> 理清博客结构</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+在各教程中都有github博客结构的详细介绍。Alm Sco主题结构稍有不同，分为根目录和<sub>app子目录两个嵌套结构</sub>。
+</p>
+</div>
+<div id="outline-container-orgede9c40" class="outline-3">
+<h3 id="orgede9c40"><span class="section-number-3">3.1</span> 根目录</h3>
+<div class="outline-text-3" id="text-3-1">
+<pre class="example">
+.
+├── _amsf
+│   └── _config.yml
+├── _app
+│   └── ......
+├── ATTRIBUTION.md
+├── CHANGELOG.md
+├── _config.dev.yml
+├── _config.init.yml
+├── _config.yml
+├── CONTRIBUTING.md
+├── CONVENTIONS.md
+├── _deploy.yml
+├── Gemfile
+├── Gemfile.lock
+├── Gruntfile.coffee
+├── LICENSE
+├── package.json
+├── README.md
+└── TODOS.md
+</pre>
+<p>
+其中<sub>config.yml就是博客的配置文件</sub>，在该文件中，Almace Scaffolding主题将源文件放到专门的<sub>app文件夹中</sub>， <code>source:         _app</code> ，另一个<sub>amsf文件夹负责本主题的升级</sub>。
+其他<sub>lanyouts</sub>, _includes, _posts, _drafts等在其他主题中放置配置和草稿、文章的文件夹挪至<sub>app中</sub>，本文后面提到的标签云、搜索、评论等功能在这些文件中配置。
+</p>
+</div>
+</div>
+<div id="outline-container-org2df71fc" class="outline-3">
+<h3 id="org2df71fc"><span class="section-number-3">3.2</span> _app文件夹内容</h3>
+<div class="outline-text-3" id="text-3-2">
+<pre class="example">
+├── assets
+│   ├── fonts
+│   ├── img
+│   │   ├── img_2016_05_02__13_27_36.png
+│   │   └── ......
+│   ├── _less
+│   │   └── user.less
+│   ├── svg
+│   │   └── kai.svg
+│   └── themes
+│       └── curtana
+│           ├── css
+│           │   └── app.css
+│           ├── _js
+│           │   ├── app.js
+│           │   └── lightense.js
+│           └── _less
+│               ├── app.less
+│               ├── colors.less
+│               ├── common.less
+│               ├── components
+│               │   └── randomized.less
+│               ├── mixins.less
+│               ├── plugins.less
+│               ├── print.less
+│               ├── reset.less
+│               └── variables.less
+├── _data
+│   ├── authors.yml
+│   ├── curtana.yml
+│   └── nav.yml
+├── _drafts
+├── favicon.ico
+├── favicon.svg
+├── feed-atom.xml
+├── feed-json.json
+├── _includes
+│   ├── _amsf.html
+│   └── themes
+│       └── curtana
+│           ├── includes
+│           │   ├── archive_list
+│           │   ├── back_top_button
+│           │   ├── categories_list
+│           │   ├── contacts_list
+│           │   ├── content.html
+│           │   ├── css-variables.html
+│           │   ├── fixed_container
+│           │   ├── footer.html
+│           │   ├── header.html
+│           │   ├── links_list
+│           │   ├── open-graph.html
+│           │   ├── page-item.html
+│           │   ├── post-search.html
+│           │   ├── post-tags.html
+│           │   ├── recent_posts_list
+│           │   ├── repos_list
+│           │   ├── search_box
+│           │   ├── tag_cloud
+│           │   └── top.html
+│           └── layouts
+│               ├── default.html
+│               ├── page.html
+│               └── post.html
+├── js
+│   ├── date.format.js
+│   ├── jquery.js
+│   ├── jquery.lunr.search.js
+│   ├── lunr.js
+│   ├── lunr.min.js
+│   ├── mustache.js
+│   ├── search.js
+│   ├── search.min.js
+│   ├── URI.js
+│   └── URI.min.js
+├── _layouts
+│   ├── default.html
+│   ├── page.html
+│   └── post.html
+├── _org
+│   ├── 2014-04-01-custom-css.md.bak
+│   └── ......
+├── _pages
+│   ├── about.md
+│   ├── archives.html
+│   ├── art.html
+│   ├── ......
+│   ├── email-signup.md
+│   ├── email-subscribed.md
+│   ├── email-unsubscribed.md
+│   ├── email-verify.md
+│   ├── error.md
+│   ├── index.html
+│   ├── search.md
+│   └── tags.html
+├── _plugins
+│   ├── debug.rb
+│   └── jekyll_lunr_js_search.rb
+├── _posts
+│   ├── attitude
+│   │   └── 2015-07-27-848.md
+│   ├── fiction
+│   ├── .......
+├── robots.txt
+└── sitemap.xml
+</pre>
+<p>
+对于一般github博客来说，
+<b>使用一个复杂功能的主题，可能需要的东西比较多，因此可以从选用其他简洁主题开始。
+如果使用官方原主题，会在方便使用的基础上更具有网页发布的功能</b>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org5d66d2f" class="outline-2">
+<h2 id="org5d66d2f"><span class="section-number-2">4</span> 增加邮箱定阅</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+具体配置参见<sub>pages中以email开关的文件</sub>
+</p>
+</div>
+</div>
+<div id="outline-container-org5ee25a3" class="outline-2">
+<h2 id="org5ee25a3"><span class="section-number-2">5</span> 增加rss定阅</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+在<sub>data文件夹中打开curtana文件</sub>，将subscription:   false改为true
+</p>
+</div>
+</div>
+<div id="outline-container-orgfa7bc59" class="outline-2">
+<h2 id="orgfa7bc59"><span class="section-number-2">6</span> 增加评论</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+采用disqus评论，功能齐全、使用广泛，注册后在各个采用disqus的地方的评论都可以统一管理、查看。此外还可以在色调等上面达到较好统一。
+在disqus注册后将网站生成的代码放置于 
+<code>/_includes/themes/curtana/
+layouts/post.html</code> 
+中。
+</p>
+<div class="org-src-container">
+<pre class="src src-lisp">&lt;font size= 1&gt;[建议注册disqus以保存全网评论历史]&lt;/font&gt;
+&lt;div id="disqus_thread"&gt;&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+&lt;/article&gt;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf5821b8" class="outline-2">
+<h2 id="orgf5821b8"><span class="section-number-2">7</span> 增加标签云</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-org9589b6e" class="outline-3">
+<h3 id="org9589b6e"><span class="section-number-3">7.1</span> 在includes中建立tags<sub>cloud文件</sub></h3>
+<div class="outline-text-3" id="text-7-1">
+<p>
+具体位置是
+<i>_includes/themes/curtana</i> includes
+</p>
+<pre class="example">
+&lt;a href="" title="查看所有标签"&gt;&lt;i class="icon-fixed-width icon-tags"&gt;&lt;/i&gt; 标签云&lt;/a&gt;
+&lt;span title="标签总数"&gt;218&lt;/span&gt;
+&lt;div id="tag-cloud"&gt;
+{\% assign first = site.tags.first \%}
+{\% assign max = first[1].size \%}
+{\% assign min = max \%}
+{\% for tag in site.tags offset:1 \%}
+  {\% if tag[1].size &gt; max \%}
+    {\% assign max = tag[1].size \%}
+  {\% elsif tag[1].size &lt; min \%}
+    {\% assign min = tag[1].size \%}
+  {\% endif \%}
+{\% endfor \%}
+{\% assign diff = max | minus: min \%}
+{\% if diff != 0 \%}
+  {\% for tag in site.tags \%}
+    {\% assign temp = tag[1].size | minus: min | times: 36 | divided_by: diff \%}
+    {\% assign base = temp | divided_by: 4 \%}
+    {\% assign remain = temp | modulo: 4 \%}
+    {\% if remain == 0 \%}
+      {\% assign size = base | plus: 9 \%}
+    {\% elsif remain == 1 or remain == 2 \%}
+      {\% assign size = base | plus: 9 | append: '.5' \%}
+    {\% else \%}
+      {\% assign size = base | plus: 10 \%}
+    {\% endif \%}
+    {\% if remain == 0 or remain == 1 \%}
+      {\% assign color = 9 | minus: base \%}
+    {\% else \%}
+      {\% assign color = 8 | minus: base \%}
+    {\% endif \%}
+    &lt;a href="#-ref" style="font-size: pt; color: #;"&gt;&lt;/a&gt;
+  {\% endfor \%}
+{\% endif \%}
+&lt;/div&gt;
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgb38797c" class="outline-3">
+<h3 id="orgb38797c"><span class="section-number-3">7.2</span> 在<sub>pages中建立tags.html文件</sub><sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup></h3>
+<div class="outline-text-3" id="text-7-2">
+<div class="org-src-container">
+<pre class="src src-lisp">---
+layout: default
+title: Tags Cloud
+permalink: /tags/
+desc: 標签雲・ ワークス・TBC
+---
+&lt;div id="search"&gt;
+  &lt;form action="/search" method="get"&gt;
+    &lt;input type="text" id="search-query" name="q" placeholder="Search" autocomplete="off"&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+
+&lt;div class="span4" style="text-align: center;"&gt;
+  &lt;div class="row-fluid"&gt;
+    &lt;div class="span12 padded"&gt;
+      &lt;h3 style="color:#333333"&gt;Tags Cloud&lt;/h3&gt;
+&lt;/dev&gt;
+&lt;/dev&gt;
+&lt;/dev&gt;
+&lt;ul class="tag-cloud"&gt;
+  {\% for tag in site.tags \%}
+&lt;a style="font-size: 70%"  href="#"&gt;
+  &amp;nbsp    &amp;nbsp
+&lt;/a&gt;
+{\% endfor \%}
+&lt;/ul&gt;
+
+&lt;div class="span4" style="text-align: left;"&gt;
+ &lt;h2&gt;列表&lt;/h2&gt;
+
+&lt;div id="archives"&gt;
+{\% for tag in site.tags \%}
+  &lt;div class="archive-group"&gt;
+    {\% capture tag_name \%}{\% endcapture \%}
+    &lt;li style="color:#ff00b4"
+	id="#"&gt;&lt;/li&gt;
+    &lt;a name=""&gt;&lt;/a&gt;
+    {\% for post in site.tags[tag_name] \%}
+    &lt;article class="archive-item"&gt;
+      &lt;div&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/div&gt;
+    &lt;/article&gt;
+    {\% endfor \%}
+  &lt;/div&gt;
+{\% endfor \%}
+&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+</div>
+<p>
+其中 <code>&lt;a style="font-size: 70%"  href="#"&gt;</code> 中的 <code>times</code> 控制标签云中字体大小比例变化，如果标签较小的话把数值设小点。
+markdown的文件头（&#x2014;三个中横线中的内容）用来生成 单独页面。
+</p>
+</div>
+</div>
+<div id="outline-container-orge2dd60a" class="outline-3">
+<h3 id="orge2dd60a"><span class="section-number-3">7.3</span> 在/<sub>includes</sub>/themes/curtana /includes中的css-variables.html中添加css的格式设置</h3>
+<div class="outline-text-3" id="text-7-3">
+<div class="org-src-container">
+<pre class="src src-lisp">&lt;style&gt;
+{\% for tag in site.tags \%}
+.tag-cloud {
+list-style: none;
+word-break:keep-all;
+padding: 0;
+padding-right: 6%;
+text-align: justify; 
+font-size: 16px;
+a{
+display: inline-block;
+margin: 0 12px 12px 0; 
+}}
+# archives {
+  padding: 5px;
+}
+.archive-group {
+margin: 15px;
+border-top: 1px solid #ddd;
+}
+.archive-item {
+margin-left: 12px;
+}
+.post-tags {
+  text-align: left;
+}
+{\% endfor \%}
+&lt;/style&gt;
+</pre>
+</div>
+<p>
+其中 <code>word-break:keep-all;</code> 和 <code>display: inline-block;</code> 用来控制标签云中的关键词不断行（在iphone 5s的浏览器上仍然无效）， <code>padding-right: 6%;</code> 用来控制右侧的空白距离，  <code>.post-tags { text-align: left;</code> 用来控制标签在文章的左侧还是右侧。
+</p>
+</div>
+</div>
+<div id="outline-container-org06ba9a0" class="outline-3">
+<h3 id="org06ba9a0"><span class="section-number-3">7.4</span> 在<sub>includes</sub>/themes/curtana/layouts的post.html中为每篇文章添加引用tag的模板</h3>
+<div class="outline-text-3" id="text-7-4">
+<pre class="example">
+{\% include /includes/post-tags.html \%}
+</pre>
+<p>
+上面路径要修改正确。
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb0236f2" class="outline-2">
+<h2 id="orgb0236f2"><span class="section-number-2">8</span> 添加中文搜索</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-org3122f92" class="outline-3">
+<h3 id="org3122f92"><span class="section-number-3">8.1</span> 使用jekyll-lunr-js-search</h3>
+<div class="outline-text-3" id="text-8-1">
+<p>
+项目地址是<a href="https://github.com/slashdotdash/jekyll-lunr-js-search">slashdotdash/jekyll-lunr-js-search</a>
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="org0c840e1"></a>安装方法<br />
+<ol class="org-ol">
+<li><a id="org25d7f56"></a>直接在Gemfile中添加jekyll-lunr-js-search，然后bundle install<br /></li>
+<li><a id="orgf10b241"></a>通过git clone项目地址<br />
+<div class="outline-text-5" id="text-8-1-1-2">
+<div class="org-src-container">
+<pre class="src src-lisp">git clone git@github.com:slashdotdash/jekyll-lunr-js-search.git
+</pre>
+</div>
+<p>
+然后下载相关依赖。
+    jQuery
+    lunr.js
+    Mustache.js
+    date.format.js
+    URI.js
+将相关依赖放置于js文件夹。
+</p>
+</div>
+</li>
+<li><a id="org1ce1306"></a>通过rake build<br />
+<div class="outline-text-5" id="text-8-1-1-3">
+<p>
+git clone后，在文件夹根目录中有bower.json文件，这是可以由bower通过rake build安装的配置文件。
+安装bower的方法是npm install -g bower
+bower.json文件中，把依赖的版本改到最新：
+</p>
+<div class="org-src-container">
+<pre class="src src-lisp">  "dependencies": {
+    "date.format": "~1.2.3",
+    "jquery": "~2.2.3",
+    "lunr.js": "~0.7.0",
+    "mustache": "~2.2.1",
+    "uri.js": "~1.18.0"
+}
+</pre>
+</div>
+<p>
+通过 rake build命令后，生成 build文件夹，其中生成四个js文件，copy至博客 的js文件夹，rb文件，copy至博客的<sub>plugins文件夹</sub>。
+</p>
+</div>
+</li>
+<li><a id="org77e1c3e"></a>调换中文搜索功能<br />
+<div class="outline-text-5" id="text-8-1-1-4">
+<p>
+由于 jekyll-lunr-js-search靠的是lunr.js， olivernn提供的。lunr.js并不支持中文，因此需要另想方法。
+感谢codepiano，<a href="https://github.com/codepiano/lunr.js">codepiano/lunr.js</a>
+git 后将lunr.js 和lunr.min.js替换，可以实现中文搜索。
+在使用的时候，需要将<sub>plugins</sub>/jekyll<sub>lunr</sub><sub>js</sub><sub>search.rb文件中两处length</sub>&gt;3改成1,适配中文单字。
+</p>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+<div id="outline-container-orgb70b131" class="outline-3">
+<h3 id="orgb70b131"><span class="section-number-3">8.2</span> 其他</h3>
+<div class="outline-text-3" id="text-8-2">
+</div>
+<ol class="org-ol">
+<li><a id="org7773bfb"></a>使用lunr.js配合lunr-languages<br />
+<div class="outline-text-4" id="text-8-2-1">
+<p>
+lunr-languages， lunr.js的多国语言项目。<a href="https://github.com/MihaiValentin/lunr-languages">MihaiValentin/lunr-languages</a>
+其中有lunr.jp.js， 日本的编码。由于汉字和日本假名都是UTF-8编码，应该可以借用。不过我没有成功。
+</p>
+<div class="HTML">
+<p>
+&lt;font color="#ff00ff"&gt;请配置成功的兄弟告知&lt;/font&gt;
+</p>
+
+</div>
+</div>
+</li>
+<li><a id="org49d4f96"></a>i18n<br />
+<div class="outline-text-4" id="text-8-2-2">
+<p>
+olivernn在<a href="https://github.com/olivernn/lunr.js/tree/i18n">i18n</a> 中。
+</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org9d3e003" class="outline-2">
+<h2 id="org9d3e003"><span class="section-number-2">9</span> 使用org-mode撰写和发布</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+<b>世界上有两种人，一种是平常人，一种是深井冰。</b>
+<b>深井冰里有两种人，一种是用vi的，一种是用emacs的。</b>
+<b>一说vi是编辑器之神，一说emacs是神之编辑器。</b>
+<b>vi毕生追求只做一件事，emacs追求做一切事。</b>
+<b>这当然要包括用来撰写和发布博客。</b>
+<b>做任何一件事，都像emacs对待按键组合一样，繁复到变态。</b>
+<b>org-mode亦如是。</b>
+<b>如果是深井冰而不是平常人，是写博客而不是写微博发圈的人，是用emacs而不是vi的人，那必是用org-mode来完成这件事的人。</b> 
+</p>
+</div>
+<div id="outline-container-orgcad025f" class="outline-3">
+<h3 id="orgcad025f"><span class="section-number-3">9.1</span> 博客直接使用.org文件</h3>
+<div class="outline-text-3" id="text-9-1">
+<p>
+安装插件后可以实现，搜索网上有教程。
+</p>
+</div>
+</div>
+<div id="outline-container-org1d1f246" class="outline-3">
+<h3 id="org1d1f246"><span class="section-number-3">9.2</span> 自带.org文件转.html或.md文件</h3>
+<div class="outline-text-3" id="text-9-2">
+<p>
+C-c，C-e，h或m
+原生功能，对于单个文件没有问题，但是对于网站特别是jekyll静态网站，因为涉及文件头和网站结构，因此更适合下面方式。
+</p>
+</div>
+</div>
+<div id="outline-container-org51b26d4" class="outline-3">
+<h3 id="org51b26d4"><span class="section-number-3">9.3</span> 使用org2jekyll</h3>
+<div class="outline-text-3" id="text-9-3">
+</div>
+<ol class="org-ol">
+<li><a id="orgee464db"></a>优点<br />
+<div class="outline-text-4" id="text-9-3-1">
+<p>
+配合预设定的配置，完美沟通org-mode， html， jekyll和github。
+新建文章时只需要在buffer栏根据引导步骤填写好desesion,tags,categories和其他YAML Headers即可自动生成markdown格式文件头。
+组合键直接转换带日期、支持中文名字的html文件。
+</p>
+</div>
+</li>
+<li><a id="org4a577d3"></a>基本使用<br />
+<ol class="org-ol">
+<li><a id="org5b8c1f3"></a>使用package-install安装<br /></li>
+<li><a id="org0a33611"></a>在init.d文件夹中保存配置文件blog-pack.el<br />
+<div class="outline-text-5" id="text-9-3-2-2">
+<div class="org-src-container">
+<pre class="src src-lisp">;;(use-package org2jekyll
+;;  :defer 3
+;;  :config
+(require 'org)
+(require 'org2jekyll)
+
+(custom-set-variables
+ '(org2jekyll-blog-author       "yefeiyu")
+ '(org2jekyll-source-directory  (expand-file-name "~/gh/yefeiyu.github.io/_app/"))
+ '(org2jekyll-jekyll-directory  (expand-file-name "~/gh/yefeiyu.github.io/_app/"))
+ '(org2jekyll-jekyll-drafts-dir "_org/")
+ '(org2jekyll-jekyll-posts-dir  "_drafts/")
+ '(org-publish-project-alist
+   `(("default"
+      :base-directory ,(org2jekyll-input-directory)
+      :base-extension "org"
+      ;; :publishing-directory "/ssh:user@host:~/html/notebook/"
+      :publishing-directory ,(org2jekyll-output-directory)
+      :publishing-function org-html-publish-to-html
+      :headline-levels 6
+      :section-numbers nil
+      :with-toc nil
+      :html_head "&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"~/gh/yefeiyu.github.io/assets/themes/curtana/css/app.css\" /&gt;"
+      :html-preamble t
+      :recursive t
+      :make-index t
+      :html-extension "html"
+      :body-only t)
+
+     ("post"
+      :base-directory ,(org2jekyll-input-directory)
+      :base-extension "org"
+      :publishing-directory ,(org2jekyll-output-directory org2jekyll-jekyll-posts-dir)
+      :publishing-function org-html-publish-to-html
+      :headline-levels 6
+      :section-numbers nil
+      :with-toc nil
+      :html_head "&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"~/gh/yefeiyu.github.io/assets/themes/curtana/css/app.css\" /&gt;"
+      :html-preamble t
+      :recursive t
+      :make-index t
+      :html-extension "html"
+      :body-only t)
+
+     ("images"
+      :base-directory ,(org2jekyll-input-directory "assets/img")
+      :base-extension "jpg\\|gif\\|png"
+      :publishing-directory ,(org2jekyll-output-directory "assets/img")
+      :publishing-function org-publish-attachment
+      :recursive t)
+
+     ("js"
+      :base-directory ,(org2jekyll-input-directory "assets/js")
+      :base-extension "js"
+      :publishing-directory ,(org2jekyll-output-directory "assets/js")
+      :publishing-function org-publish-attachment
+      :recursive t)
+
+     ("css"
+      :base-directory ,(org2jekyll-input-directory "assets/themes/curtana/css")
+      :base-extension "css\\|el"
+      :publishing-directory ,(org2jekyll-output-directory "assets/themes/curtana/css")
+      :publishing-function org-publish-attachment
+      :recursive t)
+
+     ("web" :components ("images" "js" "css")))))
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orga4dd1f2"></a>在.emacs中写入 <code>(require 'blog-pack)</code><br /></li>
+</ol>
+</li>
+<li><a id="org9009b88"></a>自定义markdown头文件。<br />
+<div class="outline-text-4" id="text-9-3-3">
+<p>
+根据下面的例子，可以自定义多种属于自己的md head。下例中scheme就是定义文章的字体、链接及背景等颜色的。调用颜色可以直接使用自定义的组合键C-x j l 或者M-x list-colors-display
+</p>
+
+<p>
+<img src="https://yefeiyu.github.io/img/2016/img_2016_05_02__13_27_36.png" alt="img_2016_05_02__13_27_36.png" />
+<img src="https://yefeiyu.github.io/img/2016/img_2016_05_03__19_36_18.png" alt="img_2016_05_03__19_36_18.png" />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp">(defun yefeiyu-read-extra-yaml-headers ()
+  "Read some pre-formatted extra yaml headers from user.
+Write the extra-headers at point."
+  (interactive)
+  (let ((theme (read-input "theme: "))
+	(plugin (read-input "plugin: "))
+	(scheme-text (read-input "scheme-text: "))
+	(scheme-link (read-input "scheme-link: "))
+	(scheme-hover (read-input "scheme-hover: "))
+	(scheme-code (read-input "scheme-code: "))
+	(scheme-bg (read-input "scheme-bg: "))
+	(scheme-hero-text (read-input "scheme-hero-text: "))
+	(scheme-hero-link (read-input "scheme-hero-link: "))
+	(scheme-hero-bg (read-input "scheme-hero-bg: ")))
+    (insert (format "#+EXTRA-YAML-HEADERS: theme: %s\\nplugin: %s\\nscheme-text: \"#%s\"\\nscheme-link: \"#%s\"\\nscheme-hover: \"#%s\"\\nscheme-code: \"#%s\"\\nscheme-bg: \"#%s\"\\nscheme-hero-text: \"#%s\"\\nscheme-hero-link: \"#%s\"\\nscheme-hero-bg: \"#%s\"\\nscheme-bg-light: true\\n"
+		    theme plugin scheme-text scheme-link scheme-hover scheme-code scheme-bg scheme-hero-text scheme-hero-link scheme-hero-bg))))
+</pre>
+</div>
+<p>
+按M-x yef TAB调用。
+</p>
+</div>
+</li>
+<li><a id="org2dbfd6c"></a>修改默认生成html文件为md文件<br />
+<ol class="org-ol">
+<li><a id="org10360ae"></a>在配置文件中添加以下代码：<br />
+<div class="outline-text-5" id="text-9-3-4-1">
+<div class="org-src-container">
+<pre class="src src-lisp">(defun org-md-publish-to-md (plist filename pub-dir)
+  "Publish an org file to Markdown.
+FILENAME is the filename of the Org file to be published.  PLIST
+is the property list for the given project.  PUB-DIR is the
+publishing directory.
+Return output file name."
+  (org-publish-org-to 'md filename ".md" plist pub-dir))
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org7bf97f9"></a>将blog-pack.el文件中所有的html改成md。<br /></li>
+</ol>
+</li>
+<li><a id="org1d770b9"></a>修改快捷键<br />
+<div class="outline-text-4" id="text-9-3-5">
+<p>
+原快捷键绑定在C-c . 上，在org中这样会调出日期插入页面。我改成了C-x j。
+</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org43cf2a1" class="outline-3">
+<h3 id="org43cf2a1"><span class="section-number-3">9.4</span> 使用一键截图</h3>
+<div class="outline-text-3" id="text-9-4">
+<p>
+通过配置.emacs快速截图，预定义保存位置，自动生成带时间戳的图片并自动插入文中。
+</p>
+<div class="org-src-container">
+<pre class="src src-lisp">(defun my/img-maker ()
+  "Make folder if not exist, define image name based on time/date"
+  (setq myvar/img-folder-path (concat default-directory "../assets/img/"))
+
+					; Make img folder if it doesn't exist.
+  (if (not (file-exists-p myvar/img-folder-path)) ;[ ] refactor thir and screenshot code.
+      (mkdir myvar/img-folder-path))
+
+  (setq myvar/img-name (concat "img_" (format-time-string "%Y_%m_%d__%H_%M_%S") ".png"))
+  (setq myvar/img-Abs-Path (concat myvar/img-folder-path myvar/img-name)) ;Relative to workspace.
+
+  (setq myvar/relative-filename (concat "./assets/img/" myvar/img-name))
+  (insert "[[" myvar/relative-filename "]]" "\n")
+  )
+
+(defun my/org-screenshot ()
+  "Take a screenshot into a time stamped unique-named file in the
+ sub-directory (%filenameIMG) as the org-buffer and insert a link to this file."
+  (interactive)
+  (my/img-maker)
+					;(make-frame-invisible)
+  (lower-frame)
+  (call-process "import" nil nil nil myvar/img-Abs-Path)
+
+  (raise-frame)
+					;(make-frame-visible)
+  (org-display-inline-images)
+  )
+</pre>
+</div>
+<p>
+目前配置的目录"./assets/img/"在生成的html文件中，会多出一个“. 目录”，但如果没有这个点,生成的格式为img src=file: ///又会多出file：//导致无法识别根目录。
+目前我解决办法是修改自动生成的 <code>[[]]</code> 链接为img src=/assets/img。
+</p>
+<div class="HTML">
+<p>
+&lt;font color="#ff00ff"&gt;不知是否有解决办法&lt;/font&gt;
+</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc5dd0dc" class="outline-2">
+<h2 id="orgc5dd0dc"><span class="section-number-2">10</span> 简化发布流程</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+主要借助于alias,配置~目录下.bash<sub>aliases文件</sub>
+</p>
+<pre class="example">
+alias gt='git status '
+alias ga='git add '
+alias gb='git branch '
+alias gc='git commit'
+alias gd='git diff'
+alias go='git checkout '
+alias gk='gitk --all&amp;'
+alias gx='gitx --all'
+alias gp='git push'
+alias gpo='git push origin'
+alias srd='sudo rm -r'
+alias gcma='git commit -m -a'
+alias ce='cd ~/.emacs.d'
+alias cei='cd ~/.emacs.d/init.d/'
+alias cee='cd ~/.emacs.d/elpa/'
+alias ceg='cd ~/.emacs.d/el-get/'
+alias cy='cd ~/gh/yefeiyu.github.io'
+alias ca='cd ~/gh/yefeiyu.github.io/_app/'
+alias caa='cd ~/gh/yefeiyu.github.io/_app/_data/'
+alias cad='cd ~/gh/yefeiyu.github.io/_app/_drafts/'
+alias cai='cd ~/gh/yefeiyu.github.io/_app/_includes/'
+alias cal='cd ~/gh/yefeiyu.github.io/_app/_layouts/'
+alias cao='cd ~/gh/yefeiyu.github.io/_app/_org/'
+alias cam='cd ~/gh/yefeiyu.github.io/_app/_md/'
+alias cag='cd ~/gh/yefeiyu.github.io/_app/_pages/'
+alias cap='cd ~/gh/yefeiyu.github.io/_app/_posts/'
+alias cs='cd ~/gh/yefeiyu.github.io/_site/'
+alias cprs='cp -r  ~/gh/yefeiyu.github.io/_site/* ~/gh/yefeiyu.github.io/ '
+
+alias js='jekyll serve'
+alias gs='grunt serve'
+alias bl='bash --login'
+alias lsfa='ls -Fa'
+alias gapm='ga . &amp;&amp; gcma . &amp;&amp; gpo master'
+alias xmd='xmodmap ~/.Xmodmaprc'
+
+alias rgs='sudo rm -r ~/gh/yefeiyu.github.io/_site 404.html email fu robots.txt about email-signup index.html search apple-touch-icon.png favicon.ico it sitemap.xml archives favicon.svg life soft art feed.json mobile tags assets feed.xml news zza attitude fiction review &amp;&amp; grunt serve'
+#&amp;&amp; sudo rm -r  ~/gh/yefeiyu.github.io/about &amp;&amp; sudo rm -r ~/gh/yefeiyu.github.io/art &amp;&amp; sudo rm -r ~/gh/yefeiyu.github.io/email* &amp;&amp; sudo rm -r ~/gh/yefeiyu.github.io/fu &amp;&amp; sudo rm -r ~/gh/yefeiyu.github.io/it &amp;&amp; sudo rm -r ~/gh/yefeiyu.github.io/life &amp;&amp; sudo rm -r ~/gh/yefeiyu.github.io/news &amp;&amp; sudo rm ~/gh/yefeiyu.github.io/*.html &amp;&amp; sudo rm *.txt 
+alias rjs='sudo rm -r ~/gh/yefeiyu.github.io/_site &amp;&amp; sudo rm ~/gh/yefeiyu.github.io/*.html &amp;&amp; jekyll serve'
+alias cgm='cp -r  _site/* . &amp;&amp; git add . &amp;&amp; git commit -m -a . &amp;&amp; git push origin master'
+
+alias ec='emacsclient'
+alias sec='sudo emacsclient'
+##;;alias lsd='ls ~/gh/yefeiyu.github.io/_app/_drafts/'
+##alias mvd='mv ~/gh/yefeiyu.github.io/_app/_drafts/*'
+##alias mvda='mv ~/gh/yefeiyu.github.io/_app/_drafts/'
+##alias cmp='mv ~/gh/yefeiyu.github.io/_app/_org/* ~/gh/yefeiyu.github.io/org/ &amp;&amp; cd ~/gh/yefeiyu.github.io/_app/_posts/ &amp;&amp; cp ~/gh/yefeiyu.github.io/_app/_drafts/*.md ~/gh/yefeiyu.github.io/_app/_posts'
+##alias rmd='rm ~/gh/yefeiyu.github.io/_app/_drafts/* &amp;&amp; cd ~/gh/yefeiyu.github.io/'
+
+alias cdp='cd ~/gh/yefeiyu.github.io/_app/_posts/ &amp;&amp; cp ~/gh/yefeiyu.github.io/_app/_drafts/*.html ~/gh/yefeiyu.github.io/_app/_posts'
+alias rmd='rm ~/gh/yefeiyu.github.io/_app/_drafts/* &amp;&amp; cd ~/gh/yefeiyu.github.io/'
+
+alias cdd='cd ~/download'
+alias caii='cd ~/gh/yefeiyu.github.io/_app/_includes/themes/curtana/includes'
+alias cail='cd ~/gh/yefeiyu.github.io/_app/_includes/themes/curtana/layouts'
+alias cas='cd ~/gh/yefeiyu.github.io/_app/assets/'
+alias casj='cd ~/gh/yefeiyu.github.io/_app/assets/themes/curtana/_js'
+alias casl='cd ~/gh/yefeiyu.github.io/_app/assets/themes/curtana/_less'
+alias cb='cd ~/gh/yefeiyu.github.io/_amsf/core/_app/'
+alias cbs='cd ~/gh/yefeiyu.github.io/_amsf/core/_app/assets'
+alias cbsj='cd ~/gh/yefeiyu.github.io/_amsf/core/_app/assets/themes/curtana/_js'
+alias cbsl='cd ~/gh/yefeiyu.github.io/_amsf/core/_app/assets/themes/curtana/_less'
+
+alias cpl='cd ~/gh/yefeiyu.github.io/_app/_posts/life/'
+alias cps='cd ~/gh/yefeiyu.github.io/_app/_posts/soft/'
+alias cpa='cd ~/gh/yefeiyu.github.io/_app/_posts/act/'
+alias cpf='cd ~/gh/yefeiyu.github.io/_app/_posts/fiction/'
+alias cpo='cd ~/gh/yefeiyu.github.io/_app/_posts/love/'
+alias cpm='cd ~/gh/yefeiyu.github.io/_app/_posts/memo/'
+alias cpr='cd ~/gh/yefeiyu.github.io/_app/_posts/reader/'
+alias cpv='cd ~/gh/yefeiyu.github.io/_app/_posts/review/'
+alias cpz='cd ~/gh/yefeiyu.github.io/_app/_posts/zza/'
+alias cpzl='cd ~/gh/yefeiyu.github.io/_app/_posts/zzl/'
+alias rmf='sudo rm -rf'
+# alias cid='cp /home/xx/Dropbox/ygi/md/* ~/gh/yefeiyu.github.io/_app/_drafts/ &amp;&amp; cd ~/gh/yefeiyu.github.io/_app/_drafts/'
+alias cod='cp ~/gh/yefeiyu.github.io/_app/_org/*.md ~/gh/yefeiyu.github.io/_app/_drafts/ &amp;&amp; cd ~/gh/yefeiyu.github.io/_app/_drafts/'
+alias eba='e ~/.bash_aliases'
+alias sba='source ~/.bash_aliases'
+alias cdr='cd ~/Dropbox'
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors &amp;&amp; eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# colored GCC warnings and errors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# some more ls aliases
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
+#use ec as alias for emacs client
+alias ec='emacsclient -t -a ""'
+alias e='emacsclient'
+#use emacs as default editor
+export EDITOR="e"
+
+alias edu='e ~/Dropbox/log-usr'
+alias sas='sudo apt-cache search'
+alias sai='sudo apt-get install'
+alias sau='sudo apt-get update'
+
+alias cg='cd ~/gh'
+alias ey='e _config.yml'
+alias px='proxychains4'
+alias cr='sudo cp -r'
+</pre>
+<p>
+$ source .bash<sub>aliases</sub> 使上述配置生效。
+如此，整个流程简化为：
+<code>C-x j i</code> 建一篇新文章 ::emacs
+ <code>C-x j p</code> 将org转化成html ::emacs
+<code>$ cy</code> 进入博客根目录 ::term
+<code>$ gs</code> 生成站点文件 ::term
+<code>$ cgm</code> 发布到github ::term
+祝 使用愉快。
+</p>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+本部分和后面凡带有 <code>\%</code> 注释的，在实际使用时都需去掉 <code>\</code> 
+</p></div></div>
+
+
+</div>
+</div>
+:ET

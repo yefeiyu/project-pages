@@ -1,0 +1,127 @@
+I"�<p>
+这两天在学习《Structure and Interpretation of Computer Programs》（本书以简称SICP著名），虽然只看了个开头，但依然感受到了语言和数学的魅力。
+细嚼慢咽的翻着书，力争学透书中列举的例子和练习，对于一些经典的函数表达式，试图去wiki寻找更详细的解释。
+昨天看到练习10，讲了构造Ackermann函数，sicp中直接列出构造的函数：
+</p>
+<pre class="example">
+(define (A x y)
+  (cond ((= y 0) 0)
+	((= x 0) (* 2 y))
+	((= y 1) 2)
+	(else (A (- x 1)
+		 (A x (- y 1))))))
+</pre>
+<p>
+查阅wiki时，看到原自然函数公式是
+</p>
+<pre class="example">
+(ignore)
+A(m,n)={\begin{cases}n+1&amp;{\mbox{if }}m=0\\A(m-1,1)&amp;{\mbox{if }}m&gt;0{\mbox{ and }}n=0\\A(m-1,A(m,n-1))&amp;{\mbox{if }}m&gt;0{\mbox{ and }}n&gt;0.\end{cases}} 
+</pre>
+<p>
+这部分有乱码，直接搜索后看原文吧。
+<a href="https://en.m.wikipedia.org/wiki/Ackermann_function">wiki ackermann function</a>
+在计算时，发现sicp中出现的答案和wiki中下面列表的答案不一致：
+ Values of A(m, n) 
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="org-right" />
+
+<col class="org-right" />
+
+<col class="org-right" />
+
+<col class="org-right" />
+
+<col class="org-right" />
+
+<col class="org-right" />
+
+<col class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">m\n</th>
+<th scope="col" class="org-right">0</th>
+<th scope="col" class="org-right">1</th>
+<th scope="col" class="org-right">2</th>
+<th scope="col" class="org-right">3</th>
+<th scope="col" class="org-right">4</th>
+<th scope="col" class="org-left">n</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">4</td>
+<td class="org-right">5</td>
+<td class="org-left">n+1</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">4</td>
+<td class="org-right">5</td>
+<td class="org-right">6</td>
+<td class="org-left">n+2=2+(n+3)-3</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">5</td>
+<td class="org-right">7</td>
+<td class="org-right">9</td>
+<td class="org-right">11</td>
+<td class="org-left">2n+3=2&sdot;(n+3)-3</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">5</td>
+<td class="org-right">13</td>
+<td class="org-right">29</td>
+<td class="org-right">61</td>
+<td class="org-right">125</td>
+<td class="org-left">2<sup>(n+3)</sup>-3</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">13</td>
+<td class="org-right">65533</td>
+<td class="org-right">265536−3</td>
+<td class="org-right">{2^{2^</td>
+<td class="org-right">{2^{2^{2^</td>
+<td class="org-left">{\displaystyle{\begin</td>
+</tr>
+</tbody>
+</table>
+
+<pre class="example">
+| m\n |  0 |     1 |        2 |      3 |         4 | n                     |
+|   0 |  1 |     2 |        3 |      4 |         5 | n+1                   |
+|   1 |  2 |     3 |        4 |      5 |         6 | n+2=2+(n+3)-3         |
+|   2 |  3 |     5 |        7 |      9 |        11 | 2n+3=2\cdot(n+3)-3    |
+|   3 |  5 |    13 |       29 |     61 |       125 | 2^{(n+3)}-3           |
+|   4 | 13 | 65533 | 265536−3 | {2^{2^ | {2^{2^{2^ | {\displaystyle{\begin |
+</pre>
+<p>
+经过仔细对比，发现公式表述有差异。在昨天晚上弄明原题后，今天又重新构建了wiki页面公式的scheme函数，一难，结果和wiki这列表中的答案一致。
+</p>
+<pre class="example">
+(define (A x y)
+  (cond ((= x 0)(+ y 1))
+	((= y 0)(A (- x 1) 1))
+	(else (A (- x 1)(A x (- y 1))))))
+</pre>
+:ET

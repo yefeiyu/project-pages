@@ -1,0 +1,17 @@
+I"�<p>
+yalu越狱每周签名，直接使用Impackor会出现错误，需要先清理锁定项。步骤如下：
+插上手机，打开943程序，点选xcode-revolke，去掉上次遗留在手机里的锁定项。
+退出943。
+打开944程序，Device-InstallPackage-yalu102<sub>beta7.ipa</sub>(此处不必使用10.0版本可以直接用10.3.3版本的ipa)
+jb。
+</p>
+
+<p>
+944 download address:
+<a href="https://cache.saurik.com/impactor/l64/Impactor64_0.9.44.tgz">HERE</a>
+943 download address:
+<a href="https://cache.saurik.com/impactor/l64/Impactor64_0.9.43.tgz">HERE</a>
+yalu102 download address:
+<a href="https://yalujailbreak.org/files/yalu102_beta7.ipa">and Here</a>
+</p>
+:ET

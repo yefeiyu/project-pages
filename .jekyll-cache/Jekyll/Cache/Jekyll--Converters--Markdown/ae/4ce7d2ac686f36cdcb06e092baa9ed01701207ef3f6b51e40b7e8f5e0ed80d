@@ -1,0 +1,203 @@
+I"S<section data-background="http://projectpages.github.io/project-pages/img/slidebackground.png">
+  <section>
+    <h2 id="new-presentation">New Presentation</h2>
+
+    <hr />
+
+    <h4 id="ahmet-cecen">Ahmet Cecen</h4>
+
+    <h4 id="section">2016-05-02 00:00:00 +0800</h4>
+
+  </section>
+</section>
+<section data-background="http://projectpages.github.io/project-pages/img/slidebackground.png">
+  <section>
+    <!-- Start Writing Below in Markdown -->
+
+    <h2 id="f11-to-fullscreen">F11 to Fullscreen!</h2>
+
+    <p>Showcasing Presentation Features. This template is ideal for very quickly creating decent presentations when content and simplicity is more important than excessive styling.</p>
+
+  </section>
+</section>
+<section data-background="http://projectpages.github.io/project-pages/img/slidebackground.png">
+  <section>
+
+    <p>Seperate with {{ page.horizontal }} between content for horizontal slides.</p>
+
+  </section>
+  <section>
+
+    <p>Seperate with {{ page.vertical }} between content for vertical slides.</p>
+
+  </section>
+</section>
+<section data-background="http://projectpages.github.io/project-pages/img/slidebackground.png">
+  <section>
+
+    <p>Press ESC for a zoomed out overview of the presentation.</p>
+
+  </section>
+</section>
+<section data-background="http://projectpages.github.io/project-pages/img/slidebackground.png">
+  <section>
+
+    <p>Press B to pause the presentation.</p>
+
+  </section>
+</section>
+<section data-background="http://projectpages.github.io/project-pages/img/slidebackground.png">
+  <section>
+
+    <h1 id="header-1">Header 1</h1>
+
+    <h2 id="header-2">Header 2</h2>
+
+    <h3 id="header-3">Header 3</h3>
+
+  </section>
+</section>
+<section data-background="http://projectpages.github.io/project-pages/img/slidebackground.png">
+  <section>
+
+    <h1 id="styling">Styling</h1>
+
+    <p><strong>Bold</strong></p>
+
+    <p><em>Italics</em></p>
+
+    <p><strong><em>Bold and Italics</em></strong></p>
+
+  </section>
+</section>
+<section data-background="http://projectpages.github.io/project-pages/img/slidebackground.png">
+  <section>
+
+    <p>Use MathJax for Math.</p>
+
+\[A = \pi r^2\]
+
+  </section>
+</section>
+<section data-background="http://projectpages.github.io/project-pages/img/slidebackground.png">
+  <section>
+
+    <h1 id="lists">Lists</h1>
+
+    <ol>
+      <li>
+        <p>Item 1</p>
+      </li>
+      <li>
+        <p>Item 2</p>
+      </li>
+      <li>
+        <p>Item</p>
+      </li>
+    </ol>
+
+  </section>
+</section>
+<section data-background="http://projectpages.github.io/project-pages/img/slidebackground.png">
+  <section>
+
+    <h1 id="links">Links</h1>
+
+    <p><a href="https://www.google.com">In-Line</a></p>
+
+    <p><a href="https://www.mozilla.org">I’m a reference-style link 1</a></p>
+
+    <p><a href="http://www.reddit.com">I’m a reference-style link 1</a></p>
+
+  </section>
+</section>
+<section data-background="http://projectpages.github.io/project-pages/img/slidebackground.png">
+  <section>
+
+    <h1 id="images">Images</h1>
+
+    <p>Alt-Click to zoom.</p>
+
+    <p><img src="http://projectpages.github.io/project-pages/img/Logo_Fairy_Tail_right.png" alt="Description" /></p>
+
+  </section>
+</section>
+<section data-background="http://projectpages.github.io/project-pages/img/slidebackground.png">
+  <section>
+
+    <h1 id="code">Code</h1>
+
+    <p>Inline <code class="language-plaintext highlighter-rouge">code</code>.</p>
+
+  </section>
+  <section>
+
+    <h1 id="code-block">Code Block</h1>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import numpy as np
+def _set_colors():
+HighRGB = np.array([26, 152, 80]) / 255.
+</code></pre></div>    </div>
+
+  </section>
+</section>
+<section data-background="http://projectpages.github.io/project-pages/img/slidebackground.png">
+  <section>
+
+    <h1 id="quotes">Quotes</h1>
+
+    <blockquote>
+      <p>War does not decide who is right, only who is <strong>left</strong>.</p>
+    </blockquote>
+
+  </section>
+</section>
+<section data-background="http://projectpages.github.io/project-pages/img/slidebackground.png">
+  <section>
+
+    <h1 id="html">HTML</h1>
+
+    <p>Now, you CAN write in HTML using this template. If you want to create HTML presentations using this framework head over to <a href="http://lab.hakim.se/reveal-js/#/">reveal.js</a> for reference.  For a power-point like interactive tool for creating presentations with this theme, check <a href="http://slides.com/">slides.com</a>.</p>
+
+  </section>
+  <section>
+
+    <h1 id="some-html-functionality">Some HTML Functionality</h1>
+
+    <h2 id="color-and-alignment">Color and Alignment</h2>
+
+    <p align="center">This text is centered.</p>
+
+    <p style="color:red">This is a red text with <span style="color:blue">blue</span> and <span style="color:green">green</span> inline text.</p>
+
+  </section>
+</section>
+<section data-background="http://projectpages.github.io/project-pages/img/slidebackground.png">
+  <section>
+
+    <h2 id="stl">STL</h2>
+
+    <div align="center"><script src="https://embed.github.com/view/3d/projectpages/project-pages/gh-pages/stl/test.stl"></script></div>
+
+  </section>
+</section>
+<section data-background="http://projectpages.github.io/project-pages/img/slidebackground.png">
+  <section>
+
+    <h2 id="data-projector">Data Projector</h2>
+
+    <embed src="/project-pages/2016/05/02/New-Projector/" height="500px" width="100%" />
+
+    <!-- End Here -->
+  </section>
+</section>
+<section data-background="http://projectpages.github.io/project-pages/img/slidebackground.png">
+  <section>
+
+    <h1 id="print"><a href="https://yefeiyu.github.io/New-Presentation.html/?print-pdf#">Print</a></h1>
+
+    <h1 id="back"><a href="https://yefeiyu.github.io">Back</a></h1>
+
+  </section>
+</section>
+:ET
