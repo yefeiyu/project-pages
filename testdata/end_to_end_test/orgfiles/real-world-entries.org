@@ -1,0 +1,382 @@
+* lazyblorg End to End Testsuite: Real-world Blog Entries
+:PROPERTIES:
+:CREATED:  [2016-10-31 Mon 16:34]
+:END:
+
+** Here is another sub-level of headings
+:PROPERTIES:
+:CREATED:  [2016-10-31 Mon 16:35]
+:END:
+
+*** DONE exampletag                                                                  :lb_tags:blog:
+CLOSED: [2016-10-31 Mon 16:38]
+:PROPERTIES:
+:ID: 2016-10-31-a-tag-page
+:CREATED:  [2016-10-31 Mon 16:35]
+:END:
+:LOGBOOK:
+- State "DONE"       from "NEXT"       [2016-10-31 Mon 16:38]
+:END:
+
+This is a page whose content is getting transformed into a tag page.
+
+I am very curious how this is going to turn out.
+
+| *Return Code* | *Result*                       |
+|---------------+--------------------------------|
+|             0 | I am happy!                    |
+|             1 | Geez, what happened this time? |
+|            -1 | Even more worrying             |
+
+Below this, I expect some links to other pages related to the tag
+"exampletag":
+
+** DONE A Wonderful Persistent Blog Entry                 :lazyblorg:programming:exampletag:blog:lb_persistent:
+CLOSED: [2016-10-31 Mon 16:39]
+:PROPERTIES:
+:ID: 2016-10-31-persistent-entry
+:CREATED:  [2016-10-31 Mon 16:37]
+:END:
+:LOGBOOK:
+- State "DONE"       from "NEXT"       [2016-10-31 Mon 16:39]
+:END:
+
+Lorem ipsum dolor sit amet, malorum scaevola ut ius, ridens admodum adipisci eam ad. Eu quo ignota appareat, an primis expetendis eum, atqui labitur ceteros quo ad. Id zril partiendo cotidieque nam, nemore legimus has ad. Nec cu regione sensibus volutpat.
+
+Novum possit temporibus his in. Eam ut scripserit reformidans conclusionemque. Odio disputando ei his, ei est mutat mediocritatem. Harum verterem ex mea, sed saepe viderer scribentur ex. Pri te dictas eligendi praesent.
+
+** DONE Testing Misc Sanitization Issues                                          :blog:programming:
+CLOSED: [2016-11-06 Sun 17:40]
+:PROPERTIES:
+:ID: 2016-11-06-sanitization-examples
+:CREATED:  [2016-11-06 Sun 17:38]
+:END:
+:LOGBOOK:
+- State "DONE"       from "NEXT"       [2016-11-06 Sun 17:40]
+:END:
+
+#+BEGIN_EXAMPLE
+This ought to be escaped & >printed< well.
+#+END_EXAMPLE
+
+-----------------
+
+[[https://github.com/novoid/lazyblorg/issues/6][Issue number 19]] deals with sanitizing of < and > within blocks.
+
+#+BEGIN_EXAMPLE
+This is <an> example block.
+#+END_EXAMPLE
+
+#+BEGIN_SRC sh
+Maybe <this> is not sanitized?
+#+END_SRC
+
+#+BEGIN_VERSE
+Maybe <this> is not sanitized?
+#+END_VERSE
+
+#+BEGIN_QUOTE
+Maybe <this> is not sanitized?
+#+END_QUOTE
+
+#+BEGIN_CENTER
+Maybe <this> is not sanitized?
+#+END_CENTER
+
+#+BEGIN_EXPORT html
+Maybe <this> should not be sanitized?
+#+END_EXPORT
+
+-----------------
+
+- Entry ending with a list which causes [[https://github.com/novoid/lazyblorg/issues/4][issue number 4]]
+  - Another list item
+
+-----------
+
+1. Using an enumerated list
+2. Ending this article ~that~ way!
+
+** DONE Special Characters and Language Tag Override                        :blog:lazyblorg:deutsch:
+CLOSED: [2016-11-27 Sun 15:00]
+:PROPERTIES:
+:ID: 2016-11-27-special-characters
+:CREATED:  [2016-11-27 Sun 14:58]
+:END:
+:LOGBOOK:
+- State "DONE"       from "NEXT"       [2016-11-27 Sun 15:00]
+:END:
+
+This is a «test» with some Umlauts and special characters: öß€x²y³¼½¾.
+
+Being curious how this is going to work out.
+
+** DONE Image Test and Language Tag Override                                :blog:lazyblorg:deutsch:
+CLOSED: [2016-11-27 Sun 15:01]
+:PROPERTIES:
+:ID: 2016-11-27-image-test
+:CREATED:  [2016-11-27 Sun 15:00]
+:END:
+:LOGBOOK:
+- State "DONE"       from "NEXT"       [2016-11-27 Sun 15:01]
+:END:
+
+With caption, alt, centered and 560px width:
+
+#+CAPTION: This is my caption
+#+ATTR_HTML: :alt This is my alt text
+#+ATTR_HTML: :align center :width 560
+[[tsfile:2017-03-11T18.29.21%20Sterne%20im%20Baum%20--%20mytag%20publicvoit.jpg][2017-03-11T18.29.21 Sterne im Baum -- mytag publicvoit.jpg]]
+
+Without caption, alt, centered and 560px width:
+
+#+ATTR_HTML: :alt This is my alt text
+#+ATTR_HTML: :align center :width 560
+[[tsfile:2017-03-11T18.29.21%20Sterne%20im%20Baum%20--%20mytag%20publicvoit.jpg][2017-03-11T18.29.21 Sterne im Baum -- mytag publicvoit.jpg]]
+
+With caption, without alt, left aligned and 300px width:
+
+#+CAPTION: This is my caption
+#+ATTR_HTML: :align left :width 300
+[[tsfile:2017-03-11T18.29.21%20Sterne%20im%20Baum%20--%20mytag%20publicvoit.jpg][2017-03-11T18.29.21 Sterne im Baum -- mytag publicvoit.jpg]]
+
+With caption, alt, right alined and 300px width:
+
+#+CAPTION: This is my caption
+#+ATTR_HTML: :alt This is my alt text
+#+ATTR_HTML: :align right :width 300
+[[tsfile:2017-03-11T18.29.21%20Sterne%20im%20Baum%20--%20mytag%20publicvoit.jpg][2017-03-11T18.29.21 Sterne im Baum -- mytag publicvoit.jpg]]
+
+Without caption, without alt, centered and 300px width and
+linked-image-width set to "none":
+
+#+ATTR_HTML: :align center :width 560 :linked-image-width none
+[[tsfile:2017-03-11T18.29.21%20Sterne%20im%20Baum%20--%20mytag%20publicvoit.jpg][2017-03-11T18.29.21 Sterne im Baum -- mytag publicvoit.jpg]]
+
+Just the image without ATTR lines or caption:
+
+[[tsfile:2017-03-11T18.29.21%20Sterne%20im%20Baum%20--%20mytag%20publicvoit.jpg][2017-03-11T18.29.21 Sterne im Baum -- mytag publicvoit.jpg]]
+
+--------------------------
+
+Linking a differently sized image:
+
+With caption, alt, right alined and 300px width, linked-image-width
+560:
+
+#+CAPTION: This is my caption
+#+ATTR_HTML: :alt This is my alt text
+#+ATTR_HTML: :align right :width 300 :linked-image-width 560
+[[tsfile:2017-03-11T18.29.21%20Sterne%20im%20Baum%20--%20mytag%20publicvoit.jpg][2017-03-11T18.29.21 Sterne im Baum -- mytag publicvoit.jpg]]
+
+With caption, alt, right alined and 300px width, linked-image-width
+"original":
+
+#+CAPTION: This is my caption
+#+ATTR_HTML: :alt This is my alt text
+#+ATTR_HTML: :align right :width 300 :linked-image-width 560
+[[tsfile:2017-03-11T18.29.21%20Sterne%20im%20Baum%20--%20mytag%20publicvoit.jpg][2017-03-11T18.29.21 Sterne im Baum -- mytag publicvoit.jpg]]
+
+FIXXME: not tested so far:
+- :width and :linked-image-width with same integers
+- :width is original and :linked-image-width is original
+- float number for :width or :linked-image-width
+- zero or negative integers for :width or :linked-image-width
+
+** DONE Links test and reading time over one minute   :blog:lazyblorg:programming:exampletag:mytest:
+CLOSED: [2017-09-30 Sat 17:05]
+:PROPERTIES:
+:CREATED:  [2017-09-30 Sat 17:05]
+:ID:       2017-09-30-link-test
+:END:
+:LOGBOOK:
+- State "DONE"       from              [2017-09-30 Sat 17:05]
+:END:
+
+This is a test article which tests its links to other (internal) blog entries.
+
+- This should work [[id:2016-10-31-persistent-entry][in lists]] as [[id:2016-11-27-special-characters][well]].
+- This should work [[id:2016-10-31-persistent-entry]] and [[id:2016-11-27-special-characters]].
+
+| also in | a [[id:2016-11-27-special-characters][table]]                          | with [[id:2016-11-27-special-characters][multiple cells containing links]] |
+| also    | [[id:2016-11-27-special-characters]] | and [[id:2016-11-27-special-characters]] |
+
+#+BEGIN_QUOTE
+Here [[id:2016-10-31-a-tag-page][in a quote]] block.
+#+END_QUOTE
+
+Here is [[id:2017-09-30-link-test][a self-reference]] which should not result in a backlink to itself.
+
+*** Even [[id:2016-10-31-my-temporal-article][a heading should]] work
+:PROPERTIES:
+:CREATED:  [2020-10-03 Sat 15:57]
+:END:
+
+What about [[id:2016-10-31-an-hidden-blog-entry][a hidden entry]]?
+
+*** Some test to get the reading time to exceed one minute
+:PROPERTIES:
+:CREATED:  [2020-10-03 Sat 15:58]
+:END:
+
+The [[https://github.com/novoid/lazyblorg/issues/47][reading time estimation feature]] is a very nice touch for the
+reader in order to get a rough figure how many minutes it takes to
+read an article.
+
+This way, she is able to determine if it is worth the time or not.
+Having such an indicator is almost standard in nowaday's web culture.
+
+My assumption is, that the reader is able to read a certain amount of
+words per minute. The initial value was chosen with 250. So maybe this
+is not adequate - let's see. Furthermore, I had to derive a heuristic
+algorithm to filter out non-word noise of the original Org mode source
+file. Those filtered things might contain real word (false positives)
+and the rest could contain non-words (false negatives). On average,
+this should not be a big issue. At least, this is a better
+approximation than counting all characters and assuming an average
+word consisting of five characters as I've seen in another algorithm.
+First, I would have had issues with filtering non-word content.
+Secondly, different languages do have different average sizes of
+words. So let's hope this is a valueable contribution to lazyblorg.
+
+------------
+
+In order to get the reading length high, here is some further dummy
+text as well:
+
+Aliquam erat volutpat. Nunc eleifend leo vitae magna. In id erat non
+orci commodo lobortis. Proin neque massa, cursus ut, gravida ut,
+lobortis eget, lacus. Sed diam. Praesent fermentum tempor tellus.
+Nullam tempus. Mauris ac felis vel velit tristique imperdiet. Donec at
+pede. Etiam vel neque nec dui dignissim bibendum. Vivamus id enim.
+Phasellus neque orci, porta a, aliquet quis, semper a, massa.
+Phasellus purus. Pellentesque tristique imperdiet tortor. Nam euismod
+tellus id erat.
+
+Aliquam erat volutpat. Nunc eleifend leo vitae magna. In id erat non
+orci commodo lobortis. Proin neque massa, cursus ut, gravida ut,
+lobortis eget, lacus. Sed diam. Praesent fermentum tempor tellus.
+Nullam tempus. Mauris ac felis vel velit tristique imperdiet. Donec at
+pede. Etiam vel neque nec dui dignissim bibendum. Vivamus id enim.
+Phasellus neque orci, porta a, aliquet quis, semper a, massa.
+Phasellus purus. Pellentesque tristique imperdiet tortor. Nam euismod
+tellus id erat.
+
+Aliquam erat volutpat. Nunc eleifend leo vitae magna. In id erat non
+orci commodo lobortis. Proin neque massa, cursus ut, gravida ut,
+lobortis eget, lacus. Sed diam. Praesent fermentum tempor tellus.
+Nullam tempus. Mauris ac felis vel velit tristique imperdiet. Donec at
+pede. Etiam vel neque nec dui dignissim bibendum. Vivamus id enim.
+Phasellus neque orci, porta a, aliquet quis, semper a, massa.
+Phasellus purus. Pellentesque tristique imperdiet tortor. Nam euismod
+tellus id erat.
+
+*** An almost empty heading at the end
+:PROPERTIES:
+:CREATED:  [2020-10-03 Sat 16:05]
+:END:
+
+This is to test the reading length estimation algorithm with a
+property drawer at the end.
+
+* DONE A Temporal Article With Links                                               :exampletag::blog:
+CLOSED: [2016-10-31 Mon 16:40]
+:PROPERTIES:
+:ID: 2016-10-31-my-temporal-article
+:CREATED:  [2016-10-31 Mon 16:39]
+:END:
+:LOGBOOK:
+- State "DONE"       from "NEXT"       [2016-10-31 Mon 16:40]
+:END:
+
+[[id:2016-10-31-an-hidden-blog-entry][Link to a hidden entry]]
+
+[[id:2016-10-31-persistent-entry][Link to persistent article]]
+
+[[id:2016-10-31-a-tag-page][Link to tag page]]
+
+Lorem ipsum dolor sit amet, malorum scaevola ut ius, ridens admodum adipisci eam ad. Eu quo ignota appareat, an primis expetendis eum, atqui labitur ceteros quo ad. Id zril partiendo cotidieque nam, nemore legimus has ad. Nec cu regione sensibus volutpat.
+
+Novum possit temporibus his in. Eam ut scripserit reformidans conclusionemque. Odio disputando ei his, ei est mutat mediocritatem. Harum verterem ex mea, sed saepe viderer scribentur ex. Pri te dictas eligendi praesent.
+
+* DONE This Is An Hidden Article                                            :blog:hidden:programming:
+CLOSED: [2016-10-31 Mon 16:41]
+:PROPERTIES:
+:ID: 2016-10-31-an-hidden-blog-entry
+:CREATED:  [2016-10-31 Mon 16:40]
+:END:
+:LOGBOOK:
+- State "DONE"       from "NEXT"       [2016-10-31 Mon 16:41]
+:END:
+
+[[id:2016-10-31-my-temporal-article][Link to temporal article]]
+
+Lorem ipsum dolor sit amet, malorum scaevola ut ius, ridens admodum adipisci eam ad. Eu quo ignota appareat, an primis expetendis eum, atqui labitur ceteros quo ad. Id zril partiendo cotidieque nam, nemore legimus has ad. Nec cu regione sensibus volutpat.
+
+Novum possit temporibus his in. Eam ut scripserit reformidans conclusionemque. Odio disputando ei his, ei est mutat mediocritatem. Harum verterem ex mea, sed saepe viderer scribentur ex. Pri te dictas eligendi praesent.
+
+* DONE Test case with drawers                                                                  :blog:
+CLOSED: [2021-01-30 Sat 23:32]
+:PROPERTIES:
+:ID: 2021-01-30-drawer-tests
+:CREATED:  [2021-01-30 Sat 23:26]
+:END:
+:LOGBOOK:
+- State "DONE"       from "NEXT"       [2021-01-30 Sat 23:32]
+:END:
+
+** RELATED drawer
+:PROPERTIES:
+:CREATED:  [2021-01-30 Sat 23:27]
+:ID:       2021-01-30-RELATED-drawer
+:END:
+:RELATED:
+[2020-07-09 Thu 18:16] -> [[id:2021-01-30-does-not-exist1][This doesn't exist]]
+[2020-07-09 Thu 18:16] -> [[id:2021-01-30-doesnt-exist-2][another non-existent target link]]
+:END:
+
+This is just a dummy text.
+
+# not working: link to [[id:2021-01-30-LINKS-drawer][LINKS drawer]]
+
+** LINKS drawer
+:PROPERTIES:
+:CREATED:  [2021-01-30 Sat 23:28]
+:ID:       2021-01-30-LINKS-drawer
+:END:
+:LINKS:
+[2021-01-30 Sat 23:30] <- [[id:2021-01-30-RELATED-drawer][RELATED drawer]]
+[2021-01-30 Sat 23:30] <- [[id:2021-01-30-another-nonexistent-id][not existing again]] 
+:END:
+
+Another dummy text.
+
+* negative tests
+:PROPERTIES:
+:CREATED:  [2016-11-27 Sun 15:01]
+:END:
+
+
+** DONE Not of any interest to you                                                     :programming:
+CLOSED: [2016-10-31 Mon 16:35]
+:PROPERTIES:
+:ID: 2016-10-31-not-of-interest
+:CREATED:  [2016-10-31 Mon 16:34]
+:END:
+:LOGBOOK:
+- State "DONE"       from "NEXT"       [2016-10-31 Mon 16:35]
+:END:
+
+There is the tag "blog" missing. So this should not result in a blog article.
+
+** DONE hidden but not a blog tag                                                           :hidden:
+CLOSED: [2016-11-27 Sun 15:02]
+:PROPERTIES:
+:ID: 2016-11-27-hidden-but-no-blog-tag
+:CREATED:  [2016-11-27 Sun 15:02]
+:END:
+:LOGBOOK:
+- State "DONE"       from "NEXT"       [2016-11-27 Sun 15:02]
+:END:
+
+Must not lead to an article.
