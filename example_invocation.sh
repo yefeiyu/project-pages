@@ -1,6 +1,6 @@
 #!/bin/sh
 
-blog=/tmp/lazyblorg/blog
+blog=/Users/charlesthomas/gh/yefeiyu.github.io
 # create the output directory (and parents):
 mkdir -p $blog
 
