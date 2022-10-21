@@ -10,26 +10,26 @@
      xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
      xmlns:media="http://search.yahoo.com/mrss/"><channel>
   <title>Orgpress Blog</title>
-  <atom:link href="https://yefeiyu.github.io/index.xml" rel="self" type="application/rss+xml" />
-  <link>https://yefeiyu.github.io</link>
+  <atom:link href="https://yefeiyu.github.io/public/index.xml" rel="self" type="application/rss+xml" />
+  <link>https://yefeiyu.github.io/public</link>
   <description><![CDATA[]]></description>
   <language>en</language>
-  <pubDate>Fri, 21 Oct 2022 06:23:39 +0000</pubDate>
-  <lastBuildDate>Fri, 21 Oct 2022 06:23:39 +0000</lastBuildDate>
+  <pubDate>Fri, 21 Oct 2022 06:32:38 +0000</pubDate>
+  <lastBuildDate>Fri, 21 Oct 2022 06:32:38 +0000</lastBuildDate>
   <generator>Emacs 28.1 Org-mode 9.5.3</generator>
   <webMaster>yefeiyu@gmail.com (unknown)</webMaster>
   <image>
     <url>https://orgmode.org/img/org-mode-unicorn-logo.png</url>
     <title>Orgpress Blog</title>
-    <link>https://yefeiyu.github.io</link>
+    <link>https://yefeiyu.github.io/public</link>
   </image>
 
 
   <item>
     <title>file:ooo.org</title>
-    <link>https://yefeiyu.github.io/ooo.html</link>
+    <link>https://yefeiyu.github.io/public/ooo.html</link>
     <author>yefeiyu@gmail.com (unknown)</author>
-    <guid isPermaLink="false">https://yefeiyu.github.io/ooo.html</guid>
+    <guid isPermaLink="false">https://yefeiyu.github.io/public/ooo.html</guid>
     <pubDate>Sat, 01 Feb 1986 00:00:00 +0000</pubDate>
 
     <description><![CDATA[<p>
@@ -39,9 +39,9 @@
   </item>
   <item>
     <title>file:hellod.org</title>
-    <link>https://yefeiyu.github.io/hellod.html</link>
+    <link>https://yefeiyu.github.io/public/hellod.html</link>
     <author>yefeiyu@gmail.com (unknown)</author>
-    <guid isPermaLink="false">https://yefeiyu.github.io/hellod.html</guid>
+    <guid isPermaLink="false">https://yefeiyu.github.io/public/hellod.html</guid>
     <pubDate>Sat, 01 Feb 1986 00:00:00 +0000</pubDate>
 
     <description><![CDATA[<p>
