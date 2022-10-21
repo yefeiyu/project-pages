@@ -1,5 +1,5 @@
 (setq org-publish-cache (make-hash-table :test 'equal :weakness nil :size 100))
 (puthash ":project:" "rss" org-publish-cache)
 (puthash ":cache-file:" "/blog/public/.org-timestamps/rss.cache" org-publish-cache)
-(puthash "/blog/org/index.org" '(:crossrefs (((other "[[file:hellod.org][World]]") . 253353444) ((headline "[[file:hellod.org][World]]") . 253353444) ((other "[[file:ooo.org][World" "good]]") . 21854850) ((headline "[[file:ooo.org][World" "good]]") . 21854850) ((other "[[file:十一年zz.org][十一年zz]]") . 218831409) ((headline "[[file:十一年zz.org][十一年zz]]") . 218831409)) :index nil) org-publish-cache)
-(puthash "Xb62603b9c53219def1f11a83ff47ff91c4f78ec4" '(25426 21640 541310 569000) org-publish-cache)
+(puthash "/blog/org/index.org" '(:crossrefs (((other "[[file:ab.org][Worldddddd]]") . 85248371) ((headline "[[file:ab.org][Worldddddd]]") . 85248371) ((other "[[file:hellod.org][World]]") . 253353444) ((headline "[[file:hellod.org][World]]") . 253353444) ((other "[[file:abc.org][Worldeeee]]") . 23742452) ((headline "[[file:abc.org][Worldeeee]]") . 23742452) ((other "[[file:十一年zz.org][十一年zz]]") . 218831409) ((headline "[[file:十一年zz.org][十一年zz]]") . 218831409)) :index nil) org-publish-cache)
+(puthash "Xb62603b9c53219def1f11a83ff47ff91c4f78ec4" '(25426 23250 878056 273000) org-publish-cache)
