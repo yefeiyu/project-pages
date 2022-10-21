@@ -2,4 +2,4 @@
 (puthash ":project:" "rss" org-publish-cache)
 (puthash ":cache-file:" "/blog/public/.org-timestamps/rss.cache" org-publish-cache)
 (puthash "/blog/org/index.org" '(:crossrefs (((other "[[file:hellod.org][World]]") . 253353444) ((headline "[[file:hellod.org][World]]") . 253353444) ((other "[[file:ooo.org][World" "good]]") . 21854850) ((headline "[[file:ooo.org][World" "good]]") . 21854850)) :index nil) org-publish-cache)
-(puthash "Xb62603b9c53219def1f11a83ff47ff91c4f78ec4" '(25426 15622 180846 971000) org-publish-cache)
+(puthash "Xb62603b9c53219def1f11a83ff47ff91c4f78ec4" '(25426 21173 853844 190000) org-publish-cache)

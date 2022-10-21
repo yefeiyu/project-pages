@@ -5,7 +5,7 @@
 (puthash "/blog/org/hellod.org" '(:date (7745 23680) :title "World" :crossrefs (((other "Source" "Code") . 17871756) ((headline "Source" "Code") . 17871756)) :index (("Tag!Hello World" "/blog/org/hellod.org" nil))) org-publish-cache)
 (puthash "Xe8a27aad61e5d95e6ba4451e9c55524564b60036" '(25425 64631 233299 782000) org-publish-cache)
 (puthash "/blog/org/index.org" '(:crossrefs (((other "[[file:hellod.org][World]]") . 226373887) ((headline "[[file:hellod.org][World]]") . 226373887) ((other "[[file:ooo.org][World" "good]]") . 45691297) ((headline "[[file:ooo.org][World" "good]]") . 45691297)) :index nil) org-publish-cache)
-(puthash "X75106c7b565107d996cc2d733095b328508870d5" '(25426 15619 9035 480000) org-publish-cache)
+(puthash "X75106c7b565107d996cc2d733095b328508870d5" '(25426 21170 903388 522000) org-publish-cache)
 (puthash "Xc04c6254deee108dc8eef31a0e1c8d065842c706" '(25425 2099 707394 979000) org-publish-cache)
 (puthash "/blog/org/ooo.org" '(:date (7745 23680) :title "World good" :crossrefs (((other "Source" "Code") . 20557551) ((headline "Source" "Code") . 20557551)) :index (("Tag!Hello World" "/blog/org/ooo.org" nil))) org-publish-cache)
 (puthash "Xe4c815f402cfe30c2a456983e768b9c94264a058" '(25425 64748 456131 694000) org-publish-cache)
