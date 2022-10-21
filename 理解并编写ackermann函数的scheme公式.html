@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<!-- 2022-10-21 Fri 15:15 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>理解并编写ackermann函数的scheme公式</title>
+<meta name="author" content="yefeiyu" />
+<meta name="description" content="学习笔记" />
+<meta name="generator" content="Org Mode" />
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#ffffff">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/style/toc.css"/>
+<link rel="stylesheet" href="/style/tufte.css"/>
+<link rel="stylesheet" href="/style/main.css"/>
+<link rel="alternate" type="application/rss+xml" title="yefeiyu" href="https://yefeiyu.github.io/index.html"/>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJRFJGX"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header>
+    <a accesskey="h" href="/index.html"> HOME </a> |
+    <a href="#" id="edit-in-github">EDIT</a> |
+    <a href="https://feeds.oyanglul.us/JichaoOuyangsBlog">RSS</a> |
+    <a accesskey="H" href="/jichao.ouyang.html">ABOUT</a> |
+    <a href="https://github.com/jcouyang/blog">GITHUB</a>
+</header>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">理解并编写ackermann函数的scheme公式</h1>
+</header><p>
+这两天在学习《Structure and Interpretation of Computer Programs》（本书以简称SICP著名），虽然只看了个开头，但依然感受到了语言和数学的魅力。
+细嚼慢咽的翻着书，力争学透书中列举的例子和练习，对于一些经典的函数表达式，试图去wiki寻找更详细的解释。
+昨天看到练习10，讲了构造Ackermann函数，sicp中直接列出构造的函数：
+</p>
+<pre class="code"><code>(define (A x y)
+  (cond ((= y 0) 0)
+        ((= x 0) (* 2 y))
+        ((= y 1) 2)
+        (else (A (- x 1)
+                 (A x (- y 1))))))
+</code></pre>
+<p>
+查阅wiki时，看到原自然函数公式是
+</p>
+<pre class="code"><code>(ignore)
+A(m,n)={\begin{cases}n+1&amp;{\mbox{if }}m=0\\A(m-1,1)&amp;{\mbox{if }}m&gt;0{\mbox{ and }}n=0\\A(m-1,A(m,n-1))&amp;{\mbox{if }}m&gt;0{\mbox{ and }}n&gt;0.\end{cases}} 
+</code></pre>
+<p>
+这部分有乱码，直接搜索后看原文吧。
+<a href="https://en.m.wikipedia.org/wiki/Ackermann_function">wiki ackermann function</a>
+在计算时，发现sicp中出现的答案和wiki中下面列表的答案不一致：
+ Values of A(m, n) 
+</p>
+
+<table>
+
+
+<colgroup>
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">m\n</th>
+<th scope="col" class="org-right">0</th>
+<th scope="col" class="org-right">1</th>
+<th scope="col" class="org-right">2</th>
+<th scope="col" class="org-right">3</th>
+<th scope="col" class="org-right">4</th>
+<th scope="col" class="org-left">n</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">4</td>
+<td class="org-right">5</td>
+<td class="org-left">n+1</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">4</td>
+<td class="org-right">5</td>
+<td class="org-right">6</td>
+<td class="org-left">n+2=2+(n+3)-3</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">5</td>
+<td class="org-right">7</td>
+<td class="org-right">9</td>
+<td class="org-right">11</td>
+<td class="org-left">2n+3=2&sdot;(n+3)-3</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">5</td>
+<td class="org-right">13</td>
+<td class="org-right">29</td>
+<td class="org-right">61</td>
+<td class="org-right">125</td>
+<td class="org-left">2^{(n+3)}-3</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">13</td>
+<td class="org-right">65533</td>
+<td class="org-right">265536−3</td>
+<td class="org-right">{2^{2^</td>
+<td class="org-right">{2^{2^{2^</td>
+<td class="org-left">{\displaystyle{\begin</td>
+</tr>
+</tbody>
+</table>
+
+<pre class="example" id="org264d3d9">
+| m\n |  0 |     1 |        2 |      3 |         4 | n                     |
+|   0 |  1 |     2 |        3 |      4 |         5 | n+1                   |
+|   1 |  2 |     3 |        4 |      5 |         6 | n+2=2+(n+3)-3         |
+|   2 |  3 |     5 |        7 |      9 |        11 | 2n+3=2\cdot(n+3)-3    |
+|   3 |  5 |    13 |       29 |     61 |       125 | 2^{(n+3)}-3           |
+|   4 | 13 | 65533 | 265536−3 | {2^{2^ | {2^{2^{2^ | {\displaystyle{\begin |
+</pre>
+<p>
+经过仔细对比，发现公式表述有差异。在昨天晚上弄明原题后，今天又重新构建了wiki页面公式的scheme函数，一难，结果和wiki这列表中的答案一致。
+</p>
+<pre class="code"><code>(define (A x y)
+  (cond ((= x 0)(+ y 1))
+	((= y 0)(A (- x 1) 1))
+	(else (A (- x 1)(A x (- y 1))))))
+</code></pre>
+</div>
+<div id="postamble" class="status">
+<footer>
+  <p>Author: yefeiyu <a aria-label="Follow @yefeiyu on GitHub" data-count-aria-label="# followers on GitHub" data-count-api="/users/jcouyang#followers" data-count-href="/jcouyang/followers" href="https://github.com/yefeiyu" class="github-button">Follow @yefeiyu</a></p>
+  <p>Modified: 2022-10-21 Fri 14:43</p>
+  <p>Generated by: <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.5.3) &#215; <a href="https://github.com/yefeiyu/yefeiyu.github.io">博智堂</a></p>
+</footer>
+</div>
+</body>
+</html>

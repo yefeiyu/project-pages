@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<!-- 2022-10-21 Fri 15:15 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>使用aboboo提取原版电影音频和字幕文件制作anki暗记卡片</title>
+<meta name="author" content="yefeiyu" />
+<meta name="description" content="学习工具制作" />
+<meta name="generator" content="Org Mode" />
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#ffffff">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/style/toc.css"/>
+<link rel="stylesheet" href="/style/tufte.css"/>
+<link rel="stylesheet" href="/style/main.css"/>
+<link rel="alternate" type="application/rss+xml" title="yefeiyu" href="https://yefeiyu.github.io/index.html"/>
+</head>
+<body>
+<div id="preamble" class="status">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJRFJGX"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header>
+    <a accesskey="h" href="/index.html"> HOME </a> |
+    <a href="#" id="edit-in-github">EDIT</a> |
+    <a href="https://feeds.oyanglul.us/JichaoOuyangsBlog">RSS</a> |
+    <a accesskey="H" href="/jichao.ouyang.html">ABOUT</a> |
+    <a href="https://github.com/jcouyang/blog">GITHUB</a>
+</header>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">使用aboboo提取原版电影音频和字幕文件制作anki暗记卡片</h1>
+</header>
+<div id="outline-container-orgf7b88e7" class="outline-2">
+<h2 id="orgf7b88e7"><span class="section-number-2">1.</span> </h2>
+<div class="outline-text-2" id="text-1">
+<p>
+将电影文件和字幕文件改成同名，放到同一文件夹内。使用aboboo本地-打开，则aboboo在切分语音时自动按字幕时间戳切分。
+</p>
+</div>
+</div>
+<div id="outline-container-org53cddfa" class="outline-2">
+<h2 id="org53cddfa"><span class="section-number-2">2.</span> </h2>
+<div class="outline-text-2" id="text-2">
+<p>
+处理字幕。有时候需要原、译文对调；繁体乱码改简体；删除字幕后重新载入等操作。
+</p>
+</div>
+</div>
+<div id="outline-container-orga859619" class="outline-2">
+<h2 id="orga859619"><span class="section-number-2">3.</span> </h2>
+<div class="outline-text-2" id="text-3">
+<p>
+句子选择。打开后反选，然后在第二项中修改为”参照文本大于4个词的句子“，确定。
+</p>
+</div>
+</div>
+<div id="outline-container-org7eb8d94" class="outline-2">
+<h2 id="org7eb8d94"><span class="section-number-2">4.</span> </h2>
+<div class="outline-text-2" id="text-4">
+<p>
+导出选中句子到音频文件，字幕格式为utf-8，勾选自动剪除句子首尾静音，每一句一个句子。
+</p>
+</div>
+</div>
+<div id="outline-container-orgae32f25" class="outline-2">
+<h2 id="orgae32f25"><span class="section-number-2">5.</span> </h2>
+<div class="outline-text-2" id="text-5">
+<p>
+使用python，生成anki可以导入的create.csv文件。create.py文件代码如下：
+</p>
+<pre class="code"><code><span style="color: #677691;">#</span><span style="color: #677691;">-*-coding:utf-8-*-</span>
+<span style="color: #677691;">"""</span>
+<span style="color: #677691;">My first python program</span>
+<span style="color: #677691;">"""</span>
+<span style="color: #81A1C1;">import</span> re
+<span style="color: #81A1C1;">import</span> os
+<span style="color: #81A1C1;">import</span> sys
+<span style="color: #81A1C1;">import</span> csv
+<span style="color: #677691;">#</span><span style="color: #677691;">from sys import argv</span>
+<span style="color: #81A1C1;">import</span> glob
+<span style="color: #81A1C1;">import</span> time
+<span style="font-weight: bold;">output</span> = <span style="color: #D08770;">"Tobeimport.csv"</span>
+<span style="color: #81A1C1;">def</span> <span style="font-weight: bold;">Main</span>():
+    <span style="font-weight: bold;">curpath</span> = os.getcwd()
+    <span style="font-weight: bold;">lrcfiles</span> = curpath + <span style="color: #D08770;">"//*.lrc"</span>
+    <span style="font-weight: bold;">flist</span> = glob.glob(lrcfiles)
+    <span style="font-weight: bold;">writer</span> = csv.writer(<span style="color: #81A1C1;">file</span>(output, <span style="color: #D08770;">'wb+'</span>))
+    <span style="font-weight: bold;">pattern1</span> = re.<span style="color: #81A1C1;">compile</span>(r<span style="color: #D08770;">'00]([\s\S]*) \t'</span>)
+    <span style="font-weight: bold;">pattern2</span> = re.<span style="color: #81A1C1;">compile</span>(r<span style="color: #D08770;">'\t([\s\S]*)'</span>)
+    <span style="font-weight: bold;">i</span> = 0
+    <span style="color: #81A1C1;">for</span> f <span style="color: #81A1C1;">in</span> <span style="font-weight: bold;">flist</span>:
+       i = i + 1
+       <span style="font-weight: bold;">fh</span> = <span style="color: #81A1C1;">file</span>(f,<span style="color: #D08770;">'r'</span>)
+       <span style="font-weight: bold;">content</span> = fh.read()
+       <span style="font-weight: bold;">english</span> = pattern1.findall(content)
+       <span style="font-weight: bold;">chinese</span> = pattern2.findall(content)
+
+       <span style="color: #81A1C1;">print</span> content
+
+       <span style="color: #81A1C1;">print</span> english
+       <span style="color: #81A1C1;">print</span> chinese 
+       <span style="font-weight: bold;">mp3file</span> = f[:-3] + <span style="color: #D08770;">"mp3"</span>
+       <span style="font-weight: bold;">newname</span> = <span style="color: #81A1C1;">str</span>(time.time()) + <span style="color: #81A1C1;">str</span>(i) + <span style="color: #D08770;">".mp3"</span>
+       <span style="color: #81A1C1;">print</span> mp3file
+       <span style="color: #81A1C1;">print</span> newname
+       os.rename(mp3file, newname)
+       <span style="font-weight: bold;">question</span> = <span style="color: #D08770;">"[sound:"</span> + newname +<span style="color: #D08770;">"]"</span>
+
+       <span style="color: #81A1C1;">if</span> <span style="color: #81A1C1;">not</span> <span style="font-weight: bold;">english</span>:
+           answer =content[10:]
+       <span style="color: #81A1C1;">else</span>:
+           answer = english[0] + <span style="color: #D08770;">"   "</span> + question
+       writer.writerow([question, answer])
+       fh.close()
+    <span style="color: #81A1C1;">del</span> writer
+      
+<span style="color: #81A1C1;">if</span> <span style="color: #81A1C1;">__name__</span> == <span style="color: #D08770;">"__main__"</span>:
+    Main()
+</code></pre>
+</div>
+</div>
+<div id="outline-container-org1954ceb" class="outline-2">
+<h2 id="org1954ceb"><span class="section-number-2">6.</span> </h2>
+<div class="outline-text-2" id="text-6">
+<p>
+将媒体文件导入anki文件夹内。linux是anki安装后在主文件夹内生成documents文件夹;windows是安装后在user/pc-user-id/AppData/Roaming/Anki2/User 1/collection.media中。
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<footer>
+  <p>Author: yefeiyu <a aria-label="Follow @yefeiyu on GitHub" data-count-aria-label="# followers on GitHub" data-count-api="/users/jcouyang#followers" data-count-href="/jcouyang/followers" href="https://github.com/yefeiyu" class="github-button">Follow @yefeiyu</a></p>
+  <p>Modified: 2022-10-21 Fri 14:43</p>
+  <p>Generated by: <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.5.3) &#215; <a href="https://github.com/yefeiyu/yefeiyu.github.io">博智堂</a></p>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<!-- 2022-10-21 Fri 15:15 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Debian modify recorder</title>
+<meta name="author" content="yefeiyu" />
+<meta name="description" content="Record my log of pc install" />
+<meta name="generator" content="Org Mode" />
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#ffffff">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/style/toc.css"/>
+<link rel="stylesheet" href="/style/tufte.css"/>
+<link rel="stylesheet" href="/style/main.css"/>
+<link rel="alternate" type="application/rss+xml" title="yefeiyu" href="https://yefeiyu.github.io/index.html"/>
+</head>
+<body>
+<div id="preamble" class="status">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJRFJGX"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header>
+    <a accesskey="h" href="/index.html"> HOME </a> |
+    <a href="#" id="edit-in-github">EDIT</a> |
+    <a href="https://feeds.oyanglul.us/JichaoOuyangsBlog">RSS</a> |
+    <a accesskey="H" href="/jichao.ouyang.html">ABOUT</a> |
+    <a href="https://github.com/jcouyang/blog">GITHUB</a>
+</header>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">Debian modify recorder</h1>
+</header><div id="outline-container-org5fd55b1" class="outline-2">
+<h2 id="org5fd55b1"><span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-17 Thu&gt;</span></span></h2>
+<div class="outline-text-2" id="text-org5fd55b1">
+</div>
+<div id="outline-container-orga1a277e" class="outline-3">
+<h3 id="orga1a277e">;;off words break</h3>
+<div class="outline-text-3" id="text-orga1a277e">
+<p>
+<code>(global-visual-line-mode t)</code>
+</p>
+</div>
+</div>
+<div id="outline-container-org0a389a1" class="outline-3">
+<h3 id="org0a389a1">use pandoc convert html to org-mode file</h3>
+<div class="outline-text-3" id="text-org0a389a1">
+<pre class="code"><code>% pandoc -o cheatsheet.org -f html -t org <span style="color: #D08770;">'</span>http:<span style="color: #677691;">//</span><span style="color: #677691;">sce2.umkc.edu/BIT/burrise/pl/modeling/qanda.html'</span>
+ Fetching http:<span style="color: #677691;">//</span><span style="color: #677691;">sce2.umkc.edu/BIT/burrise/pl/modeling/qanda.html...</span>
+ pandoc: Cannot decode <span style="color: #81A1C1;">byte</span> <span style="color: #D08770;">'\x92'</span>: <span style="color: #81A1C1;">Data</span>.<span style="color: #81A1C1;">Text</span>.<span style="color: #81A1C1;">Internal</span>.<span style="color: #81A1C1;">Encoding</span>.Fusion.streamUtf8: Invalid UTF-8 stream
+ %
+</code></pre>
+
+<p>
+UPDATE: It looks like the problem was with web-page it self! I tried it with another HTML website and it works juts fine (need some formatting but almost all the job has been done, thanks to pandoc):
+</p>
+<pre class="code"><code>% curl http:<span style="color: #677691;">//</span><span style="color: #677691;">anh.cs.luc.edu/170/notes/CSharpHtml/sorting.html  &gt; foo.html </span>
+% pandoc -o foo.org -f html -t org foo.html 
+</code></pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbb7758b" class="outline-2">
+<h2 id="orgbb7758b"><span class="timestamp-wrapper"><span class="timestamp">&lt;2018-04-11 Wed&gt;</span></span></h2>
+<div class="outline-text-2" id="text-orgbb7758b">
+</div>
+<div id="outline-container-orgee1fbac" class="outline-3">
+<h3 id="orgee1fbac">modify the fcitx didn't work under openbox OS.</h3>
+<div class="outline-text-3" id="text-orgee1fbac">
+<pre class="code"><code>cd /usr/share/applications
+;;pay attention to the folder <span style="color: #81A1C1;">is</span> <span style="font-weight: bold;">application</span>, <span style="font-weight: bold;">not</span> applications.
+ls fc*
+cp fcitx.desktop ~/.config/autostart/
+</code></pre>
+</div>
+</div>
+<div id="outline-container-org7452d09" class="outline-3">
+<h3 id="org7452d09">Modify the problem of the wifi 固件缺失</h3>
+<div class="outline-text-3" id="text-org7452d09">
+<p>
+sai firmware-linux-free
+git clone git://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
+git clone git://git.kernel.org/pub/scm/linux/kernel/git/romieu/linux-firmware.git
+sudo cp -r linux-firmware/rtl_nic/ <i>lib/firmware</i>
+sudo update-initramfs -u
+lspci
+lspci -nn | grep Network
+s discover &#x2013;vendor-id &#x2013;model-id pci | uniq
+sai firmware-brcm80211
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org87ff3ad" class="outline-2">
+<h2 id="org87ff3ad"><span class="timestamp-wrapper"><span class="timestamp">&lt;2018-04-10 Tue&gt;</span></span></h2>
+<div class="outline-text-2" id="text-org87ff3ad">
+</div>
+<div id="outline-container-org33e2072" class="outline-3">
+<h3 id="org33e2072">How to execute command on startup (rc.local alternative)</h3>
+<div class="outline-text-3" id="text-org33e2072">
+<p>
+which involves use of systemd here:
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="org59ed0ef"></a>Create a service:<br>
+<div class="outline-text-4" id="text-org59ed0ef">
+<pre class="code"><code><span style="color: #81A1C1;">sudo</span> <span style="font-weight: bold;">vi</span> /etc/systemd/system/rc-local.service
+</code></pre>
+</div>
+</li>
+<li><a id="orgeee0ab7"></a>Add your code there:<br>
+<div class="outline-text-4" id="text-orgeee0ab7">
+<pre class="code"><code>[Unit]
+<span style="font-weight: bold;">Description</span>=/etc/rc.local Compatibility
+<span style="font-weight: bold;">ConditionPathExists</span>=/etc/rc.local
+
+[Service]
+<span style="font-weight: bold;">Type</span>=forking
+<span style="font-weight: bold;">ExecStart</span>=/etc/rc.local start
+<span style="font-weight: bold;">TimeoutSec</span>=0
+<span style="font-weight: bold;">StandardOutput</span>=tty
+<span style="font-weight: bold;">RemainAfterExit</span>=yes
+<span style="font-weight: bold;">SysVStartPriority</span>=99
+
+[Install]
+<span style="font-weight: bold;">WantedBy</span>=multi-user.target
+</code></pre>
+</div>
+</li>
+<li><a id="orgc4cc370"></a>Create and make sure /etc/rc.local is executable and add this code inside it:<br>
+<div class="outline-text-4" id="text-orgc4cc370">
+<pre class="code"><code><span style="color: #81A1C1;">sudo</span> <span style="font-weight: bold;">chmod</span> +x /etc/rc.local
+</code></pre>
+<pre class="code"><code><span style="color: #677691;">#</span><span style="color: #677691;">!/bin/</span><span style="color: #81A1C1;">sh</span><span style="color: #677691;"> -e</span>
+<span style="color: #677691;">#</span>
+<span style="color: #677691;"># </span><span style="color: #677691;">rc.local</span>
+<span style="color: #677691;">#</span>
+<span style="color: #677691;"># </span><span style="color: #677691;">This script is executed at the end of each multiuser runlevel.</span>
+<span style="color: #677691;"># </span><span style="color: #677691;">Make sure that the script will "exit 0" on success or any other</span>
+<span style="color: #677691;"># </span><span style="color: #677691;">value on error.</span>
+<span style="color: #677691;">#</span>
+<span style="color: #677691;"># </span><span style="color: #677691;">In order to enable or disable this script just change the execution</span>
+<span style="color: #677691;"># </span><span style="color: #677691;">bits.</span>
+<span style="color: #677691;">#</span>
+<span style="color: #677691;"># </span><span style="color: #677691;">By default this script does nothing.</span>
+
+<span style="color: #81A1C1;">exit</span> 0
+</code></pre>
+</div>
+</li>
+<li><a id="org2cdf1b3"></a>Enable the service:<br>
+<div class="outline-text-4" id="text-org2cdf1b3">
+<pre class="code"><code>sudo systemctl <span style="color: #81A1C1;">enable</span> <span style="font-weight: bold;">rc</span>-local
+</code></pre>
+</div>
+</li>
+<li><a id="org39759fc"></a>Start service and check status:<br>
+<div class="outline-text-4" id="text-org39759fc">
+<pre class="code"><code>sudo systemctl <span style="color: #81A1C1;">start</span> <span style="font-weight: bold;">rc</span>-local.service
+sudo systemctl status rc-local.service
+
+</code></pre>
+
+<p>
+If all goes well you can add your code to the /etc/rc.local file then restart it.
+</p>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-org2dfb24b" class="outline-3">
+<h3 id="org2dfb24b">openbox close sleep and screensaver</h3>
+<div class="outline-text-3" id="text-org2dfb24b">
+<pre class="code"><code>
+<span style="color: #677691;">#</span><span style="color: #677691;">xset s 300      #&#35774;&#32622;&#23631;&#20445;&#26102;&#38388;&#20026;300&#31186;&#65292;&#26102;&#38388;&#21333;&#20301;&#20026;&#31186;</span>
+<span style="color: #677691;">#</span><span style="color: #677691;">xset s 0        #&#20851;&#38381;&#23631;&#24149;&#20445;&#25252;</span>
+<span style="color: #677691;">#</span><span style="color: #677691;">xset dpms 0 0 0 # &#19977;&#20010;&#25968;&#20540;&#20998;&#21035;&#20026;Standby&#12289;Suspend&#12289;Off&#65292;&#21333;&#20301;&#31186;</span>
+<span style="color: #677691;">#</span><span style="color: #677691;">xset -dpms      #&#20851;&#38381;&#30005;&#28304;&#31649;&#29702;</span>
+
+</code></pre>
+</div>
+</div>
+<div id="outline-container-orgd6c5465" class="outline-3">
+<h3 id="orgd6c5465">openbox environment setup</h3>
+<div class="outline-text-3" id="text-orgd6c5465">
+<p>
+Setting up your environment
+</p>
+
+<p>
+If you would like to set environment variables that will affect everything run in your current session (including Openbox), you can place them in ~/.config/openbox/environment. Here's an example ~/.config/openbox/environment file:
+</p>
+<pre class="code"><code><span style="color: #677691;"># </span><span style="color: #677691;">Set up my own path</span>
+<span style="color: #81A1C1;">export</span> <span style="font-weight: bold;">PATH</span>=$<span style="font-weight: bold;">HOME</span>/bin:$<span style="font-weight: bold;">PATH</span>
+
+<span style="color: #677691;"># </span><span style="color: #677691;">Change the language used from the system's default</span>
+<span style="color: #81A1C1;">export</span> <span style="font-weight: bold;">LC_CTYPE</span>=ja_JP.utf8
+
+<span style="color: #677691;"># </span><span style="color: #677691;">SCIM for typing non-english characters</span>
+<span style="color: #81A1C1;">export</span> <span style="font-weight: bold;">XMODIFIERS</span>=@<span style="font-weight: bold;">im</span>=SCIM
+<span style="color: #81A1C1;">export</span> <span style="font-weight: bold;">GTK_IM_MODULE</span>=scim
+<span style="color: #81A1C1;">export</span> <span style="font-weight: bold;">QT_IM_MODULE</span>=scim
+</code></pre>
+</div>
+</div>
+
+<div id="outline-container-orgccb70bb" class="outline-3">
+<h3 id="orgccb70bb">openbox keyblinding setup, ~/.config/openbox/rc.xml</h3>
+<div class="outline-text-3" id="text-orgccb70bb">
+<pre class="code"><code>&lt;!-- Keybindings <span style="color: #81A1C1;">for</span> running applications --&gt;
+&lt;keybind key=<span style="color: #D08770;">"W-e"</span>&gt;
+  &lt;action name=<span style="color: #D08770;">"Execute"</span>&gt;
+    &lt;startupnotify&gt;
+      &lt;enabled&gt;<span style="color: #81A1C1;">true</span>&lt;/enabled&gt;
+      &lt;name&gt;kfmclient&lt;/name&gt;
+    &lt;/startupnotify&gt;
+    &lt;command&gt;pcmanfm&lt;/command&gt;
+  &lt;/action&gt;
+&lt;/keybind&gt;
+</code></pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org67b4f06" class="outline-2">
+<h2 id="org67b4f06"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-01 Thu&gt;</span></span></h2>
+<div class="outline-text-2" id="text-org67b4f06">
+<p>
+chane the _app/assets/themes/curtana/_less/common.less
+</p>
+<pre class="code"><code>table {
+
+<span style="color: #81A1C1;">tr</span>:nth-child(even){background-color: #f5f2ff}
+
+th {
+    background-color: #cC0Ff0;
+    <span style="color: #81A1C1;">color</span>: white;
+}
+     <span style="color: #677691;">// </span><span style="color: #677691;">TODO: responsive table support</span>
+-    <span style="color: #677691;">// </span><span style="color: #677691;">display: inline-block;</span>
+-    <span style="color: #677691;">// </span><span style="color: #677691;">overflow-x: auto;</span>
+-    <span style="color: #677691;">// </span><span style="color: #677691;">white-space: nowrap;</span>
++    display: inline-block;
++    overflow-x: auto;
++    white-space: nowrap;
+}
+</code></pre>
+<p>
+and then the TABLE had 横拉滚动条
+</p>
+</div>
+</div>
+<div id="outline-container-org1bd3c65" class="outline-2">
+<h2 id="org1bd3c65"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-04-14 Fri&gt;</span></span></h2>
+<div class="outline-text-2" id="text-org1bd3c65">
+<p>
+A friend sent me an email with a JPEG photo in the middle of the text. The picture is so big, most of it is outside the screen and I want to view it with an outside image viewer and not in Gnus. How do I save an image that is included in the email in Gnus, if it's not just an ordinary attachment?
+</p>
+
+<p>
+The command you need is gnus-summary-save-parts. You have an inline image, which implies that you received an HTML mail. An inline image is an instance of a so-called MIME part, where MIME is an Internet standard governing email-related things such as non-text attachments.
+</p>
+<pre class="code"><code>L ;;list all group of gnus
+<span style="color: #81A1C1;">X</span> <span style="font-weight: bold;">m</span> ;;save <span style="color: #81A1C1;">image</span> <span style="font-weight: bold;">to</span> ~/
+</code></pre>
+<p>
+debian chrome extensions installation is not enabled.
+se /etc/environment
+CHROMIUM_FLAGS='&#x2013;enable-remote-extensions'
+</p>
+</div>
+</div>
+
+<div id="outline-container-org885b173" class="outline-2">
+<h2 id="org885b173"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-04-13 Thu&gt;</span></span></h2>
+<div class="outline-text-2" id="text-org885b173">
+<p>
+export WINEARCH=win32
+export WINEPREFIX=$HOME/.mynewwine32prefix/
+</p>
+
+<p>
+bash winetricks dotnet30
+proxychains4 bash winetricks dotnet40
+</p>
+
+<p>
+wget kegel.com/wine/winetricks &amp;&amp; sh winetricks ie8 ;;this is too old.
+</p>
+
+<p>
+emacs: error while loading shared libraries: libpng12.so.0: cannot open shared object file: No such file or directory
+<a href="https://packages.debian.org/jessie/libpng12-0">HERE</a>
+s dpkg -i lib*
+s apt-get install -f
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0119ad8" class="outline-2">
+<h2 id="org0119ad8"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-02 Thu&gt;</span></span></h2>
+<div class="outline-text-2" id="text-org0119ad8">
+<p>
+install wine-qq on debian
+<a href="http://www.longene.org/forum/viewtopic.php?f=6&amp;t=30516">HERE</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2998d68" class="outline-2">
+<h2 id="org2998d68"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-01-24 Tue&gt;</span></span></h2>
+<div class="outline-text-2" id="text-org2998d68">
+<p>
+change emacs' color in terminator, add this line to .bashrc
+export TERM=xterm-256color
+</p>
+
+<p>
+define terminator's default position, change the '.local/share/applications/terminator.desktop' to:
+terminator &#x2013;geometry=1200x900+0+0
+</p>
+
+<p>
+add the font of msyh.ttf
+</p>
+
+<p>
+define the font by #gnome-tweak-tool
+</p>
+</div>
+</div>
+
+<div id="outline-container-org00013b4" class="outline-2">
+<h2 id="org00013b4"><span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-19 Mon&gt;</span></span></h2>
+<div class="outline-text-2" id="text-org00013b4">
+<p>
+#spni -g n ;; to install npm's extension n
+#s n 7.2.1 ;;to install nodejs v7.2.1
+</p>
+</div>
+</div>
+
+<div id="outline-container-org63f375c" class="outline-2">
+<h2 id="org63f375c"><span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-23 Tue&gt;</span></span></h2>
+<div class="outline-text-2" id="text-org63f375c">
+<p>
+.emacs
+L625
+  (setq myvar/relative-filename (concat "<a href="http://yefeiyu.github.io/assets/img/">HERE</a>" myvar/img-name))
+</p>
+</div>
+</div>
+<div id="outline-container-org3eb0e5e" class="outline-2">
+<h2 id="org3eb0e5e"><span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-25 Thu&gt;</span></span></h2>
+<div class="outline-text-2" id="text-org3eb0e5e">
+<p>
+sudo apt-get install bleachbit
+sudo apt-get install sweeper 
+sudo apt-get remove sweeper
+sudo dpkg -i nautilus_nutstore_amd64.deb 
+<span class="timestamp-wrapper"><span class="timestamp">&lt;2016-09-21 Wed&gt;</span></span>
+install vmware debian and windows xp.
+debian:
+sai xfce4
+add 6 keyboads shortcut, such as emacs, conkeror, gnus
+change the desktop to 600x800, which need change the VGA1 to Virtual1
+rehook dropbox to <i>home/xx/Dropbox
+change conkerorrc's qiushi to 98%, and /</i>.
+</p>
+
+<p>
+eba
+alias gl='git pull'
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<footer>
+  <p>Author: yefeiyu <a aria-label="Follow @yefeiyu on GitHub" data-count-aria-label="# followers on GitHub" data-count-api="/users/jcouyang#followers" data-count-href="/jcouyang/followers" href="https://github.com/yefeiyu" class="github-button">Follow @yefeiyu</a></p>
+  <p>Modified: 2022-10-21 Fri 14:43</p>
+  <p>Generated by: <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.5.3) &#215; <a href="https://github.com/yefeiyu/yefeiyu.github.io">博智堂</a></p>
+</footer>
+</div>
+</body>
+</html>
