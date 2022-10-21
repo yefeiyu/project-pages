@@ -1,4 +1,4 @@
-#+TITLE: Hello World
+#+TITLE: World
 #+AUTHOR: Jichao Ouyang
 #+DATE: <1986-02-01 Sat>
 #+DESCRIPTION: this is description

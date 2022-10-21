@@ -14,8 +14,8 @@
   <link>https://yefeiyu.github.io</link>
   <description><![CDATA[]]></description>
   <language>en</language>
-  <pubDate>Fri, 21 Oct 2022 01:28:41 +0000</pubDate>
-  <lastBuildDate>Fri, 21 Oct 2022 01:28:41 +0000</lastBuildDate>
+  <pubDate>Fri, 21 Oct 2022 01:59:17 +0000</pubDate>
+  <lastBuildDate>Fri, 21 Oct 2022 01:59:17 +0000</lastBuildDate>
   <generator>Emacs 28.1 Org-mode 9.5.3</generator>
   <webMaster>yefeiyu@gmail.com (unknown)</webMaster>
   <image>
@@ -26,10 +26,22 @@
 
 
   <item>
-    <title>file:hello-world.org</title>
-    <link>https://yefeiyu.github.io/hello-world.html</link>
+    <title>file:ooo.org</title>
+    <link>https://yefeiyu.github.io/ooo.html</link>
     <author>yefeiyu@gmail.com (unknown)</author>
-    <guid isPermaLink="false">https://yefeiyu.github.io/hello-world.html</guid>
+    <guid isPermaLink="false">https://yefeiyu.github.io/ooo.html</guid>
+    <pubDate>Sat, 01 Feb 1986 00:00:00 +0000</pubDate>
+
+    <description><![CDATA[<p>
+    this is description
+    </p>
+    ]]></description>
+  </item>
+  <item>
+    <title>file:hellod.org</title>
+    <link>https://yefeiyu.github.io/hellod.html</link>
+    <author>yefeiyu@gmail.com (unknown)</author>
+    <guid isPermaLink="false">https://yefeiyu.github.io/hellod.html</guid>
     <pubDate>Sat, 01 Feb 1986 00:00:00 +0000</pubDate>
 
     <description><![CDATA[<p>

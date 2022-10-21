@@ -1,17 +1,19 @@
 #+TITLE:Orgpress Blog
 #+OPTIONS: toc:nil
 
-* [[file:a.org][a]]
+* [[file:ooo.org][World good]]
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: blogentry
-:RSS_PERMALINK: a.html
-:PUBDATE: <2002-02-01 Fri>
+:RSS_PERMALINK: ooo.html
+:PUBDATE: <1986-02-01 Sat>
+:ID:       c0f78c73-74ad-4b8e-87e7-bb7f1f9196aa
 :END:
 this is description
-* [[file:hello-world.org][Hello World]]
+* [[file:hellod.org][World]]
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: blogentry
-:RSS_PERMALINK: hello-world.html
+:RSS_PERMALINK: hellod.html
 :PUBDATE: <1986-02-01 Sat>
+:ID:       bc029d61-b6a5-42ef-9536-7179a97c2801
 :END:
 this is description
