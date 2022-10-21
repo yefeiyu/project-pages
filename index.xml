@@ -14,8 +14,8 @@
   <link>https://yefeiyu.github.io</link>
   <description><![CDATA[]]></description>
   <language>en</language>
-  <pubDate>Fri, 21 Oct 2022 08:10:25 +0000</pubDate>
-  <lastBuildDate>Fri, 21 Oct 2022 08:10:25 +0000</lastBuildDate>
+  <pubDate>Fri, 21 Oct 2022 08:12:56 +0000</pubDate>
+  <lastBuildDate>Fri, 21 Oct 2022 08:12:56 +0000</lastBuildDate>
   <generator>Emacs 28.1 Org-mode 9.5.3</generator>
   <webMaster>yefeiyu@gmail.com (unknown)</webMaster>
   <image>
@@ -25,6 +25,18 @@
   </image>
 
 
+  <item>
+    <title>file:十一年zz.org</title>
+    <link>https://yefeiyu.github.io/十一年zz.html</link>
+    <author>yefeiyu@gmail.com (unknown)</author>
+    <guid isPermaLink="false">https://yefeiyu.github.io/十一年zz.html</guid>
+    <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
+
+    <description><![CDATA[<p>
+    这是一篇转载，写得不错。
+    </p>
+    ]]></description>
+  </item>
   <item>
     <title>file:ooo.org</title>
     <link>https://yefeiyu.github.io/ooo.html</link>
