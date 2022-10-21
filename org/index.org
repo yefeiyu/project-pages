@@ -1,0 +1,11 @@
+#+TITLE:Orgpress Blog
+#+OPTIONS: toc:nil
+
+* [[file:hello-world.org][Hello World]]
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: blogentry
+:RSS_PERMALINK: hello-world.html
+:PUBDATE: <1986-02-01 Sat>
+:ID:       f63a26f7-0ad1-4f48-a6aa-6a23fc252d25
+:END:
+this is description

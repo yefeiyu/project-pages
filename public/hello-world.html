@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<!-- 2022-10-21 Fri 01:15 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hello World</title>
+<meta name="author" content="Jichao Ouyang" />
+<meta name="description" content="this is description" />
+<meta name="keywords" content="and,some,keywords" />
+<meta name="generator" content="Org Mode" />
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#ffffff">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/style/toc.css"/>
+<link rel="stylesheet" href="/style/tufte.css"/>
+<link rel="stylesheet" href="/style/main.css"/>
+<link rel="alternate" type="application/rss+xml" title="Jichao Ouyang" href="https://feeds.oyanglul.us/JichaoOuyangsBlog"/>
+</head>
+<body>
+<div id="preamble" class="status">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJRFJGX"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header>
+    <a accesskey="h" href="/index.html"> HOME </a> |
+    <a href="#" id="edit-in-github">EDIT</a> |
+    <a href="https://feeds.oyanglul.us/JichaoOuyangsBlog">RSS</a> |
+    <a accesskey="H" href="/jichao.ouyang.html">ABOUT</a> |
+    <a href="https://github.com/jcouyang/blog">GITHUB</a>
+</header>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">Hello World</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org98e16a3">Source Code</a></li>
+</ul>
+</div>
+</nav>
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+
+<div id="outline-container-org98e16a3" class="outline-2">
+<h2 id="org98e16a3">Source Code</h2>
+<div class="outline-text-2" id="text-org98e16a3">
+<pre class="code"><code><span style="color: #81A1C1;">trait</span> <span style="color: #81A1C1;">AlgInterp</span>[<span style="color: #81A1C1;">F</span>[<span style="color: #81A1C1;">_</span>]] {
+  <span style="color: #81A1C1;">val</span> <span style="font-weight: bold;">state</span><span style="color: #81A1C1;">:</span> <span style="color: #81A1C1;">F</span>[<span style="color: #81A1C1;">Int</span>]
+  <span style="color: #81A1C1;">def</span> <span style="font-weight: bold;">log</span>(msg<span style="color: #81A1C1;">:</span> <span style="color: #81A1C1;">String</span>)<span style="color: #81A1C1;">:</span> <span style="color: #81A1C1;">F</span>[<span style="color: #81A1C1;">Unit</span>]
+  <span style="color: #81A1C1;">def</span> <span style="font-weight: bold;">query</span>[<span style="color: #81A1C1;">A</span>](c<span style="color: #81A1C1;">:</span> <span style="color: #81A1C1;">ConnectionIO</span>[<span style="color: #81A1C1;">A</span>])<span style="color: #81A1C1;">:</span> <span style="color: #81A1C1;">F</span>[<span style="color: #81A1C1;">A</span>]
+}
+
+<span style="color: #81A1C1;">type</span> <span style="color: #81A1C1;">Alg</span>[<span style="color: #81A1C1;">F</span>[<span style="color: #81A1C1;">_</span>], <span style="color: #81A1C1;">A</span>] <span style="color: #81A1C1;">=</span> <span style="color: #81A1C1;">ReaderT</span>[<span style="color: #81A1C1;">F</span>, <span style="color: #81A1C1;">AlgInterp</span>[<span style="color: #81A1C1;">F</span>], <span style="color: #81A1C1;">A</span>]
+
+<span style="color: #81A1C1;">def</span> <span style="font-weight: bold;">state</span>[<span style="color: #81A1C1;">F</span>[<span style="color: #81A1C1;">_</span>]]<span style="color: #81A1C1;">:</span> <span style="color: #81A1C1;">Alg</span>[<span style="color: #81A1C1;">F</span>, <span style="color: #81A1C1;">Int</span>] <span style="color: #81A1C1;">=</span> <span style="color: #81A1C1;">Kleisli</span>(<span style="color: #81A1C1;">_</span>.state)
+<span style="color: #81A1C1;">def</span> <span style="font-weight: bold;">log</span>[<span style="color: #81A1C1;">F</span>[<span style="color: #81A1C1;">_</span>]](msg<span style="color: #81A1C1;">:</span> <span style="color: #81A1C1;">String</span>)<span style="color: #81A1C1;">:</span> <span style="color: #81A1C1;">Alg</span>[<span style="color: #81A1C1;">F</span>, <span style="color: #81A1C1;">Unit</span>] <span style="color: #81A1C1;">=</span> <span style="color: #81A1C1;">Kleisli</span>(<span style="color: #81A1C1;">_</span>.log(msg))
+
+<span style="color: #81A1C1;">def</span> <span style="font-weight: bold;">doobieQuery</span>[<span style="color: #81A1C1;">F</span>[<span style="color: #81A1C1;">_</span>], <span style="color: #81A1C1;">A</span>](query<span style="color: #81A1C1;">:</span> <span style="color: #81A1C1;">ConnectionIO</span>[<span style="color: #81A1C1;">A</span>])<span style="color: #81A1C1;">:</span> <span style="color: #81A1C1;">Alg</span>[<span style="color: #81A1C1;">F</span>, <span style="color: #81A1C1;">A</span>]
+
+<span style="color: #81A1C1;">def</span> <span style="font-weight: bold;">program</span>[<span style="color: #81A1C1;">F</span>[<span style="color: #81A1C1;">_</span>]]<span style="color: #81A1C1;">:</span> <span style="color: #81A1C1;">Alg</span>[<span style="color: #81A1C1;">F</span>, <span style="color: #81A1C1;">Int</span>] <span style="color: #81A1C1;">=</span> <span style="color: #81A1C1;">for</span> {
+  env <span style="color: #81A1C1;">&lt;-</span> state
+  <span style="color: #81A1C1;">_</span> <span style="color: #81A1C1;">&lt;-</span> log(s<span style="color: #D08770;">"initState is: </span><span style="font-weight: bold;">$state</span><span style="color: #D08770;">"</span>)
+  valueInDatabase <span style="color: #81A1C1;">&lt;-</span> doobieQuery(sql<span style="color: #D08770;">"select 320032003200"</span>.query[<span style="color: #81A1C1;">Int</span>].unique).handleError{ <span style="color: #81A1C1;">_</span> <span style="color: #81A1C1;">=&gt;</span> <span style="color: #81A1C1;">0</span> }
+} <span style="color: #81A1C1;">yield</span> initState + valueInDatabase
+
+<span style="color: #81A1C1;">val</span> <span style="font-weight: bold;">interp</span> <span style="color: #81A1C1;">=</span> <span style="color: #81A1C1;">new</span> <span style="color: #81A1C1;">AlgInterp</span>[<span style="color: #81A1C1;">IO</span>]{
+  <span style="color: #81A1C1;">val</span> <span style="font-weight: bold;">state</span> <span style="color: #81A1C1;">=</span> <span style="color: #81A1C1;">IO</span>(<span style="color: #81A1C1;">1</span>)
+  <span style="color: #81A1C1;">def</span> <span style="font-weight: bold;">log</span>(msg<span style="color: #81A1C1;">:</span> <span style="color: #81A1C1;">String</span>) <span style="color: #81A1C1;">=</span> <span style="color: #81A1C1;">IO</span>(getLogger.log(msg))
+  <span style="color: #81A1C1;">def</span> <span style="font-weight: bold;">query</span>[<span style="color: #81A1C1;">A</span>](c<span style="color: #81A1C1;">:</span> <span style="color: #81A1C1;">ConnectionIO</span>[<span style="color: #81A1C1;">A</span>]) <span style="color: #81A1C1;">=</span> c.transact(xa)
+}
+program[<span style="color: #81A1C1;">IO</span>].run(interp).unsafeRunSync()
+</code></pre>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<footer>
+  <p>Author: Jichao Ouyang <a aria-label="Follow @jcouyang on GitHub" data-count-aria-label="# followers on GitHub" data-count-api="/users/jcouyang#followers" data-count-href="/jcouyang/followers" href="https://github.com/jcouyang" class="github-button">Follow @jcouyang</a></p>
+  <p>Modified: 2022-10-20 Thu 08:34</p>
+  <p>Generated by: <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.5.3) &#215; <a href="https://github.com/jcouyang/orgpress">OrgPress</a></p>
+</footer>
+</div>
+</body>
+</html>

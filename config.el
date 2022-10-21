@@ -1,6 +1,6 @@
 (setq config-blog-title "Orgpress Blog"
-      config-base-url "https://blog.oyanglul.us"
-      config-home-link "/jichao.ouyang.html"
+      config-base-url "https://yefeiyu.github.io"
+      config-home-link "/public/index.html"
       config-date-format "%b %d, %Y"
       config-entry-format "[[%l][%t]]
 :PROPERTIES:
@@ -11,5 +11,5 @@
 %c"
       blog-path (expand-file-name "org")
       assets-path (expand-file-name "assets")
-      user-mail-address "oyanglulu@gmail.com"
+      user-mail-address "yefeiyu@gmail.com"
 )
