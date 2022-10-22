@@ -1,19 +1,19 @@
 /* TOC inspired by http://jashkenas.github.com/coffee-script */
 #table-of-contents {
-	  font-size: 10pt;
+	  font-size: 6pt;
 	  position: fixed;
 	  right: 0em;
-	  top: 0em;
+	  top: -2em;
 	  background: #F9F9F9;
-	  line-height: 12pt;
+	  line-height: 8pt;
 	  text-align: right;
 	  box-shadow: 0 0 1em #777777;
 	  -webkit-box-shadow: 0 0 1em #777777;
 	  -moz-box-shadow: 0 0 1em #777777;
-	  -webkit-border-bottom-left-radius: 5px;
-	  -moz-border-radius-bottomleft: 5px;
+	  -webkit-border-bottom-left-radius: 0px;
+	  -moz-border-radius-bottomleft: 0px;
 	  /* ensure doesn't flow off the screen when expanded */
-	  max-height: 80%;
+	  max-height: 60%;
 	  overflow: auto; }
 #table-of-contents h2 {
 	  color: black;
