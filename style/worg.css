@@ -94,7 +94,7 @@
     #license {
         /* padding: .3em; */
         /* border: 1px solid gray; */
-        background-color: #eeeeee;
+        background-color: #eeeeec;
     }
 
     h1 {
@@ -958,7 +958,7 @@ content: "*** "
     #show_source {margin: 0; padding: 0;}
 
     #postamble {
-	      font-size: 75%;
+	      font-size: 25%;
 	      max-width: 80%;
 	      margin-left: 20px;
 	      margin-top: 10px;
