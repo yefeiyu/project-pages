@@ -1,0 +1,5 @@
+(setq org-publish-cache (make-hash-table :test 'equal :weakness nil :size 100))
+(puthash ":project:" "rss" org-publish-cache)
+(puthash ":cache-file:" "/blog/public/.org-timestamps/rss.cache" org-publish-cache)
+(puthash "/blog/org/index.org" '(:crossrefs (((other "[[file:2022-10-22-try-to-do.org][try" "to" "do]]") . 59894709) ((headline "[[file:2022-10-22-try-to-do.org][try" "to" "do]]") . 59894709) ((other "[[file:2022-10-22-good.org][good]]") . 7229930) ((headline "[[file:2022-10-22-good.org][good]]") . 7229930)) :index nil) org-publish-cache)
+(puthash "Xb62603b9c53219def1f11a83ff47ff91c4f78ec4" '(25428 8928 5763 53000) org-publish-cache)
