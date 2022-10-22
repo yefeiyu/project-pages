@@ -41,15 +41,15 @@
     margin-right: auto;
     text-align: center;
 }
-/*
-@media (prefers-color-scheme: dark) {
+
+@media (prefers-color-scheme: light) {
     /* body { */
     /*     background-color: #151515; */
     /*     color: #ddd; */
     /* } */
     #table-of-contents {
-        color: #eeeeec;
-        background-color: #2e3436;
+        color: #2e3436;
+        background-color: #eeeeec;
     }
 }
-*/
+
