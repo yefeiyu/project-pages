@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-22 Sat 06:48 -->
+<!-- 2022-10-22 Sat 07:27 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>在github中搭建用org-mode和org2jekyll发布及用lunr.js中文搜索的jekyll静态独立博客</title>
@@ -38,53 +38,53 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgd257fa4">1. 基础搭建</a>
+<li><a href="#org145b7d8">1. 基础搭建</a>
 <ul>
-<li><a href="#org1e948ce">1.1. 在http://www.github.com 上注册帐号，建立博客。</a></li>
-<li><a href="#orge5733de">1.2. 生成ssh密钥，以备上传下载、文章发布。</a></li>
+<li><a href="#org0316ac1">1.1. 在http://www.github.com 上注册帐号，建立博客。</a></li>
+<li><a href="#orgc316728">1.2. 生成ssh密钥，以备上传下载、文章发布。</a></li>
 </ul>
 </li>
-<li><a href="#org728b26f">2. 选择主题</a>
+<li><a href="#org31afa13">2. 选择主题</a>
 <ul>
-<li><a href="#org4b171c9">2.1. 安装node.js</a></li>
-<li><a href="#orgc51b7e8">2.2. 安装ruby。不建议使用vpm进行包安装。安装后自带gem</a></li>
-<li><a href="#org3339deb">2.3. 安装bundler</a></li>
-<li><a href="#org1e892a6">2.4. 安装npm</a></li>
-<li><a href="#org1da9177">2.5. 安装诸多packages的时候，由于中国政府GFW的封杀，需要翻墙</a></li>
+<li><a href="#orgc81829c">2.1. 安装node.js</a></li>
+<li><a href="#org4807214">2.2. 安装ruby。不建议使用vpm进行包安装。安装后自带gem</a></li>
+<li><a href="#org08f3705">2.3. 安装bundler</a></li>
+<li><a href="#orga881d6d">2.4. 安装npm</a></li>
+<li><a href="#org3a10d9c">2.5. 安装诸多packages的时候，由于中国政府GFW的封杀，需要翻墙</a></li>
 </ul>
 </li>
-<li><a href="#orgde8188a">3. 理清博客结构</a>
+<li><a href="#org6e4a97b">3. 理清博客结构</a>
 <ul>
-<li><a href="#org5206bb8">3.1. 根目录</a></li>
-<li><a href="#org31190a3">3.2. _app文件夹内容</a></li>
+<li><a href="#org80a4544">3.1. 根目录</a></li>
+<li><a href="#org3163644">3.2. _app文件夹内容</a></li>
 </ul>
 </li>
-<li><a href="#org361645e">4. 增加邮箱定阅</a></li>
-<li><a href="#org927af05">5. 增加rss定阅</a></li>
-<li><a href="#orgfbdcd9a">6. 增加评论</a></li>
-<li><a href="#org9c7bca3">7. 增加标签云</a>
+<li><a href="#orgfe73560">4. 增加邮箱定阅</a></li>
+<li><a href="#org56f2894">5. 增加rss定阅</a></li>
+<li><a href="#org8e039b7">6. 增加评论</a></li>
+<li><a href="#orgcba0635">7. 增加标签云</a>
 <ul>
-<li><a href="#orgfa61391">7.1. 在includes中建立tags_cloud文件</a></li>
-<li><a href="#org8582b04">7.2. 在_pages中建立tags.html文件</a></li>
-<li><a href="#org2c72c6e">7.3. 在/_includes/themes/curtana /includes中的css-variables.html中添加css的格式设置</a></li>
-<li><a href="#orgb6c652e">7.4. 在_includes/themes/curtana/layouts的post.html中为每篇文章添加引用tag的模板</a></li>
+<li><a href="#orgce46714">7.1. 在includes中建立tags_cloud文件</a></li>
+<li><a href="#orgad8804a">7.2. 在_pages中建立tags.html文件</a></li>
+<li><a href="#orga91f97d">7.3. 在/_includes/themes/curtana /includes中的css-variables.html中添加css的格式设置</a></li>
+<li><a href="#org98110b7">7.4. 在_includes/themes/curtana/layouts的post.html中为每篇文章添加引用tag的模板</a></li>
 </ul>
 </li>
-<li><a href="#org076e20f">8. 添加中文搜索</a>
+<li><a href="#orgd601abc">8. 添加中文搜索</a>
 <ul>
-<li><a href="#org25c7bd7">8.1. 使用jekyll-lunr-js-search</a></li>
-<li><a href="#orgd7ffa73">8.2. 其他</a></li>
+<li><a href="#org72258c6">8.1. 使用jekyll-lunr-js-search</a></li>
+<li><a href="#orgfd3c643">8.2. 其他</a></li>
 </ul>
 </li>
-<li><a href="#orga8aa426">9. 使用org-mode撰写和发布</a>
+<li><a href="#orga818dac">9. 使用org-mode撰写和发布</a>
 <ul>
-<li><a href="#org3a0e308">9.1. 博客直接使用.org文件</a></li>
-<li><a href="#org3e34780">9.2. 自带.org文件转.html或.md文件</a></li>
-<li><a href="#org1b35c82">9.3. 使用org2jekyll</a></li>
-<li><a href="#org9f5b97f">9.4. 使用一键截图</a></li>
+<li><a href="#org6c63bd2">9.1. 博客直接使用.org文件</a></li>
+<li><a href="#org6915f47">9.2. 自带.org文件转.html或.md文件</a></li>
+<li><a href="#org30988af">9.3. 使用org2jekyll</a></li>
+<li><a href="#orgb56811e">9.4. 使用一键截图</a></li>
 </ul>
 </li>
-<li><a href="#org71fa2b6">10. 简化发布流程</a></li>
+<li><a href="#org78c0767">10. 简化发布流程</a></li>
 </ul>
 </div>
 </nav>
@@ -98,15 +98,15 @@
 <li><span class="underline">具备标签云功能</span></li>
 <li><span class="underline">自建中文全文搜索</span></li>
 </ul>
-<div id="outline-container-orgd257fa4" class="outline-2">
-<h2 id="orgd257fa4"><span class="section-number-2">1.</span> 基础搭建</h2>
+<div id="outline-container-org145b7d8" class="outline-2">
+<h2 id="org145b7d8"><span class="section-number-2">1.</span> 基础搭建</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org1e948ce" class="outline-3">
-<h3 id="org1e948ce"><span class="section-number-3">1.1.</span> 在<a href="http://www.github.com">http://www.github.com</a> 上注册帐号，建立博客。</h3>
+<div id="outline-container-org0316ac1" class="outline-3">
+<h3 id="org0316ac1"><span class="section-number-3">1.1.</span> 在<a href="http://www.github.com">http://www.github.com</a> 上注册帐号，建立博客。</h3>
 </div>
-<div id="outline-container-orge5733de" class="outline-3">
-<h3 id="orge5733de"><span class="section-number-3">1.2.</span> 生成ssh密钥，以备上传下载、文章发布。</h3>
+<div id="outline-container-orgc316728" class="outline-3">
+<h3 id="orgc316728"><span class="section-number-3">1.2.</span> 生成ssh密钥，以备上传下载、文章发布。</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 网上相关教程繁多，搜索阅读即可完成此步。
@@ -114,15 +114,15 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org728b26f" class="outline-2">
-<h2 id="org728b26f"><span class="section-number-2">2.</span> 选择主题</h2>
+<div id="outline-container-org31afa13" class="outline-2">
+<h2 id="org31afa13"><span class="section-number-2">2.</span> 选择主题</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 官方主题在<a href="http://jekyllthemes.org/">http://jekyllthemes.org/</a>， 选择你喜欢的一款使用。我选用的是<a href="http://sparanoid.com/lab/amsf/getting-started.html%20">Almace Scaffolding</a>，优点是简洁舒适，极具时尚感，并且特别适合手机浏览。
 </p>
-<div class="HTML" id="orgfb7166c">
+<div class="HTML" id="org82d3074">
 
-<figure id="org1df6e47">
+<figure id="org39ebdfa">
 <img src="https://yefeiyu.github.io/img/2016/img_2016_05_02__13_27_36.png" alt="img_2016_05_02__13_27_36.png">
 
 </figure>
@@ -132,8 +132,8 @@
 本主题要求用bundle和npm安装部分gem packages，因此有一点环境搭建的需求。
 </p>
 </div>
-<div id="outline-container-org4b171c9" class="outline-3">
-<h3 id="org4b171c9"><span class="section-number-3">2.1.</span> 安装node.js</h3>
+<div id="outline-container-orgc81829c" class="outline-3">
+<h3 id="orgc81829c"><span class="section-number-3">2.1.</span> 安装node.js</h3>
 <div class="outline-text-3" id="text-2-1">
 <pre class="code"><code>wget -N http://nodejs.org/dist/node-latest.tar.gz
 tar xzvf node-latest.tar.gz <span style="color: #81A1C1;">&amp;&amp;</span> cd node-v*
@@ -143,8 +143,8 @@ sudo make install
 </code></pre>
 </div>
 </div>
-<div id="outline-container-orgc51b7e8" class="outline-3">
-<h3 id="orgc51b7e8"><span class="section-number-3">2.2.</span> 安装ruby。不建议使用vpm进行包安装。安装后自带gem</h3>
+<div id="outline-container-org4807214" class="outline-3">
+<h3 id="org4807214"><span class="section-number-3">2.2.</span> 安装ruby。不建议使用vpm进行包安装。安装后自带gem</h3>
 <div class="outline-text-3" id="text-2-2">
 <pre class="code"><code>wget https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.0.tar.gz
 tar xzvf ruby-2.3.0.tar.gz
@@ -154,8 +154,8 @@ sudo make install
 </code></pre>
 </div>
 </div>
-<div id="outline-container-org3339deb" class="outline-3">
-<h3 id="org3339deb"><span class="section-number-3">2.3.</span> 安装bundler</h3>
+<div id="outline-container-org08f3705" class="outline-3">
+<h3 id="org08f3705"><span class="section-number-3">2.3.</span> 安装bundler</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 <code>gem install bundler</code> ,  <code>emacs Gemfile</code> ,
@@ -172,8 +172,8 @@ sudo make install
 </p>
 </div>
 </div>
-<div id="outline-container-org1e892a6" class="outline-3">
-<h3 id="org1e892a6"><span class="section-number-3">2.4.</span> 安装npm</h3>
+<div id="outline-container-orga881d6d" class="outline-3">
+<h3 id="orga881d6d"><span class="section-number-3">2.4.</span> 安装npm</h3>
 <div class="outline-text-3" id="text-2-4">
 <pre class="code"><code>npm install -g grunt-cli
 npm install grunt --save-dev
@@ -187,12 +187,12 @@ npm install
 </p>
 </div>
 </div>
-<div id="outline-container-org1da9177" class="outline-3">
-<h3 id="org1da9177"><span class="section-number-3">2.5.</span> 安装诸多packages的时候，由于中国政府GFW的封杀，需要翻墙</h3>
+<div id="outline-container-org3a10d9c" class="outline-3">
+<h3 id="org3a10d9c"><span class="section-number-3">2.5.</span> 安装诸多packages的时候，由于中国政府GFW的封杀，需要翻墙</h3>
 <div class="outline-text-3" id="text-2-5">
 </div>
 <ol class="org-ol">
-<li><a id="orgb51e0c9"></a>编辑 Gemfile，添加 <a href="https://ruby.taobao.org/">https://ruby.taobao.org/</a> 源的方法<br>
+<li><a id="orgb6e8532"></a>编辑 Gemfile，添加 <a href="https://ruby.taobao.org/">https://ruby.taobao.org/</a> 源的方法<br>
 <div class="outline-text-4" id="text-2-5-1">
 <pre class="code"><code>$ gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/
 $ gem sources -l
@@ -210,7 +210,7 @@ $ gem sources -l
 </p>
 </div>
 </li>
-<li><a id="org88735c5"></a>使用term代理的方法<br>
+<li><a id="org6194cb3"></a>使用term代理的方法<br>
 <div class="outline-text-4" id="text-2-5-2">
 <p>
 如果不添加taobao源，也可以使用proxychains4在terminal中使用代理。
@@ -221,17 +221,17 @@ $ gem sources -l
 </ol>
 </div>
 </div>
-<div id="outline-container-orgde8188a" class="outline-2">
-<h2 id="orgde8188a"><span class="section-number-2">3.</span> 理清博客结构</h2>
+<div id="outline-container-org6e4a97b" class="outline-2">
+<h2 id="org6e4a97b"><span class="section-number-2">3.</span> 理清博客结构</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 在各教程中都有github博客结构的详细介绍。Alm Sco主题结构稍有不同，分为根目录和_app子目录两个嵌套结构。
 </p>
 </div>
-<div id="outline-container-org5206bb8" class="outline-3">
-<h3 id="org5206bb8"><span class="section-number-3">3.1.</span> 根目录</h3>
+<div id="outline-container-org80a4544" class="outline-3">
+<h3 id="org80a4544"><span class="section-number-3">3.1.</span> 根目录</h3>
 <div class="outline-text-3" id="text-3-1">
-<pre class="example" id="org50ae52b">
+<pre class="example" id="orgf6c35fd">
 .
 ├── _amsf
 │   └── _config.yml
@@ -259,10 +259,10 @@ $ gem sources -l
 </p>
 </div>
 </div>
-<div id="outline-container-org31190a3" class="outline-3">
-<h3 id="org31190a3"><span class="section-number-3">3.2.</span> _app文件夹内容</h3>
+<div id="outline-container-org3163644" class="outline-3">
+<h3 id="org3163644"><span class="section-number-3">3.2.</span> _app文件夹内容</h3>
 <div class="outline-text-3" id="text-3-2">
-<pre class="example" id="orgeea6664">
+<pre class="example" id="orgdaabc64">
 ├── assets
 │   ├── fonts
 │   ├── img
@@ -377,24 +377,24 @@ $ gem sources -l
 </div>
 </div>
 </div>
-<div id="outline-container-org361645e" class="outline-2">
-<h2 id="org361645e"><span class="section-number-2">4.</span> 增加邮箱定阅</h2>
+<div id="outline-container-orgfe73560" class="outline-2">
+<h2 id="orgfe73560"><span class="section-number-2">4.</span> 增加邮箱定阅</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 具体配置参见_pages中以email开关的文件
 </p>
 </div>
 </div>
-<div id="outline-container-org927af05" class="outline-2">
-<h2 id="org927af05"><span class="section-number-2">5.</span> 增加rss定阅</h2>
+<div id="outline-container-org56f2894" class="outline-2">
+<h2 id="org56f2894"><span class="section-number-2">5.</span> 增加rss定阅</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 在_data文件夹中打开curtana文件，将subscription:   false改为true
 </p>
 </div>
 </div>
-<div id="outline-container-orgfbdcd9a" class="outline-2">
-<h2 id="orgfbdcd9a"><span class="section-number-2">6.</span> 增加评论</h2>
+<div id="outline-container-org8e039b7" class="outline-2">
+<h2 id="org8e039b7"><span class="section-number-2">6.</span> 增加评论</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 采用disqus评论，功能齐全、使用广泛，注册后在各个采用disqus的地方的评论都可以统一管理、查看。此外还可以在色调等上面达到较好统一。
@@ -419,18 +419,18 @@ layouts/post.html</code>
 </code></pre>
 </div>
 </div>
-<div id="outline-container-org9c7bca3" class="outline-2">
-<h2 id="org9c7bca3"><span class="section-number-2">7.</span> 增加标签云</h2>
+<div id="outline-container-orgcba0635" class="outline-2">
+<h2 id="orgcba0635"><span class="section-number-2">7.</span> 增加标签云</h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-orgfa61391" class="outline-3">
-<h3 id="orgfa61391"><span class="section-number-3">7.1.</span> 在includes中建立tags_cloud文件</h3>
+<div id="outline-container-orgce46714" class="outline-3">
+<h3 id="orgce46714"><span class="section-number-3">7.1.</span> 在includes中建立tags_cloud文件</h3>
 <div class="outline-text-3" id="text-7-1">
 <p>
 具体位置是
 <i>_includes/themes/curtana</i> includes
 </p>
-<pre class="example" id="orgba362ef">
+<pre class="example" id="org9c2b791">
 &lt;a href="{{ site.JB.tags_path }}" title="查看所有标签"&gt;&lt;i class="icon-fixed-width icon-tags"&gt;&lt;/i&gt; 标签云&lt;/a&gt;
 &lt;span title="标签总数"&gt;{{ site.tags | size }}&lt;/span&gt;
 &lt;div id="tag-cloud"&gt;
@@ -470,8 +470,8 @@ layouts/post.html</code>
 </div>
 </div>
 
-<div id="outline-container-org8582b04" class="outline-3">
-<h3 id="org8582b04"><span class="section-number-3">7.2.</span> 在_pages中建立tags.html文件<label for="1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="1" class="margin-toggle"/><span class="sidenote">
+<div id="outline-container-orgad8804a" class="outline-3">
+<h3 id="orgad8804a"><span class="section-number-3">7.2.</span> 在_pages中建立tags.html文件<label for="1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="1" class="margin-toggle"/><span class="sidenote">
 本部分和后面凡带有 <code>\%</code> 注释的，在实际使用时都需去掉 <code>\</code> 
 </span></h3>
 <div class="outline-text-3" id="text-7-2">
@@ -528,8 +528,8 @@ markdown的文件头（&#x2014;三个中横线中的内容）用来生成 单独
 </p>
 </div>
 </div>
-<div id="outline-container-org2c72c6e" class="outline-3">
-<h3 id="org2c72c6e"><span class="section-number-3">7.3.</span> 在/_includes/themes/curtana /includes中的css-variables.html中添加css的格式设置</h3>
+<div id="outline-container-orga91f97d" class="outline-3">
+<h3 id="orga91f97d"><span class="section-number-3">7.3.</span> 在/_includes/themes/curtana /includes中的css-variables.html中添加css的格式设置</h3>
 <div class="outline-text-3" id="text-7-3">
 <pre class="code"><code>&lt;style&gt;
 {\% for tag in site.tags \%}
@@ -565,8 +565,8 @@ margin-left: 12px<span style="color: #677691;">;</span>
 </p>
 </div>
 </div>
-<div id="outline-container-orgb6c652e" class="outline-3">
-<h3 id="orgb6c652e"><span class="section-number-3">7.4.</span> 在_includes/themes/curtana/layouts的post.html中为每篇文章添加引用tag的模板</h3>
+<div id="outline-container-org98110b7" class="outline-3">
+<h3 id="org98110b7"><span class="section-number-3">7.4.</span> 在_includes/themes/curtana/layouts的post.html中为每篇文章添加引用tag的模板</h3>
 <div class="outline-text-3" id="text-7-4">
 <pre class="code"><code>{\% include {{ amsf_theme_base }}/includes/post-tags.html \%}
 </code></pre>
@@ -576,22 +576,22 @@ margin-left: 12px<span style="color: #677691;">;</span>
 </div>
 </div>
 </div>
-<div id="outline-container-org076e20f" class="outline-2">
-<h2 id="org076e20f"><span class="section-number-2">8.</span> 添加中文搜索</h2>
+<div id="outline-container-orgd601abc" class="outline-2">
+<h2 id="orgd601abc"><span class="section-number-2">8.</span> 添加中文搜索</h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-org25c7bd7" class="outline-3">
-<h3 id="org25c7bd7"><span class="section-number-3">8.1.</span> 使用jekyll-lunr-js-search</h3>
+<div id="outline-container-org72258c6" class="outline-3">
+<h3 id="org72258c6"><span class="section-number-3">8.1.</span> 使用jekyll-lunr-js-search</h3>
 <div class="outline-text-3" id="text-8-1">
 <p>
 项目地址是<a href="https://github.com/slashdotdash/jekyll-lunr-js-search">slashdotdash/jekyll-lunr-js-search</a>
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org7de4ed1"></a>安装方法<br>
+<li><a id="orgcd2d97e"></a>安装方法<br>
 <ol class="org-ol">
-<li><a id="orgff771fb"></a>直接在Gemfile中添加jekyll-lunr-js-search，然后bundle install<br></li>
-<li><a id="org05e06ce"></a>通过git clone项目地址<br>
+<li><a id="org3be8b5f"></a>直接在Gemfile中添加jekyll-lunr-js-search，然后bundle install<br></li>
+<li><a id="org57c0e51"></a>通过git clone项目地址<br>
 <div class="outline-text-5" id="text-8-1-1-2">
 <pre class="code"><code>git clone git@github.com:slashdotdash/jekyll-lunr-js-search.git
 </code></pre>
@@ -606,7 +606,7 @@ margin-left: 12px<span style="color: #677691;">;</span>
 </p>
 </div>
 </li>
-<li><a id="orgce3b739"></a>通过rake build<br>
+<li><a id="org319fe13"></a>通过rake build<br>
 <div class="outline-text-5" id="text-8-1-1-3">
 <p>
 git clone后，在文件夹根目录中有bower.json文件，这是可以由bower通过rake build安装的配置文件。
@@ -626,7 +626,7 @@ bower.json文件中，把依赖的版本改到最新：
 </p>
 </div>
 </li>
-<li><a id="orgc194d93"></a>调换中文搜索功能<br>
+<li><a id="org91fa872"></a>调换中文搜索功能<br>
 <div class="outline-text-5" id="text-8-1-1-4">
 <p>
 由于 jekyll-lunr-js-search靠的是lunr.js， olivernn提供的。lunr.js并不支持中文，因此需要另想方法。
@@ -640,18 +640,18 @@ git 后将lunr.js 和lunr.min.js替换，可以实现中文搜索。
 </li>
 </ol>
 </div>
-<div id="outline-container-orgd7ffa73" class="outline-3">
-<h3 id="orgd7ffa73"><span class="section-number-3">8.2.</span> 其他</h3>
+<div id="outline-container-orgfd3c643" class="outline-3">
+<h3 id="orgfd3c643"><span class="section-number-3">8.2.</span> 其他</h3>
 <div class="outline-text-3" id="text-8-2">
 </div>
 <ol class="org-ol">
-<li><a id="org16b2b39"></a>使用lunr.js配合lunr-languages<br>
+<li><a id="org9100086"></a>使用lunr.js配合lunr-languages<br>
 <div class="outline-text-4" id="text-8-2-1">
 <p>
 lunr-languages， lunr.js的多国语言项目。<a href="https://github.com/MihaiValentin/lunr-languages">MihaiValentin/lunr-languages</a>
 其中有lunr.jp.js， 日本的编码。由于汉字和日本假名都是UTF-8编码，应该可以借用。不过我没有成功。
 </p>
-<div class="HTML" id="orga9937b3">
+<div class="HTML" id="orgaacb28c">
 <p>
 &lt;font color="#ff00ff"&gt;请配置成功的兄弟告知&lt;/font&gt;
 </p>
@@ -659,7 +659,7 @@ lunr-languages， lunr.js的多国语言项目。<a href="https://github.com/Mih
 </div>
 </div>
 </li>
-<li><a id="orgc5a943e"></a>i18n<br>
+<li><a id="org5b82cb1"></a>i18n<br>
 <div class="outline-text-4" id="text-8-2-2">
 <p>
 olivernn在<a href="https://github.com/olivernn/lunr.js/tree/i18n">i18n</a> 中。
@@ -669,8 +669,8 @@ olivernn在<a href="https://github.com/olivernn/lunr.js/tree/i18n">i18n</a> 中�
 </ol>
 </div>
 </div>
-<div id="outline-container-orga8aa426" class="outline-2">
-<h2 id="orga8aa426"><span class="section-number-2">9.</span> 使用org-mode撰写和发布</h2>
+<div id="outline-container-orga818dac" class="outline-2">
+<h2 id="orga818dac"><span class="section-number-2">9.</span> 使用org-mode撰写和发布</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 <b>世界上有两种人，一种是平常人，一种是深井冰。</b>
@@ -683,16 +683,16 @@ olivernn在<a href="https://github.com/olivernn/lunr.js/tree/i18n">i18n</a> 中�
 <b>如果是深井冰而不是平常人，是写博客而不是写微博发圈的人，是用emacs而不是vi的人，那必是用org-mode来完成这件事的人。</b> 
 </p>
 </div>
-<div id="outline-container-org3a0e308" class="outline-3">
-<h3 id="org3a0e308"><span class="section-number-3">9.1.</span> 博客直接使用.org文件</h3>
+<div id="outline-container-org6c63bd2" class="outline-3">
+<h3 id="org6c63bd2"><span class="section-number-3">9.1.</span> 博客直接使用.org文件</h3>
 <div class="outline-text-3" id="text-9-1">
 <p>
 安装插件后可以实现，搜索网上有教程。
 </p>
 </div>
 </div>
-<div id="outline-container-org3e34780" class="outline-3">
-<h3 id="org3e34780"><span class="section-number-3">9.2.</span> 自带.org文件转.html或.md文件</h3>
+<div id="outline-container-org6915f47" class="outline-3">
+<h3 id="org6915f47"><span class="section-number-3">9.2.</span> 自带.org文件转.html或.md文件</h3>
 <div class="outline-text-3" id="text-9-2">
 <p>
 C-c，C-e，h或m
@@ -700,12 +700,12 @@ C-c，C-e，h或m
 </p>
 </div>
 </div>
-<div id="outline-container-org1b35c82" class="outline-3">
-<h3 id="org1b35c82"><span class="section-number-3">9.3.</span> 使用org2jekyll</h3>
+<div id="outline-container-org30988af" class="outline-3">
+<h3 id="org30988af"><span class="section-number-3">9.3.</span> 使用org2jekyll</h3>
 <div class="outline-text-3" id="text-9-3">
 </div>
 <ol class="org-ol">
-<li><a id="orgb8b7d32"></a>优点<br>
+<li><a id="org4286beb"></a>优点<br>
 <div class="outline-text-4" id="text-9-3-1">
 <p>
 配合预设定的配置，完美沟通org-mode， html， jekyll和github。
@@ -714,10 +714,10 @@ C-c，C-e，h或m
 </p>
 </div>
 </li>
-<li><a id="orgd676b95"></a>基本使用<br>
+<li><a id="orgb2ec629"></a>基本使用<br>
 <ol class="org-ol">
-<li><a id="org905fa1b"></a>使用package-install安装<br></li>
-<li><a id="org69e9dfe"></a>在init.d文件夹中保存配置文件blog-pack.el<br>
+<li><a id="org199e224"></a>使用package-install安装<br></li>
+<li><a id="org5a2a6f8"></a>在init.d文件夹中保存配置文件blog-pack.el<br>
 <div class="outline-text-5" id="text-9-3-2-2">
 <pre class="code"><code><span style="color: #677691;">;;</span><span style="color: #677691;">(use-package org2jekyll</span>
 <span style="color: #677691;">;;  </span><span style="color: #677691;">:defer 3</span>
@@ -788,10 +788,10 @@ C-c，C-e，h或m
 </code></pre>
 </div>
 </li>
-<li><a id="orgd59b25f"></a>在.emacs中写入 <code>(require 'blog-pack)</code><br></li>
+<li><a id="org0c79fe7"></a>在.emacs中写入 <code>(require 'blog-pack)</code><br></li>
 </ol>
 </li>
-<li><a id="orgad58283"></a>自定义markdown头文件。<br>
+<li><a id="orgaac7f51"></a>自定义markdown头文件。<br>
 <div class="outline-text-4" id="text-9-3-3">
 <p>
 根据下面的例子，可以自定义多种属于自己的md head。下例中scheme就是定义文章的字体、链接及背景等颜色的。调用颜色可以直接使用自定义的组合键C-x j l 或者M-x list-colors-display
@@ -824,9 +824,9 @@ C-c，C-e，h或m
 </p>
 </div>
 </li>
-<li><a id="org9681790"></a>修改默认生成html文件为md文件<br>
+<li><a id="org5afc0a3"></a>修改默认生成html文件为md文件<br>
 <ol class="org-ol">
-<li><a id="orgbc413d2"></a>在配置文件中添加以下代码：<br>
+<li><a id="org301416f"></a>在配置文件中添加以下代码：<br>
 <div class="outline-text-5" id="text-9-3-4-1">
 <pre class="code"><code>(<span style="color: #81A1C1;">defun</span> <span style="font-weight: bold;">org-md-publish-to-md</span> (plist filename pub-dir)
   <span style="color: #677691;">"Publish an org file to Markdown.</span>
@@ -838,10 +838,10 @@ C-c，C-e，h或m
 </code></pre>
 </div>
 </li>
-<li><a id="org9f2c4d2"></a>将blog-pack.el文件中所有的html改成md。<br></li>
+<li><a id="org66cd65b"></a>将blog-pack.el文件中所有的html改成md。<br></li>
 </ol>
 </li>
-<li><a id="org7e2a920"></a>修改快捷键<br>
+<li><a id="org8af5c88"></a>修改快捷键<br>
 <div class="outline-text-4" id="text-9-3-5">
 <p>
 原快捷键绑定在C-c . 上，在org中这样会调出日期插入页面。我改成了C-x j。
@@ -850,8 +850,8 @@ C-c，C-e，h或m
 </li>
 </ol>
 </div>
-<div id="outline-container-org9f5b97f" class="outline-3">
-<h3 id="org9f5b97f"><span class="section-number-3">9.4.</span> 使用一键截图</h3>
+<div id="outline-container-orgb56811e" class="outline-3">
+<h3 id="orgb56811e"><span class="section-number-3">9.4.</span> 使用一键截图</h3>
 <div class="outline-text-3" id="text-9-4">
 <p>
 通过配置.emacs快速截图，预定义保存位置，自动生成带时间戳的图片并自动插入文中。
@@ -889,7 +889,7 @@ C-c，C-e，h或m
 目前配置的目录"./assets/img/"在生成的html文件中，会多出一个“. 目录”，但如果没有这个点,生成的格式为img src=file: ///又会多出file：//导致无法识别根目录。
 目前我解决办法是修改自动生成的 <code>[[]]</code> 链接为img src=/assets/img。
 </p>
-<div class="HTML" id="org9609991">
+<div class="HTML" id="org9c4da01">
 <p>
 &lt;font color="#ff00ff"&gt;不知是否有解决办法&lt;/font&gt;
 </p>
@@ -899,13 +899,13 @@ C-c，C-e，h或m
 </div>
 </div>
 
-<div id="outline-container-org71fa2b6" class="outline-2">
-<h2 id="org71fa2b6"><span class="section-number-2">10.</span> 简化发布流程</h2>
+<div id="outline-container-org78c0767" class="outline-2">
+<h2 id="org78c0767"><span class="section-number-2">10.</span> 简化发布流程</h2>
 <div class="outline-text-2" id="text-10">
 <p>
 主要借助于alias,配置~目录下.bash_aliases文件
 </p>
-<pre class="example" id="org6e7f565">
+<pre class="example" id="orgca1ac7b">
 alias gt='git status '
 alias ga='git add '
 alias gb='git branch '

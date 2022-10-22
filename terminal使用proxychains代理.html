@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-22 Sat 06:48 -->
+<!-- 2022-10-22 Sat 07:27 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Terminal无法代理的解决</title>
@@ -34,9 +34,9 @@
 <header>
 <h1 class="title">Terminal无法代理的解决</h1>
 </header>
-<div id="outline-container-org31e44c5" class="outline-2">
-<h2 id="org31e44c5">install proxychains-ng 4</h2>
-<div class="outline-text-2" id="text-org31e44c5">
+<div id="outline-container-org85941cf" class="outline-2">
+<h2 id="org85941cf">install proxychains-ng 4</h2>
+<div class="outline-text-2" id="text-org85941cf">
 <p>
 通过git获取源码
 git clone git@github.com:rofl0r/proxychains-ng.git
@@ -44,8 +44,8 @@ git clone git@github.com:rofl0r/proxychains-ng.git
 </p>
 </div>
 <ul class="org-ul">
-<li><a id="orge3b0b7e"></a>Installation <b>*</b><br>
-<div class="outline-text-4" id="text-orge3b0b7e">
+<li><a id="org19c7ca7"></a>Installation <b>*</b><br>
+<div class="outline-text-4" id="text-org19c7ca7">
 <pre class="code"><code># needs a working C compiler, preferably gcc
 ./configure --prefix=/usr --sysconfdir=/etc
 make
@@ -59,9 +59,9 @@ like this: ./proxychains4 -f src/proxychains.conf telnet google.com 80
 </li>
 </ul>
 </div>
-<div id="outline-container-org75e4977" class="outline-2">
-<h2 id="org75e4977">修改配置文件</h2>
-<div class="outline-text-2" id="text-org75e4977">
+<div id="outline-container-org9b0298b" class="outline-2">
+<h2 id="org9b0298b">修改配置文件</h2>
+<div class="outline-text-2" id="text-org9b0298b">
 <pre class="code"><code>emacs /etc/proxychains.conf
 </code></pre>
 <p>
@@ -69,9 +69,9 @@ like this: ./proxychains4 -f src/proxychains.conf telnet google.com 80
 </p>
 </div>
 </div>
-<div id="outline-container-orga3be6fc" class="outline-2">
-<h2 id="orga3be6fc">使用</h2>
-<div class="outline-text-2" id="text-orga3be6fc">
+<div id="outline-container-org0efb0c7" class="outline-2">
+<h2 id="org0efb0c7">使用</h2>
+<div class="outline-text-2" id="text-org0efb0c7">
 <p>
 将需要代理的命令行前输入proxychains4或sudo proxychains4走代理通道
 </p>

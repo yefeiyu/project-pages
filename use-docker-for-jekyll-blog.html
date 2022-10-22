@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-22 Sat 06:48 -->
+<!-- 2022-10-22 Sat 07:27 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Use docker for jekyll blog, which is the 在github中搭建用org-mode和org2jekyll发布及用lunr.js中文搜索的jekyll静态独立博客 II</title>
@@ -39,9 +39,9 @@ For a long time ago, I writed the blog [<a href="https://yefeiyu.github.io/soft/
 Let's start.
 Install the new stretch OS of Debian 9, If we to configurate the blog environment of Ruby, Node, NPM, Grunt&#x2026;, it will waste too many times. So We use Docker.
 </p>
-<div id="outline-container-orgc5c77da" class="outline-2">
-<h2 id="orgc5c77da">Install docker CE through Docker's official tutorial. The address is</h2>
-<div class="outline-text-2" id="text-orgc5c77da">
+<div id="outline-container-org341288f" class="outline-2">
+<h2 id="org341288f">Install docker CE through Docker's official tutorial. The address is</h2>
+<div class="outline-text-2" id="text-org341288f">
 <p>
 [<a href="https://docs.docker.com/install/linux/docker-ce/debian/#install-using-the-repository">docker 教程</a>](Get Docker CE for Debian)
 </p>
@@ -56,9 +56,9 @@ sudo apt-get install docker-ce
 </code></pre>
 </div>
 </div>
-<div id="outline-container-org9d04164" class="outline-2">
-<h2 id="org9d04164">Pull my docker repository</h2>
-<div class="outline-text-2" id="text-org9d04164">
+<div id="outline-container-org56cb4c2" class="outline-2">
+<h2 id="org56cb4c2">Pull my docker repository</h2>
+<div class="outline-text-2" id="text-org56cb4c2">
 <pre class="code"><code>s docker <span style="color: #81A1C1;">pull</span> <span style="font-weight: bold;">xxmm</span>/ruby-node-grunt:v1
 </code></pre>
 <p>
@@ -88,9 +88,9 @@ As we seen, which add the user of xx, and created the environment needed for the
 </p>
 </div>
 </div>
-<div id="outline-container-org1b7a60b" class="outline-2">
-<h2 id="org1b7a60b">Use docker for jekyll blog</h2>
-<div class="outline-text-2" id="text-org1b7a60b">
+<div id="outline-container-org2b93b58" class="outline-2">
+<h2 id="org2b93b58">Use docker for jekyll blog</h2>
+<div class="outline-text-2" id="text-org2b93b58">
 <pre class="code"><code><span style="color: #81A1C1;">docker</span> <span style="font-weight: bold;">run</span> -ti --rm -u 0 -p 4321:4321 -p 35729:35729 -v /home/xx/gh/yefeiyu.github.io/:/home/xx/gh/yefeiyu.github.io/ -v /home/xx/.ssh/:/home/xx/.ssh/ xxmm/ruby-node-grunt:v1 grunt serve
 </code></pre>
 
@@ -100,9 +100,9 @@ If we want to use docker under Windows 10, which need to OPEN the hyper-V in win
 </p>
 </div>
 </div>
-<div id="outline-container-orgd622b23" class="outline-2">
-<h2 id="orgd622b23">Because I mount github.io folder by -v, I need git clone the git repository first, and write the blog at local.</h2>
-<div class="outline-text-2" id="text-orgd622b23">
+<div id="outline-container-org262ff7f" class="outline-2">
+<h2 id="org262ff7f">Because I mount github.io folder by -v, I need git clone the git repository first, and write the blog at local.</h2>
+<div class="outline-text-2" id="text-org262ff7f">
 <p>
 The local need the node_modules folder.
 </p>
