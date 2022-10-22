@@ -34,21 +34,21 @@
 .code-highlighted { background-color: #ffff00; }
 .todo { color: red; }
 .todo.IN_PROGRESS { color: orange;}
-.todo.HOLD { color: brown;}
-.done { color:green; }
+.todo.HOLD { color: orange;}
+.done { display: none; }
 .org-center {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
     /* body { */
     /*     background-color: #151515; */
     /*     color: #ddd; */
     /* } */
     #table-of-contents {
-        color: #2e3436;
-        background-color: #eeeeee;
+        color: #eeeeec;
+        background-color: #2e3436;
     }
 }
