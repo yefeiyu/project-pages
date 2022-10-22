@@ -112,7 +112,7 @@ h3 {
 hr {
     display: block;
     height: 1px;
-    width: 55%;
+    width: 99%;
     border: 0;
     border-top: 1px solid #ccc;
     margin: 1em 0;
@@ -195,8 +195,8 @@ blockquote p {
 }
 
 blockquote footer {
-    width: 55%;
-    font-size: 1.1rem;
+    width: 65%;
+    font-size: 0.5rem;
     text-align: right;
 }
 
@@ -226,7 +226,7 @@ figure {
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
-    max-width: 55%;
+    max-width: 65%;
     -webkit-margin-start: 0;
     -webkit-margin-end: 0;
     margin: 0 0 3em 0;
