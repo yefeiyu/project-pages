@@ -34,8 +34,8 @@
 .code-highlighted { background-color: #ffff00; }
 .todo { color: red; }
 .todo.IN_PROGRESS { color: orange;}
-.todo.HOLD { color: orange;}
-.done { display: none; }
+.todo.HOLD { color: brown;}
+.done { color:green; }
 .org-center {
     margin-left: auto;
     margin-right: auto;
@@ -49,6 +49,6 @@
     /* } */
     #table-of-contents {
         color: #2e3436;
-        background-color: #000000;
+        background-color: #eeeeee;
     }
 }
