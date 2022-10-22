@@ -158,7 +158,7 @@ p {
     margin-bottom: 1.4rem;
     padding-right: 0;
     padding-left: 0;
-    vertical-align: baseline;
+    /* vertical-align: baseline; */
 }
 
 /* Chapter Epigraphs */
@@ -203,7 +203,8 @@ blockquote footer {
 #content p,
 #content footer,
 #content table {
-    width: 55%;
+    width: 100%;
+    /* lgy change from 55% */
 }
 
 /* 50 + 5 == 55, to be the same width as paragraph */
