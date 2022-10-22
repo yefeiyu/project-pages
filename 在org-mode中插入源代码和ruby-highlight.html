@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<!-- 2022-10-22 Sat 06:48 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>在org-mode中插入源代码和ruby highlight</title>
+<meta name="author" content="yefeiyu" />
+<meta name="generator" content="Org Mode" />
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#ffffff">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/style/toc.css"/>
+<link rel="stylesheet" href="/style/tufte.css"/>
+<link rel="stylesheet" href="/style/main.css"/>
+<link rel="alternate" type="application/rss+xml" title="yefeiyu" href="https://yefeiyu.github.io/index.html"/>
+</head>
+<body>
+<div id="preamble" class="status">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJRFJGX"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header>
+    <a accesskey="h" href="/index.html"> HOME </a> |
+    <a href="#" id="edit-in-github">EDIT</a> |
+    <a href="https://feeds.oyanglul.us/JichaoOuyangsBlog">RSS</a> |
+    <a accesskey="H" href="/jichao.ouyang.html">ABOUT</a> |
+    <a href="https://github.com/jcouyang/blog">GITHUB</a>
+</header>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">在org-mode中插入源代码和ruby highlight</h1>
+</header>
+
+<div id="outline-container-org718dff5" class="outline-2">
+<h2 id="org718dff5">设定</h2>
+<div class="outline-text-2" id="text-org718dff5">
+<p>
+<code>下述内容copy自wenshan</code>
+</p>
+<div class="HTML" id="orga3322e5">
+<p>
+
+</p>
+
+<p>
+&lt;font color=#3333ee&gt;
+&lt;bgcolor=#ffff00&gt;
+用 org-mode 记笔记、写博客（比如你现在看到的这篇）、做知识管理的时候，经常需要插入各种类型的源代码，于是我写了个小函数来简化这个过程。 
+&lt;/bgcolor&gt;
+&lt;/font&gt;
+</p>
+
+</div>
+</div>
+
+<div id="outline-container-orgc2a2220" class="outline-3">
+<h3 id="orgc2a2220">1 org-mode 中的源代码块</h3>
+<div class="outline-text-3" id="text-orgc2a2220">
+<p>
+这<label for="1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="1" class="margin-toggle"/><span class="sidenote">
+good
+</span>是一个 org-mode 中的 Elisp 代码块（可折叠）： <label for="2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="2" class="margin-toggle"/><span class="sidenote"></span>
+</p>
+<pre class="example" id="orga2d6b5a">
+#+BEGIN_SRC emacs-lisp
+  (message "天地玄黄，鸟生鱼汤")
+#+END_SRC
+</pre>
+<p>
+you can use <code>&lt;e Tab</code> create this.
+注 ：在 Emacs 中，把光标置于源代码中间，按 M-x org-edit-src-code （我把它绑定到了 C-c s e ），就可以在相应的模式下编辑这段代码。 
+f<label for="3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="3" class="margin-toggle"/><span class="sidenote"></span>** 2 org-insert-src-block
+为了不用自己输入 #+BEGIN_SRC…#+END_SRC 这一段，我写了下面这个Elisp 函数： 
+</p>
+
+<pre class="code"><code>(<span style="color: #81A1C1;">defun</span> <span style="font-weight: bold;">org-insert-src-block</span> (src-code-type)
+    <span style="color: #677691;">"Insert a `</span><span style="color: #81A1C1;">SRC-CODE-TYPE</span><span style="color: #677691;">' type source code block in org-mode."</span>
+    (interactive
+     (<span style="color: #81A1C1;">let</span> ((src-code-types
+            '(<span style="color: #D08770;">"emacs-lisp"</span> <span style="color: #D08770;">"python"</span> <span style="color: #D08770;">"C"</span> <span style="color: #D08770;">"sh"</span> <span style="color: #D08770;">"java"</span> <span style="color: #D08770;">"js"</span> <span style="color: #D08770;">"clojure"</span> <span style="color: #D08770;">"C++"</span> <span style="color: #D08770;">"css"</span>
+              <span style="color: #D08770;">"calc"</span> <span style="color: #D08770;">"asymptote"</span> <span style="color: #D08770;">"dot"</span> <span style="color: #D08770;">"gnuplot"</span> <span style="color: #D08770;">"ledger"</span> <span style="color: #D08770;">"lilypond"</span> <span style="color: #D08770;">"mscgen"</span>
+              <span style="color: #D08770;">"octave"</span> <span style="color: #D08770;">"oz"</span> <span style="color: #D08770;">"plantuml"</span> <span style="color: #D08770;">"R"</span> <span style="color: #D08770;">"sass"</span> <span style="color: #D08770;">"screen"</span> <span style="color: #D08770;">"sql"</span> <span style="color: #D08770;">"awk"</span> <span style="color: #D08770;">"ditaa"</span>
+              <span style="color: #D08770;">"haskell"</span> <span style="color: #D08770;">"latex"</span> <span style="color: #D08770;">"lisp"</span> <span style="color: #D08770;">"matlab"</span> <span style="color: #D08770;">"ocaml"</span> <span style="color: #D08770;">"org"</span> <span style="color: #D08770;">"perl"</span> <span style="color: #D08770;">"ruby"</span>
+              <span style="color: #D08770;">"scheme"</span> <span style="color: #D08770;">"sqlite"</span>)))
+       (list (ido-completing-read <span style="color: #D08770;">"Source code type: "</span> src-code-types))))
+    (<span style="color: #81A1C1;">progn</span>
+      (newline-and-indent)
+      (insert (format <span style="color: #D08770;">"#+BEGIN_SRC %s\n"</span> src-code-type))
+      (newline-and-indent)
+      (insert <span style="color: #D08770;">"#+END_SRC\n"</span>)
+      (previous-line 2)
+      (org-edit-src-code)))
+
+</code></pre>
+<p>
+eval 之，按 M-x org-insert-src-block ，然后输入代码类型（如 emacs-lisp，按 TAB可自动补全）即可。 
+注 感谢 李杀 关于 ido-completing-read 的帮助。 
+</p>
+</div>
+</div>
+<div id="outline-container-orgb75ce4e" class="outline-3">
+<h3 id="orgb75ce4e">3  绑定快捷键</h3>
+<div class="outline-text-3" id="text-orgb75ce4e">
+<p>
+把 `C-c s i’ 绑定到这个函数，我的 org-mode-hook 设置如下： 
+</p>
+<pre class="code"><code>(add-hook 'org-mode-hook '(lambda ()
+                              <span style="color: #677691;">;; </span><span style="color: #677691;">turn on flyspell-mode by default</span>
+                              (flyspell-mode 1)
+                              <span style="color: #677691;">;; </span><span style="color: #677691;">C-TAB for expanding</span>
+                              (local-set-key (kbd <span style="color: #D08770;">"C-&lt;tab&gt;"</span>)
+                                             'yas/expand-from-trigger-key)
+                              <span style="color: #677691;">;; </span><span style="color: #677691;">keybinding for editing source code blocks</span>
+                              (local-set-key (kbd <span style="color: #D08770;">"C-c s e"</span>)
+                                             'org-edit-src-code)
+                              <span style="color: #677691;">;; </span><span style="color: #677691;">keybinding for inserting code blocks</span>
+                              (local-set-key (kbd <span style="color: #D08770;">"C-c s i"</span>)
+                                             'org-insert-src-block)
+                              ))
+</code></pre>
+<pre class="code"><code>figlet <span style="color: #D08770;">'china xing !'</span>    
+</code></pre>
+</div>
+</div>
+<div id="outline-container-orgfb225da" class="outline-3">
+<h3 id="orgfb225da">4 代码块中的语法高亮</h3>
+<div class="outline-text-3" id="text-orgfb225da">
+<p>
+把 org-src-fontify-natively 这个变量设为 t, 这样代码块里也会语法高亮 (需要 revert-buffer 来重新加载一下当前的 org 文件). 
+</p>
+<pre class="code"><code>(<span style="color: #81A1C1;">setq</span> <span style="font-weight: bold;">org</span>-src-fontify-natively t)
+</code></pre>
+<p>
+org2blog 是利用 org-mode 的 export 引擎来把 org 文件转换成 HTML, 生成的HTML 中的代码块依然是语法高亮的. 
+需要注意的是, 生成的 HTML 中的语法高亮配色, 和你在 emacs 中看到的是一样的. 所以博客的配色和 emacs 的配色最好是接近的. 比如我在 emacs 用zenburn, 博客的配色也是类似于 zenburn (我自己改的 CSS). 否则你在emacs 看着很舒服的代码, 换个背景色, 可能就看着很难受了. 如果你的博客是浅色背景, 而在 emacs 中用的是深色背景, 那么在 M-xorg2blog/wp-post-buffer 之前, 最好换一个浅色主题, 比如 M-x load-themetango. 
+</p>
+</div>
+</div>
+<div id="outline-container-org521dec9" class="outline-3">
+<h3 id="org521dec9">5 org-mode 支持的语言</h3>
+</div>
+<div id="outline-container-org79010f8" class="outline-3">
+<h3 id="org79010f8">6 其他方案</h3>
+<div class="outline-text-3" id="text-org79010f8">
+<p>
+感谢 Celad Evra 的提醒，org-mode 自带的 Easy Templates 也提供了快速插入代码块的功能： 输入 &lt;s TAB 即可（但不提供语言标识符的补全），具体细节请见 org-mode 的文档。 
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org34a68c5" class="outline-2">
+<h2 id="org34a68c5">修改</h2>
+<div class="outline-text-2" id="text-org34a68c5">
+<p>
+简单的修改成highlight能认出的标记，添加文件头和尾。第一部分改成下述：<label for="4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="4" class="margin-toggle"/><span class="sidenote">
+换成英文%符号
+
+
+
+@&lt;/font&gt;
+</span>
+</p>
+<pre class="code"><code>(<span style="color: #81A1C1;">defun</span> <span style="font-weight: bold;">org-insert-src-block</span> (src-code-type)
+    <span style="color: #677691;">"Insert a `</span><span style="color: #81A1C1;">SRC-CODE-TYPE</span><span style="color: #677691;">' type source code block in org-mode."</span>
+    (<span style="color: #81A1C1;">interactive</span>
+     (<span style="color: #81A1C1;">let</span> ((src-code-types
+            '(<span style="color: #D08770;">"emacs-lisp"</span> <span style="color: #D08770;">"python"</span> <span style="color: #D08770;">"C"</span> <span style="color: #D08770;">"sh"</span> <span style="color: #D08770;">"java"</span> <span style="color: #D08770;">"js"</span> <span style="color: #D08770;">"clojure"</span> <span style="color: #D08770;">"C++"</span> <span style="color: #D08770;">"css"</span>
+              <span style="color: #D08770;">"calc"</span> <span style="color: #D08770;">"asymptote"</span> <span style="color: #D08770;">"dot"</span> <span style="color: #D08770;">"gnuplot"</span> <span style="color: #D08770;">"ledger"</span> <span style="color: #D08770;">"lilypond"</span> <span style="color: #D08770;">"mscgen"</span>
+              <span style="color: #D08770;">"octave"</span> <span style="color: #D08770;">"oz"</span> <span style="color: #D08770;">"plantuml"</span> <span style="color: #D08770;">"R"</span> <span style="color: #D08770;">"sass"</span> <span style="color: #D08770;">"screen"</span> <span style="color: #D08770;">"sql"</span> <span style="color: #D08770;">"awk"</span> <span style="color: #D08770;">"ditaa"</span>
+              <span style="color: #D08770;">"haskell"</span> <span style="color: #D08770;">"latex"</span> <span style="color: #D08770;">"lisp"</span> <span style="color: #D08770;">"matlab"</span> <span style="color: #D08770;">"ocaml"</span> <span style="color: #D08770;">"org"</span> <span style="color: #D08770;">"perl"</span> <span style="color: #D08770;">"ruby"</span>
+              <span style="color: #D08770;">"scheme"</span> <span style="color: #D08770;">"sqlite"</span>)))
+       (list (ido-completing-read <span style="color: #D08770;">"Source code type: "</span> src-code-types))))
+    (<span style="color: #81A1C1;">progn</span>
+      (newline-and-indent)
+      (insert (format <span style="color: #D08770;">"#+BEGIN_SRC %s\n"</span> src-code-type))
+      (insert <span style="color: #D08770;">"{&#30334;&#20998;&#21495;highlight ruby linenos "</span>)
+      (insert <span style="color: #D08770;">"%}\n"</span>)
+      (newline-and-indent)
+      (insert <span style="color: #D08770;">"{&#30334;&#20998;&#21495; endhighlight "</span>)
+      (insert <span style="color: #D08770;">"%}\n"</span>)
+      (insert <span style="color: #D08770;">"#+END_SRC\n"</span>)
+      (previous-line 2)
+      (org-edit-src-code)))
+</code></pre>
+</div>
+</div>
+<div id="outline-container-org61b2b2a" class="outline-2">
+<h2 id="org61b2b2a">其他方案</h2>
+<div class="outline-text-2" id="text-org61b2b2a">
+<p>
+如果安装htmlize,则可以不用highlight控制颜色，使用org导出html的颜色。安装方法
+</p>
+<pre class="code"><code>package-install
+htmlize
+</code></pre>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+good
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara"></p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara"></p></div></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4" role="doc-backlink">4</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+换成英文%符号
+</p>
+
+<p class="footpara">
+@&lt;/font&gt;
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<footer>
+  <p>Author: yefeiyu <a aria-label="Follow @yefeiyu on GitHub" data-count-aria-label="# followers on GitHub" data-count-api="/users/jcouyang#followers" data-count-href="/jcouyang/followers" href="https://github.com/yefeiyu" class="github-button">Follow @yefeiyu</a></p>
+  <p>Modified: 2022-10-21 Fri 14:43</p>
+  <p>Generated by: <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.5.3) &#215; <a href="https://github.com/yefeiyu/yefeiyu.github.io">博智堂</a></p>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<!-- 2022-10-22 Sat 06:48 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Finished the practice of Python</title>
+<meta name="author" content="yefeiyu" />
+<meta name="description" content="the First time" />
+<meta name="generator" content="Org Mode" />
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#ffffff">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/style/toc.css"/>
+<link rel="stylesheet" href="/style/tufte.css"/>
+<link rel="stylesheet" href="/style/main.css"/>
+<link rel="alternate" type="application/rss+xml" title="yefeiyu" href="https://yefeiyu.github.io/index.html"/>
+</head>
+<body>
+<div id="preamble" class="status">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJRFJGX"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header>
+    <a accesskey="h" href="/index.html"> HOME </a> |
+    <a href="#" id="edit-in-github">EDIT</a> |
+    <a href="https://feeds.oyanglul.us/JichaoOuyangsBlog">RSS</a> |
+    <a accesskey="H" href="/jichao.ouyang.html">ABOUT</a> |
+    <a href="https://github.com/jcouyang/blog">GITHUB</a>
+</header>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">Finished the practice of Python</h1>
+</header>
+<div id="outline-container-orga169f8f" class="outline-2">
+<h2 id="orga169f8f"></h2>
+<div class="outline-text-2" id="text-orga169f8f">
+<p>
+4.10.1 逗号代码
+假定有下面这样的列表：
+spam = ['apples', 'bananas', 'tofu', 'cats']
+编写一个函数，它以一个列表值作为参数，返回一个字符串。该字符串包含所
+有表项，表项之间以逗号和空格分隔，并在最后一个表项之前插入and。例如，将
+前面的spam 列表传递给函数，将返回'apples, bananas, tofu, and cats'。但你的函数应
+该能够处理传递给它的任何列表。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8771f70" class="outline-2">
+<h2 id="org8771f70"></h2>
+<div class="outline-text-2" id="text-org8771f70">
+<pre class="code"><code>
+<span style="font-weight: bold;">text</span>=<span style="color: #D08770;">''</span>
+<span style="font-weight: bold;">spam</span>=[<span style="color: #D08770;">'apple'</span>,<span style="color: #D08770;">'banana'</span>,<span style="color: #D08770;">'cangroo'</span>,<span style="color: #D08770;">'asdfa'</span>,<span style="color: #D08770;">'tofu'</span>,<span style="color: #D08770;">'cats'</span>]
+<span style="font-weight: bold;">c</span>=<span style="color: #81A1C1;">len</span>(spam)
+<span style="font-weight: bold;">d</span>=<span style="color: #81A1C1;">range</span>(<span style="color: #81A1C1;">len</span>(spam))
+<span style="color: #81A1C1;">for</span> i <span style="color: #81A1C1;">in</span> d:
+    <span style="color: #81A1C1;">if</span> i == c-1:
+        text += <span style="color: #D08770;">'and '</span> + spam[i] + <span style="color: #D08770;">"\'"</span>
+    <span style="color: #81A1C1;">elif</span> i == 0:
+        text += <span style="color: #D08770;">"\'"</span> + spam[i] + <span style="color: #D08770;">', '</span>
+    <span style="color: #81A1C1;">else</span>:
+        text += spam[i] + <span style="color: #D08770;">', '</span>
+<span style="color: #81A1C1;">print</span>(text)
+
+</code></pre>
+<p>
+the origin answer:
+</p>
+<pre class="code"><code><span style="font-weight: bold;">text</span>=<span style="color: #D08770;">''</span>
+<span style="font-weight: bold;">spam</span>=[<span style="color: #D08770;">'apple'</span>,<span style="color: #D08770;">'banana'</span>,<span style="color: #D08770;">'tofu'</span>,<span style="color: #D08770;">'cats'</span>]
+<span style="color: #81A1C1;">for</span> i <span style="color: #81A1C1;">in</span> <span style="color: #81A1C1;">range</span>(<span style="color: #81A1C1;">len</span>(spam)):
+    <span style="color: #81A1C1;">if</span> i==0:
+        text+=<span style="color: #D08770;">'\''</span>
+        text+=(spam[i]+<span style="color: #D08770;">','</span>)
+    <span style="color: #81A1C1;">elif</span> i!=(<span style="color: #81A1C1;">len</span>(spam)-1):
+        text+=(spam[i]+<span style="color: #D08770;">','</span>)
+    <span style="color: #81A1C1;">else</span>:
+        text+=(<span style="color: #D08770;">'and '</span>+spam[i])
+        text+=<span style="color: #D08770;">'\''</span>
+<span style="color: #81A1C1;">print</span>(text)
+
+</code></pre>
+<p>
+The process I solve:
+</p>
+<pre class="code"><code><span style="font-weight: bold;">text</span>=<span style="color: #D08770;">''</span>
+<span style="font-weight: bold;">spam</span>=[<span style="color: #D08770;">'apple'</span>,<span style="color: #D08770;">'banana'</span>,<span style="color: #D08770;">'cangroo'</span>,<span style="color: #D08770;">'asdfa'</span>,<span style="color: #D08770;">'tofu'</span>,<span style="color: #D08770;">'cats'</span>]
+<span style="font-weight: bold;">c</span>=<span style="color: #81A1C1;">len</span>(spam)
+<span style="font-weight: bold;">d</span>=<span style="color: #81A1C1;">range</span>(<span style="color: #81A1C1;">len</span>(spam))
+<span style="color: #81A1C1;">for</span> i <span style="color: #81A1C1;">in</span> d:
+<span style="color: #677691;">#    </span><span style="color: #677691;">if i == 0:</span>
+<span style="color: #677691;">#        </span><span style="color: #677691;">text+=(spam[i]+', ')</span>
+    <span style="color: #81A1C1;">if</span> i !=(c-1):
+        text+=(spam[i]+<span style="color: #D08770;">', '</span>)
+        
+    <span style="color: #81A1C1;">else</span>:
+        text+=(<span style="color: #D08770;">' and '</span> +spam[i])
+<span style="color: #81A1C1;">print</span>(text)
+</code></pre>
+<pre class="code"><code>i == c-1:
+        text+=(<span style="color: #D08770;">',and '</span> +spam[i])
+
+    <span style="color: #81A1C1;">else</span>:
+        text+=<span style="color: #D08770;">'\''</span>
+        text+=(spam[i]+<span style="color: #D08770;">','</span>)
+<span style="color: #81A1C1;">print</span>(text)
+</code></pre>
+<p>
+It takes a lot of time, but it's fun.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<footer>
+  <p>Author: yefeiyu <a aria-label="Follow @yefeiyu on GitHub" data-count-aria-label="# followers on GitHub" data-count-api="/users/jcouyang#followers" data-count-href="/jcouyang/followers" href="https://github.com/yefeiyu" class="github-button">Follow @yefeiyu</a></p>
+  <p>Modified: 2022-10-21 Fri 14:43</p>
+  <p>Generated by: <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.5.3) &#215; <a href="https://github.com/yefeiyu/yefeiyu.github.io">博智堂</a></p>
+</footer>
+</div>
+</body>
+</html>

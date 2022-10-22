@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<!-- 2022-10-22 Sat 06:48 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>通过css修改org-mode生成的begin_src代码颜色</title>
+<meta name="author" content="yefeiyu" />
+<meta name="description" content="使用代码更好读" />
+<meta name="generator" content="Org Mode" />
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#ffffff">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/style/toc.css"/>
+<link rel="stylesheet" href="/style/tufte.css"/>
+<link rel="stylesheet" href="/style/main.css"/>
+<link rel="alternate" type="application/rss+xml" title="yefeiyu" href="https://yefeiyu.github.io/index.html"/>
+</head>
+<body>
+<div id="preamble" class="status">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJRFJGX"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header>
+    <a accesskey="h" href="/index.html"> HOME </a> |
+    <a href="#" id="edit-in-github">EDIT</a> |
+    <a href="https://feeds.oyanglul.us/JichaoOuyangsBlog">RSS</a> |
+    <a accesskey="H" href="/jichao.ouyang.html">ABOUT</a> |
+    <a href="https://github.com/jcouyang/blog">GITHUB</a>
+</header>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">通过css修改org-mode生成的begin_src代码颜色</h1>
+</header>
+<div id="outline-container-org49ce71c" class="outline-2">
+<h2 id="org49ce71c"><span class="section-number-2">1.</span> 通过babel方式在org-mode中插入代码</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+譬如 &lt;s-Tab可以生成
+</p>
+<pre class="example" id="org6977de7">
+#+BEGIN_SRC c (or css or lisp or ruby)
+
+#+END_SRC
+</pre>
+<p>
+在其中插入代码。需要注意的是，不同的代码需要在'SRC'后面定义，如c或`lisp`。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga6e0d85" class="outline-2">
+<h2 id="orga6e0d85"><span class="section-number-2">2.</span> 通过M-x org-html-htmlize-generate-css在emacs中找到适合的颜色控制</h2>
+<div class="outline-text-2" id="text-2">
+<pre class="code"><code><span style="font-weight: bold;">&lt;style type=</span><span style="color: #D08770;">"text/css"</span><span style="font-weight: bold;">&gt;</span>
+<span style="font-weight: bold;">    &lt;!--</span>
+<span style="font-weight: bold;">      body </span>{
+        <span style="color: #81A1C1;">color</span>: <span style="color: #ffffff; background-color: #000000;">#000000</span>;
+        <span style="color: #81A1C1;">background-color</span>: <span style="color: #000000; background-color: #ffffff;">#ffffff</span>;
+      }
+      <span style="font-weight: bold;">.org-bold </span>{
+        <span style="color: #677691;">/* </span><span style="color: #677691;">bold</span><span style="color: #677691;"> */</span>
+        <span style="color: #81A1C1;">font-weight</span>: bold;
+      }
+      <span style="font-weight: bold;">.org-bold-italic </span>{
+        <span style="color: #677691;">/* </span><span style="color: #677691;">bold-italic</span><span style="color: #677691;"> */</span>
+        <span style="color: #81A1C1;">font-weight</span>: bold;
+        <span style="color: #81A1C1;">font-style</span>: italic;
+      }
+      <span style="font-weight: bold;">.org-border </span>{
+      }
+      <span style="font-weight: bold;">.org-buffer-menu-buffer </span>{
+        <span style="color: #677691;">/* </span><span style="color: #677691;">buffer-menu-buffer</span><span style="color: #677691;"> */</span>
+</code></pre>
+<p>
+拷贝至博客的css控制文件中。在本博客中是
+</p>
+<pre class="code"><code>/home/xx/gh/yefeiyu.github.io/_app/assets/themes/curtana/_less/common.less
+</code></pre>
+<p>
+文件。注意去年文件头&lt;style&gt;和尾。
+</p>
+</div>
+</div>
+<div id="outline-container-orgdfff141" class="outline-2">
+<h2 id="orgdfff141"><span class="section-number-2">3.</span> 可以进一步修改code基本颜色，</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+在
+</p>
+<pre class="code"><code>/home/xx/gh/yefeiyu.github.io/_app/assets/themes/curtana/_less/variables.less
+</code></pre>
+<p>
+文件中。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1454f42" class="outline-2">
+<h2 id="org1454f42"><span class="section-number-2">4.</span> 附加一个短引用的格式，org-mode中使用的</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+<code>hello</code> Renders as verbatim
+<code>hello</code> Renders as code
+<code>hello'</code> Fails to render as verbatim
+<code>hello'</code> Fails to render as code
+</p>
+<pre class="example" id="orge6094fd">
+
+=hello= Renders as verbatim
+~hello~ Renders as code
+=hello'= Fails to render as verbatim
+~hello'~ Fails to render as code
+
+</pre>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<footer>
+  <p>Author: yefeiyu <a aria-label="Follow @yefeiyu on GitHub" data-count-aria-label="# followers on GitHub" data-count-api="/users/jcouyang#followers" data-count-href="/jcouyang/followers" href="https://github.com/yefeiyu" class="github-button">Follow @yefeiyu</a></p>
+  <p>Modified: 2022-10-21 Fri 14:43</p>
+  <p>Generated by: <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.5.3) &#215; <a href="https://github.com/yefeiyu/yefeiyu.github.io">博智堂</a></p>
+</footer>
+</div>
+</body>
+</html>
