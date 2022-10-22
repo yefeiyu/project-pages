@@ -1,6 +1,0 @@
-## -*- coding: utf-8 -*-
-## This file is best viewed with GNU Emacs Org-mode: http://orgmode.org/
-* Warnings and Error messages from lazyblorg     :lazyblorg:log:
-
-Messages gets appended to this file. Please remove fixed issues manually.
-
