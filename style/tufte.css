@@ -73,3 +73,10 @@ div.table-wrapper {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 }
 
+code, pre > code {
+    font-family: "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 1.0rem;
+    line-height: 1.42;
+    -webkit-text-size-adjust: 100%; /* Prevent adjustments of font size after orientation changes in iOS. See https://github.com/edwardtufte/tufte-css/issues/81#issuecomment-261953409 */
+    background-color: #eeeeee;
+}
