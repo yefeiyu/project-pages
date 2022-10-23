@@ -4,7 +4,7 @@
 	  position: fixed;
 	  right: 0em;
 	  top: 0em;
-	  background: #ffffff;
+	  background: #00ffff;
 	  line-height: 9pt;
 	  text-align: right;
 	  box-shadow: 0 0 1em #777777;
@@ -17,7 +17,7 @@
 	  overflow: auto; }
 #table-of-contents h2 {
 	  font-size: 9pt;
-	  max-width: 5em;
+	  max-width: 9em;
 	  border: 0;
 	  font-weight: normal;
 	  padding-left: 0.5em;

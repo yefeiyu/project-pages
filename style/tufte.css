@@ -168,6 +168,11 @@ figure.fullwidth figcaption {
 }
 
 /* Links: replicate underline that clears descenders */
+a:link,
+a:visited {
+    color: inherit;
+}
+
 .no-tufte-underline:link {
     background: unset;
     text-shadow: unset;
@@ -186,7 +191,7 @@ a:link, .tufte-underline, .hover-tufte-underline:hover {
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
     a:link, .tufte-underline, .hover-tufte-underline:hover {
-        background-position-y: 87%, 87%, 87%;
+        background-position-y: 87%, 50%, 87%;
     }
 }
 
