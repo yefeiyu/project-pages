@@ -80,3 +80,11 @@ code, pre > code {
     -webkit-text-size-adjust: 100%; /* Prevent adjustments of font size after orientation changes in iOS. See https://github.com/edwardtufte/tufte-css/issues/81#issuecomment-261953409 */
     background-color: #eeeeee;
 }
+pre > code {
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    overflow-x: auto;
+    display: block;
+    background-color: #eeeeea;
+}
