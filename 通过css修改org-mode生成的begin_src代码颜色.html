@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-23 Sun 13:30 -->
+<!-- 2022-10-23 Sun 13:58 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>通过css修改org-mode生成的begin_src代码颜色</title>
@@ -36,13 +36,13 @@
 <header>
 <h1 class="title">通过css修改org-mode生成的begin_src代码颜色</h1>
 </header>
-<div id="outline-container-org5368fd8" class="outline-2">
-<h2 id="org5368fd8"><span class="section-number-2">1.</span> 通过babel方式在org-mode中插入代码</h2>
+<div id="outline-container-org40fedce" class="outline-2">
+<h2 id="org40fedce"><span class="section-number-2">1.</span> 通过babel方式在org-mode中插入代码</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 譬如 &lt;s-Tab可以生成
 </p>
-<pre class="example" id="orgb1ccb73">
+<pre class="example" id="org22d771d">
 #+BEGIN_SRC c (or css or lisp or ruby)
 
 #+END_SRC
@@ -53,8 +53,8 @@
 </div>
 </div>
 
-<div id="outline-container-org02da6f6" class="outline-2">
-<h2 id="org02da6f6"><span class="section-number-2">2.</span> 通过M-x org-html-htmlize-generate-css在emacs中找到适合的颜色控制</h2>
+<div id="outline-container-orgc40e632" class="outline-2">
+<h2 id="orgc40e632"><span class="section-number-2">2.</span> 通过M-x org-html-htmlize-generate-css在emacs中找到适合的颜色控制</h2>
 <div class="outline-text-2" id="text-2">
 <pre class="code"><code><span style="font-weight: bold;">&lt;style type=</span><span style="color: #D08770;">"text/css"</span><span style="font-weight: bold;">&gt;</span>
 <span style="font-weight: bold;">    &lt;!--</span>
@@ -82,8 +82,8 @@
 </div>
 </div>
 
-<div id="outline-container-org9ff8afe" class="outline-2">
-<h2 id="org9ff8afe"><span class="section-number-2">3.</span> 可以进一步修改code基本颜色，</h2>
+<div id="outline-container-org2a39328" class="outline-2">
+<h2 id="org2a39328"><span class="section-number-2">3.</span> 可以进一步修改code基本颜色，</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 在/home/xx/gh/yefeiyu.github.io/_app/assets/themes/curtana/_less/variables.less文件中。
@@ -91,8 +91,8 @@
 </div>
 </div>
 
-<div id="outline-container-org4b5c0bb" class="outline-2">
-<h2 id="org4b5c0bb"><span class="section-number-2">4.</span> 附加一个短引用的格式，org-mode中使用的</h2>
+<div id="outline-container-org04d3191" class="outline-2">
+<h2 id="org04d3191"><span class="section-number-2">4.</span> 附加一个短引用的格式，org-mode中使用的</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 <code>hello</code> Renders as verbatim
@@ -100,7 +100,7 @@
 <code>hello'</code> Fails to render as verbatim
 <code>hello'</code> Fails to render as code
 </p>
-<pre class="example" id="orgbe5f690">
+<pre class="example" id="orge7313d0">
 
 =hello= Renders as verbatim
 ~hello~ Renders as code
