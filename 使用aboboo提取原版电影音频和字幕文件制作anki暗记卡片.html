@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-23 Sun 14:09 -->
+<!-- 2022-10-23 Sun 15:38 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>使用aboboo提取原版电影音频和字幕文件制作anki暗记卡片</title>
@@ -35,40 +35,40 @@
 <header>
 <h1 class="title">使用aboboo提取原版电影音频和字幕文件制作anki暗记卡片</h1>
 </header>
-<div id="outline-container-org58ed40c" class="outline-2">
-<h2 id="org58ed40c"><span class="section-number-2">1.</span> </h2>
+<div id="outline-container-org5f407e3" class="outline-2">
+<h2 id="org5f407e3"><span class="section-number-2">1.</span> </h2>
 <div class="outline-text-2" id="text-1">
 <p>
 将电影文件和字幕文件改成同名，放到同一文件夹内。使用aboboo本地-打开，则aboboo在切分语音时自动按字幕时间戳切分。
 </p>
 </div>
 </div>
-<div id="outline-container-orgc517aff" class="outline-2">
-<h2 id="orgc517aff"><span class="section-number-2">2.</span> </h2>
+<div id="outline-container-org385dcae" class="outline-2">
+<h2 id="org385dcae"><span class="section-number-2">2.</span> </h2>
 <div class="outline-text-2" id="text-2">
 <p>
 处理字幕。有时候需要原、译文对调；繁体乱码改简体；删除字幕后重新载入等操作。
 </p>
 </div>
 </div>
-<div id="outline-container-org1d24fa6" class="outline-2">
-<h2 id="org1d24fa6"><span class="section-number-2">3.</span> </h2>
+<div id="outline-container-org382969a" class="outline-2">
+<h2 id="org382969a"><span class="section-number-2">3.</span> </h2>
 <div class="outline-text-2" id="text-3">
 <p>
 句子选择。打开后反选，然后在第二项中修改为”参照文本大于4个词的句子“，确定。
 </p>
 </div>
 </div>
-<div id="outline-container-org7d40cba" class="outline-2">
-<h2 id="org7d40cba"><span class="section-number-2">4.</span> </h2>
+<div id="outline-container-orgeac1ff9" class="outline-2">
+<h2 id="orgeac1ff9"><span class="section-number-2">4.</span> </h2>
 <div class="outline-text-2" id="text-4">
 <p>
 导出选中句子到音频文件，字幕格式为utf-8，勾选自动剪除句子首尾静音，每一句一个句子。
 </p>
 </div>
 </div>
-<div id="outline-container-org0637935" class="outline-2">
-<h2 id="org0637935"><span class="section-number-2">5.</span> </h2>
+<div id="outline-container-org50c9fff" class="outline-2">
+<h2 id="org50c9fff"><span class="section-number-2">5.</span> </h2>
 <div class="outline-text-2" id="text-5">
 <p>
 使用python，生成anki可以导入的create.csv文件。create.py文件代码如下：
@@ -124,8 +124,8 @@ if __name__ == "__main__":
 </code></pre>
 </div>
 </div>
-<div id="outline-container-orgfa2a40e" class="outline-2">
-<h2 id="orgfa2a40e"><span class="section-number-2">6.</span> </h2>
+<div id="outline-container-org704bf7a" class="outline-2">
+<h2 id="org704bf7a"><span class="section-number-2">6.</span> </h2>
 <div class="outline-text-2" id="text-6">
 <p>
 将媒体文件导入anki文件夹内。linux是anki安装后在主文件夹内生成documents文件夹;windows是安装后在user/pc-user-id/AppData/Roaming/Anki2/User 1/collection.media中。
