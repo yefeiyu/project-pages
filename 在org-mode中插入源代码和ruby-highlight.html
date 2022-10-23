@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-23 Sun 13:58 -->
+<!-- 2022-10-23 Sun 14:09 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>在org-mode中插入源代码和ruby highlight</title>
@@ -36,13 +36,13 @@
 <h1 class="title">在org-mode中插入源代码和ruby highlight</h1>
 </header>
 
-<div id="outline-container-org997f060" class="outline-2">
-<h2 id="org997f060">设定</h2>
-<div class="outline-text-2" id="text-org997f060">
+<div id="outline-container-org60424f0" class="outline-2">
+<h2 id="org60424f0">设定</h2>
+<div class="outline-text-2" id="text-org60424f0">
 <p>
 <code>下述内容copy自wenshan</code>
 </p>
-<div class="HTML" id="orgdcbcad4">
+<div class="HTML" id="org83a2505">
 <p>
 
 </p>
@@ -58,15 +58,15 @@
 </div>
 </div>
 
-<div id="outline-container-orgabe0b15" class="outline-3">
-<h3 id="orgabe0b15">1 org-mode 中的源代码块</h3>
-<div class="outline-text-3" id="text-orgabe0b15">
+<div id="outline-container-orgfacabd6" class="outline-3">
+<h3 id="orgfacabd6">1 org-mode 中的源代码块</h3>
+<div class="outline-text-3" id="text-orgfacabd6">
 <p>
 这<label for="1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="1" class="margin-toggle"/><span class="sidenote">
 good
 </span>是一个 org-mode 中的 Elisp 代码块（可折叠）： <label for="2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="2" class="margin-toggle"/><span class="sidenote"></span>
 </p>
-<pre class="example" id="orgd00c62a">
+<pre class="example" id="orga6aaea8">
 #+BEGIN_SRC emacs-lisp
   (message "天地玄黄，鸟生鱼汤")
 #+END_SRC
@@ -103,9 +103,9 @@ eval 之，按 M-x org-insert-src-block ，然后输入代码类型（如 emacs-
 </p>
 </div>
 </div>
-<div id="outline-container-orgfb3d6a3" class="outline-3">
-<h3 id="orgfb3d6a3">3  绑定快捷键</h3>
-<div class="outline-text-3" id="text-orgfb3d6a3">
+<div id="outline-container-orgbe01541" class="outline-3">
+<h3 id="orgbe01541">3  绑定快捷键</h3>
+<div class="outline-text-3" id="text-orgbe01541">
 <p>
 把 `C-c s i’ 绑定到这个函数，我的 org-mode-hook 设置如下： 
 </p>
@@ -127,9 +127,9 @@ eval 之，按 M-x org-insert-src-block ，然后输入代码类型（如 emacs-
 </code></pre>
 </div>
 </div>
-<div id="outline-container-org083c7f0" class="outline-3">
-<h3 id="org083c7f0">4 代码块中的语法高亮</h3>
-<div class="outline-text-3" id="text-org083c7f0">
+<div id="outline-container-org797ab70" class="outline-3">
+<h3 id="org797ab70">4 代码块中的语法高亮</h3>
+<div class="outline-text-3" id="text-org797ab70">
 <p>
 把 org-src-fontify-natively 这个变量设为 t, 这样代码块里也会语法高亮 (需要 revert-buffer 来重新加载一下当前的 org 文件). 
 </p>
@@ -141,21 +141,21 @@ org2blog 是利用 org-mode 的 export 引擎来把 org 文件转换成 HTML, �
 </p>
 </div>
 </div>
-<div id="outline-container-org76870df" class="outline-3">
-<h3 id="org76870df">5 org-mode 支持的语言</h3>
+<div id="outline-container-orgc0ce37e" class="outline-3">
+<h3 id="orgc0ce37e">5 org-mode 支持的语言</h3>
 </div>
-<div id="outline-container-org62c7cd5" class="outline-3">
-<h3 id="org62c7cd5">6 其他方案</h3>
-<div class="outline-text-3" id="text-org62c7cd5">
+<div id="outline-container-org8022ab3" class="outline-3">
+<h3 id="org8022ab3">6 其他方案</h3>
+<div class="outline-text-3" id="text-org8022ab3">
 <p>
 感谢 Celad Evra 的提醒，org-mode 自带的 Easy Templates 也提供了快速插入代码块的功能： 输入 &lt;s TAB 即可（但不提供语言标识符的补全），具体细节请见 org-mode 的文档。 
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org46d14c4" class="outline-2">
-<h2 id="org46d14c4">修改</h2>
-<div class="outline-text-2" id="text-org46d14c4">
+<div id="outline-container-org9f120e3" class="outline-2">
+<h2 id="org9f120e3">修改</h2>
+<div class="outline-text-2" id="text-org9f120e3">
 <p>
 简单的修改成highlight能认出的标记，添加文件头和尾。第一部分改成下述：<label for="4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="4" class="margin-toggle"/><span class="sidenote">
 换成英文%符号
@@ -189,9 +189,9 @@ org2blog 是利用 org-mode 的 export 引擎来把 org 文件转换成 HTML, �
 </code></pre>
 </div>
 </div>
-<div id="outline-container-org8106121" class="outline-2">
-<h2 id="org8106121">其他方案</h2>
-<div class="outline-text-2" id="text-org8106121">
+<div id="outline-container-org144df22" class="outline-2">
+<h2 id="org144df22">其他方案</h2>
+<div class="outline-text-2" id="text-org144df22">
 <p>
 如果安装htmlize,则可以不用highlight控制颜色，使用org导出html的颜色。安装方法
 </p>
