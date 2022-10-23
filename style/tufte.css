@@ -145,7 +145,7 @@ figure {
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
-    max-width: 65%;
+    max-width: 100%;
     -webkit-margin-start: 0;
     -webkit-margin-end: 0;
     margin: 0 0 3em 0;
@@ -194,6 +194,8 @@ a:link, .tufte-underline, .hover-tufte-underline:hover {
         background-position-y: 87%, 87%, 87%;
     }
 }
+
+
 a:link::selection,
 a:link::-moz-selection {
     background: #b4d5fe;
@@ -296,6 +298,11 @@ pre > code {
 
 pre.fullwidth > code {
     width: 90%;
+}
+
+.fullwidth {
+    max-width: 90%;
+    clear:both;
 }
 
 span.newthought {
