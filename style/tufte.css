@@ -23,12 +23,6 @@ body {
         background-color: #2e3436;
     }
 
-    a {
-        color: inherit;
-        background-color: inherit;
-        font: inherit;
-        text-decoration: inherit;
-    }
     a:hover {
         text-decoration: underline;
     }
@@ -195,6 +189,11 @@ a:link, .tufte-underline, .hover-tufte-underline:hover {
     background-position: 0% 93%, 100% 93%, 0% 93%;
 }
 
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    a:link, .tufte-underline, .hover-tufte-underline:hover {
+        background-position-y: 87%, 87%, 87%;
+    }
+}
 a:link::selection,
 a:link::-moz-selection {
     background: #b4d5fe;
