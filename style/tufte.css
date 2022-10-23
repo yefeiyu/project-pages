@@ -168,11 +168,6 @@ figure.fullwidth figcaption {
 }
 
 /* Links: replicate underline that clears descenders */
-a:link,
-a:visited {
-    color: inherit;
-}
-
 .no-tufte-underline:link {
     background: unset;
     text-shadow: unset;
