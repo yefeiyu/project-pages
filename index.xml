@@ -14,8 +14,8 @@
   <link>https://blog.oyanglul.us</link>
   <description><![CDATA[]]></description>
   <language>en</language>
-  <pubDate>Sun, 23 Oct 2022 08:36:57 +0000</pubDate>
-  <lastBuildDate>Sun, 23 Oct 2022 08:36:57 +0000</lastBuildDate>
+  <pubDate>Sun, 23 Oct 2022 08:42:16 +0000</pubDate>
+  <lastBuildDate>Sun, 23 Oct 2022 08:42:16 +0000</lastBuildDate>
   <generator>Emacs 28.1 Org-mode 9.5.3</generator>
   <webMaster>oyanglulu@gmail.com (unknown)</webMaster>
   <image>
@@ -25,15 +25,6 @@
   </image>
 
 
-  <item>
-    <title>file:kvm虚拟机安装windows.org</title>
-    <link>https://blog.oyanglul.us/kvm虚拟机安装windows.html</link>
-    <author>oyanglulu@gmail.com (unknown)</author>
-    <guid isPermaLink="false">https://blog.oyanglul.us/kvm虚拟机安装windows.html</guid>
-    <pubDate>Sun, 23 Oct 2022 00:00:00 +0000</pubDate>
-
-    <description><![CDATA[]]></description>
-  </item>
   <item>
     <title>file:debian安装dropbox.org</title>
     <link>https://blog.oyanglul.us/debian安装dropbox.html</link>
@@ -54,6 +45,15 @@
     Record my log of pc install
     </p>
     ]]></description>
+  </item>
+  <item>
+    <title>file:kvm虚拟机安装windows.org</title>
+    <link>https://blog.oyanglul.us/kvm虚拟机安装windows.html</link>
+    <author>oyanglulu@gmail.com (unknown)</author>
+    <guid isPermaLink="false">https://blog.oyanglul.us/kvm虚拟机安装windows.html</guid>
+    <pubDate>Sun, 23 Oct 2022 00:00:00 +0000</pubDate>
+
+    <description><![CDATA[]]></description>
   </item>
   <item>
     <title>file:2022-10-22-good.org</title>
