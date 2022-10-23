@@ -9,39 +9,33 @@
      xmlns:georss="http://www.georss.org/georss"
      xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
      xmlns:media="http://search.yahoo.com/mrss/"><channel>
-  <title>博智堂</title>
-  <atom:link href="https://yefeiyu.github.io/index.xml" rel="self" type="application/rss+xml" />
-  <link>https://yefeiyu.github.io</link>
+  <title>Orgpress Blog</title>
+  <atom:link href="https://blog.oyanglul.us/index.xml" rel="self" type="application/rss+xml" />
+  <link>https://blog.oyanglul.us</link>
   <description><![CDATA[]]></description>
   <language>en</language>
-  <pubDate>Sat, 22 Oct 2022 17:05:36 +0000</pubDate>
-  <lastBuildDate>Sat, 22 Oct 2022 17:05:36 +0000</lastBuildDate>
+  <pubDate>Sun, 23 Oct 2022 08:07:58 +0000</pubDate>
+  <lastBuildDate>Sun, 23 Oct 2022 08:07:58 +0000</lastBuildDate>
   <generator>Emacs 28.1 Org-mode 9.5.3</generator>
-  <webMaster>yefeiyu@gmail.com (unknown)</webMaster>
+  <webMaster>oyanglulu@gmail.com (unknown)</webMaster>
   <image>
     <url>https://orgmode.org/img/org-mode-unicorn-logo.png</url>
-    <title>博智堂</title>
-    <link>https://yefeiyu.github.io</link>
+    <title>Orgpress Blog</title>
+    <link>https://blog.oyanglul.us</link>
   </image>
 
 
   <item>
-    <title>file:2022-10-22-good.org</title>
-    <link>https://yefeiyu.github.io/2022-10-22-good.html</link>
-    <author>yefeiyu@gmail.com (unknown)</author>
-    <guid isPermaLink="false">https://yefeiyu.github.io/2022-10-22-good.html</guid>
-    <pubDate>Sat, 22 Oct 2022 00:00:00 +0000</pubDate>
+    <title>file:hello-world.org</title>
+    <link>https://blog.oyanglul.us/hello-world.html</link>
+    <author>oyanglulu@gmail.com (unknown)</author>
+    <guid isPermaLink="false">https://blog.oyanglul.us/hello-world.html</guid>
+    <pubDate>Sat, 01 Feb 1986 00:00:00 +0000</pubDate>
 
-    <description><![CDATA[]]></description>
-  </item>
-  <item>
-    <title>file:2022-10-22-try-to-do.org</title>
-    <link>https://yefeiyu.github.io/2022-10-22-try-to-do.html</link>
-    <author>yefeiyu@gmail.com (unknown)</author>
-    <guid isPermaLink="false">https://yefeiyu.github.io/2022-10-22-try-to-do.html</guid>
-    <pubDate>Sat, 22 Oct 2022 00:00:00 +0000</pubDate>
-
-    <description><![CDATA[]]></description>
+    <description><![CDATA[<p>
+    this is description
+    </p>
+    ]]></description>
   </item>
 </channel>
 </rss>
