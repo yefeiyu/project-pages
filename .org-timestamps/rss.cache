@@ -2,4 +2,4 @@
 (puthash ":project:" "rss" org-publish-cache)
 (puthash ":cache-file:" "/blog/public/.org-timestamps/rss.cache" org-publish-cache)
 (puthash "/blog/org/index.org" '(:crossrefs (((other "[[file:hello-world.org][Hello" "World]]") . 83310000) ((headline "[[file:hello-world.org][Hello" "World]]") . 83310000) ((other "[[file:2022-10-22-try-to-do.org][try" "to" "do]]") . 203253362) ((headline "[[file:2022-10-22-try-to-do.org][try" "to" "do]]") . 203253362)) :index nil) org-publish-cache)
-(puthash "Xb62603b9c53219def1f11a83ff47ff91c4f78ec4" '(25428 63804 606821 206000) org-publish-cache)
+(puthash "Xb62603b9c53219def1f11a83ff47ff91c4f78ec4" '(25428 64371 585499 241000) org-publish-cache)

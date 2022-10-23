@@ -5,7 +5,7 @@
 (puthash "/blog/org/hello-world.org" '(:date (7745 23680) :title "Hello World" :crossrefs (((other "Source" "Code") . 40426080) ((headline "Source" "Code") . 40426080)) :index (("Tag!Hello World" "/blog/org/hello-world.org" nil))) org-publish-cache)
 (puthash "X9b322ad9e8c4dc7ebf046de7f7c0869625a87dc1" '(25428 62790 330226 986000) org-publish-cache)
 (puthash "/blog/org/index.org" '(:crossrefs (((other "[[file:hello-world.org][Hello" "World]]") . 165328907) ((headline "[[file:hello-world.org][Hello" "World]]") . 165328907) ((other "[[file:2022-10-22-try-to-do.org][try" "to" "do]]") . 162103799) ((headline "[[file:2022-10-22-try-to-do.org][try" "to" "do]]") . 162103799)) :index nil) org-publish-cache)
-(puthash "X75106c7b565107d996cc2d733095b328508870d5" '(25428 63801 337339 507000) org-publish-cache)
+(puthash "X75106c7b565107d996cc2d733095b328508870d5" '(25428 64368 39429 243000) org-publish-cache)
 (puthash "Xc04c6254deee108dc8eef31a0e1c8d065842c706" '(25428 62790 330389 154000) org-publish-cache)
 (puthash "/blog/org/2022-10-22-try-to-do.org" '(:date (25428 17652) :title "try to do" :crossrefs (((other "jkjadsf") . 206660707) ((headline "jkjadsf") . 206660707) ((other "study") . 199983111) ((headline "study") . 199983111)) :index nil) org-publish-cache)
 (puthash "X5bdbb2845841b6748d17c7662c3515f91997de05" '(25428 63795 634556 201000) org-publish-cache)
