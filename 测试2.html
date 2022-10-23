@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-23 Sun 13:29 -->
+<!-- 2022-10-23 Sun 13:30 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>debian安装dropbox</title>
+<title>测试2</title>
 <meta name="author" content="yefeiyu" />
+<meta name="description" content="不" />
 <meta name="generator" content="Org Mode" />
 <link rel="icon" href="/favicon.ico">
 <meta name="theme-color" content="#ffffff">
@@ -33,53 +34,10 @@
 </div>
 <div id="content" class="content">
 <header>
-<h1 class="title">debian安装dropbox</h1>
+<h1 class="title">测试2</h1>
 </header>
-<div id="outline-container-orgf21217d" class="outline-2">
-<h2 id="orgf21217d">安装准备</h2>
-<div class="outline-text-2" id="text-orgf21217d">
-<p>
-因为国内防火墙(GFW)对云盘提供商dropbox进行了屏弊,因为terminal无法直接下载安装,需要使用proxychains走代理。这一部分参见上篇文章《terminal通过proxychains翻墙》。
-</p>
-</div>
-</div>
-<div id="outline-container-orgc284a6b" class="outline-2">
-<h2 id="orgc284a6b">安装</h2>
-<div class="outline-text-2" id="text-orgc284a6b">
-</div>
-<div id="outline-container-orgd6eef10" class="outline-3">
-<h3 id="orgd6eef10">通过deb包</h3>
-<div class="outline-text-3" id="text-orgd6eef10">
-<pre class="code"><code>cd ~
-proxychains4 wget https://www.dropbox.com/download?dl=packages/debian/dropbox_2015.10.28_amd64.deb
-sudo dpkg -i dropbox*.deb
-&#65288;&#21024;&#38500;sudo dpkg -r dropbox)
-</code></pre>
-</div>
-</div>
-
-<div id="outline-container-org7fcb2b8" class="outline-3">
-<h3 id="org7fcb2b8">通过命令行安装无外设模式的 Dropbox</h3>
-<div class="outline-text-3" id="text-org7fcb2b8">
-<pre class="code"><code> cd ~
-wget -O - <span style="color: #D08770;">"https://www.dropbox.com/download?plat=lnx.x86_64"</span> | tar xzf -
-</code></pre>
-<p>
-接着，从新建的 .dropbox-dist 文件夹运行 Dropbox 守护程序。
-</p>
-<pre class="code"><code>~/.dropbox-dist/dropboxd
-</code></pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org331bbe1" class="outline-2">
-<h2 id="org331bbe1">配置</h2>
-<div class="outline-text-2" id="text-org331bbe1">
-<pre class="code"><code>proxychains dropbox proxy <span style="color: #81A1C1;">manual</span> <span style="font-weight: bold;">socks5</span> 127.0.0.1 1080
-proxychains4 dropbox start -i
-</code></pre>
-</div>
+<div id="outline-container-org75fce48" class="outline-2">
+<h2 id="org75fce48"></h2>
 </div>
 </div>
 <div id="postamble" class="status">

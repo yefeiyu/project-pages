@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-23 Sun 13:29 -->
+<!-- 2022-10-23 Sun 13:30 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>debian安装dropbox</title>
+<title>超级小犬翻身记</title>
 <meta name="author" content="yefeiyu" />
 <meta name="generator" content="Org Mode" />
 <link rel="icon" href="/favicon.ico">
@@ -33,52 +33,39 @@
 </div>
 <div id="content" class="content">
 <header>
-<h1 class="title">debian安装dropbox</h1>
+<h1 class="title">超级小犬翻身记</h1>
 </header>
-<div id="outline-container-orgf21217d" class="outline-2">
-<h2 id="orgf21217d">安装准备</h2>
-<div class="outline-text-2" id="text-orgf21217d">
+<div id="outline-container-org3cfc7e1" class="outline-2">
+<h2 id="org3cfc7e1"><span class="section-number-2">1.</span> 第三天</h2>
+<div class="outline-text-2" id="text-1">
 <p>
-因为国内防火墙(GFW)对云盘提供商dropbox进行了屏弊,因为terminal无法直接下载安装,需要使用proxychains走代理。这一部分参见上篇文章《terminal通过proxychains翻墙》。
+说来太难以置信了，小犬竟然在第三天里自己翻了个身！
+由于天气太热的原因，她姥姥想了一个主意，搁到一个小板上，以免在我们这大床的大厚被子上热出扉子来。
+正好前些年画画的时候，有一块小画板，于是我就翻出来，给他制作一张“小床”。
+这小床可能还是算比较硬的，虽然铺了很多层簿簿的棉垫。其中有两块是他二姑做的，超舒适，又结实。不过毕竟是木板，他可能觉得不甚舒服，手舞足蹈之下，身子扭来扭去，没有一刻老实。
+于是他就掉了下来，脸朝下、屁股朝天，那姿态笑煞观众。
 </p>
 </div>
 </div>
-<div id="outline-container-orgc284a6b" class="outline-2">
-<h2 id="orgc284a6b">安装</h2>
-<div class="outline-text-2" id="text-orgc284a6b">
-</div>
-<div id="outline-container-orgd6eef10" class="outline-3">
-<h3 id="orgd6eef10">通过deb包</h3>
-<div class="outline-text-3" id="text-orgd6eef10">
-<pre class="code"><code>cd ~
-proxychains4 wget https://www.dropbox.com/download?dl=packages/debian/dropbox_2015.10.28_amd64.deb
-sudo dpkg -i dropbox*.deb
-&#65288;&#21024;&#38500;sudo dpkg -r dropbox)
-</code></pre>
-</div>
-</div>
-
-<div id="outline-container-org7fcb2b8" class="outline-3">
-<h3 id="org7fcb2b8">通过命令行安装无外设模式的 Dropbox</h3>
-<div class="outline-text-3" id="text-org7fcb2b8">
-<pre class="code"><code> cd ~
-wget -O - <span style="color: #D08770;">"https://www.dropbox.com/download?plat=lnx.x86_64"</span> | tar xzf -
-</code></pre>
+<div id="outline-container-orgb24e9cc" class="outline-2">
+<h2 id="orgb24e9cc"><span class="section-number-2">2.</span> 第六天</h2>
+<div class="outline-text-2" id="text-2">
 <p>
-接着，从新建的 .dropbox-dist 文件夹运行 Dropbox 守护程序。
+长话短说，这一天又自己翻了下来。他妈妈特地把我们喊了过去，欣赏他的优美姿态。直到他姥姥过来责备我们，不赶快把他翻过来。
 </p>
-<pre class="code"><code>~/.dropbox-dist/dropboxd
-</code></pre>
 </div>
 </div>
-</div>
-
-<div id="outline-container-org331bbe1" class="outline-2">
-<h2 id="org331bbe1">配置</h2>
-<div class="outline-text-2" id="text-org331bbe1">
-<pre class="code"><code>proxychains dropbox proxy <span style="color: #81A1C1;">manual</span> <span style="font-weight: bold;">socks5</span> 127.0.0.1 1080
-proxychains4 dropbox start -i
-</code></pre>
+<div id="outline-container-orgad1e12e" class="outline-2">
+<h2 id="orgad1e12e"><span class="section-number-2">3.</span> 第九天</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+这一天翻了360度。
+发现者是他妈妈，自己从小板上一路翻下来，360度之后照旧是仰躺着的姿势。
+从第三天的时候，我们就说，这孩子身体好，长大了可以做个运动员了。
+他姥姥说，没白比别的孩子多长2斤肉。
+他奶奶说，这小脖梗子现在就这么硬了。
+当我在鲨鱼群里炫耀了这事后，这些伪干爹干妈们就在商量长大了打羽毛球还是打网球好了。
+</p>
 </div>
 </div>
 </div>

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-23 Sun 13:29 -->
+<!-- 2022-10-23 Sun 13:30 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>debian安装dropbox</title>
+<title>我宝马良驹的小风波</title>
 <meta name="author" content="yefeiyu" />
+<meta name="description" content="车相关的惊险" />
 <meta name="generator" content="Org Mode" />
 <link rel="icon" href="/favicon.ico">
 <meta name="theme-color" content="#ffffff">
@@ -33,54 +34,22 @@
 </div>
 <div id="content" class="content">
 <header>
-<h1 class="title">debian安装dropbox</h1>
-</header>
-<div id="outline-container-orgf21217d" class="outline-2">
-<h2 id="orgf21217d">安装准备</h2>
-<div class="outline-text-2" id="text-orgf21217d">
-<p>
-因为国内防火墙(GFW)对云盘提供商dropbox进行了屏弊,因为terminal无法直接下载安装,需要使用proxychains走代理。这一部分参见上篇文章《terminal通过proxychains翻墙》。
+<h1 class="title">我宝马良驹的小风波</h1>
+</header><p>
+<img src="../img/2016/2016-11-16-16.27.53.jpg" alt="2016-11-16-16.27.53.jpg">
+昨天下午去车里听了会儿音乐，同事过来又一块沿着车研究了几圈，就把车内供着电这事忘了。
+下班时发现没电了。
+回到办公室问了一圈，没有一个带搭电线的。
+老司机说“我们推一会儿就打着火可以跑了”。心里觉得自动挡或半手动挡的车这样估计不行吧。
+出来后老司机又让拿出一壶开水，浇。。。我问浇哪儿，发动机吗？好像是冬天因为气温低才使这招吧。
+“不是浇发动机，浇电瓶！”
+吓死宝宝了。。。
+最后没拗过老司机，一大壶开水完美的浇电瓶上了。 
+<a href="../img/2016/2016-11-16-16.28.37.jpg">2</a>
+经过昨天的惊吓，今天的顺利让我看这车如同收获至宝。下午，仔仔细细、里里外外，把车的发动机仓都彻底打扫了一遍，况且在冰冷的这个寒冬，亲自给它洗了一遍澡。这简直就是失而复得那样使人珍惜。
+晚上还是按惯例，抓紧向我宝汇报一番。
+btw，今天研究出了换气滤和空滤，以后可以少让ssss坑dot了。
 </p>
-</div>
-</div>
-<div id="outline-container-orgc284a6b" class="outline-2">
-<h2 id="orgc284a6b">安装</h2>
-<div class="outline-text-2" id="text-orgc284a6b">
-</div>
-<div id="outline-container-orgd6eef10" class="outline-3">
-<h3 id="orgd6eef10">通过deb包</h3>
-<div class="outline-text-3" id="text-orgd6eef10">
-<pre class="code"><code>cd ~
-proxychains4 wget https://www.dropbox.com/download?dl=packages/debian/dropbox_2015.10.28_amd64.deb
-sudo dpkg -i dropbox*.deb
-&#65288;&#21024;&#38500;sudo dpkg -r dropbox)
-</code></pre>
-</div>
-</div>
-
-<div id="outline-container-org7fcb2b8" class="outline-3">
-<h3 id="org7fcb2b8">通过命令行安装无外设模式的 Dropbox</h3>
-<div class="outline-text-3" id="text-org7fcb2b8">
-<pre class="code"><code> cd ~
-wget -O - <span style="color: #D08770;">"https://www.dropbox.com/download?plat=lnx.x86_64"</span> | tar xzf -
-</code></pre>
-<p>
-接着，从新建的 .dropbox-dist 文件夹运行 Dropbox 守护程序。
-</p>
-<pre class="code"><code>~/.dropbox-dist/dropboxd
-</code></pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org331bbe1" class="outline-2">
-<h2 id="org331bbe1">配置</h2>
-<div class="outline-text-2" id="text-org331bbe1">
-<pre class="code"><code>proxychains dropbox proxy <span style="color: #81A1C1;">manual</span> <span style="font-weight: bold;">socks5</span> 127.0.0.1 1080
-proxychains4 dropbox start -i
-</code></pre>
-</div>
-</div>
 </div>
 <div id="postamble" class="status">
 <footer>
