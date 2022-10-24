@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-24 Mon 15:00 -->
+<!-- 2022-10-24 Mon 15:11 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>debian安装dropbox</title>
@@ -29,7 +29,6 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
 <link rel="stylesheet" href="/style/clip2.css"/>
 <script src="/js/clip2.js"></script>
-<button class="button" id="copy-button" data-clipboard-target="#code">Copy</button>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -49,21 +48,21 @@
 <header>
 <h1 class="title">debian安装dropbox</h1>
 </header>
-<div id="outline-container-orgc930465" class="outline-2">
-<h2 id="orgc930465">安装准备</h2>
-<div class="outline-text-2" id="text-orgc930465">
+<div id="outline-container-org92ade22" class="outline-2">
+<h2 id="org92ade22">安装准备</h2>
+<div class="outline-text-2" id="text-org92ade22">
 <p>
 因为国内防火墙(GFW)对云盘提供商dropbox进行了屏弊,因为terminal无法直接下载安装,需要使用proxychains走代理。这一部分参见上篇文章《terminal通过proxychains翻墙》。
 </p>
 </div>
 </div>
-<div id="outline-container-orgb688381" class="outline-2">
-<h2 id="orgb688381">安装</h2>
-<div class="outline-text-2" id="text-orgb688381">
+<div id="outline-container-org4db793c" class="outline-2">
+<h2 id="org4db793c">安装</h2>
+<div class="outline-text-2" id="text-org4db793c">
 </div>
-<div id="outline-container-org866e9bf" class="outline-3">
-<h3 id="org866e9bf">通过deb包</h3>
-<div class="outline-text-3" id="text-org866e9bf">
+<div id="outline-container-org696413d" class="outline-3">
+<h3 id="org696413d">通过deb包</h3>
+<div class="outline-text-3" id="text-org696413d">
 <pre class="code"><code>cd ~
 proxychains4 wget https://www.dropbox.com/download?dl=packages/debian/dropbox_2015.10.28_amd64.deb
 sudo dpkg -i dropbox*.deb
@@ -72,9 +71,9 @@ sudo dpkg -i dropbox*.deb
 </div>
 </div>
 
-<div id="outline-container-orge420524" class="outline-3">
-<h3 id="orge420524">通过命令行安装无外设模式的 Dropbox</h3>
-<div class="outline-text-3" id="text-orge420524">
+<div id="outline-container-orgc8aa671" class="outline-3">
+<h3 id="orgc8aa671">通过命令行安装无外设模式的 Dropbox</h3>
+<div class="outline-text-3" id="text-orgc8aa671">
 <pre class="code"><code> cd ~
 wget -O - <span style="color: #D08770;">"https://www.dropbox.com/download?plat=lnx.x86_64"</span> | tar xzf -
 </code></pre>
@@ -87,9 +86,9 @@ wget -O - <span style="color: #D08770;">"https://www.dropbox.com/download?plat=l
 </div>
 </div>
 
-<div id="outline-container-org42fe809" class="outline-2">
-<h2 id="org42fe809">配置</h2>
-<div class="outline-text-2" id="text-org42fe809">
+<div id="outline-container-orgf878c1b" class="outline-2">
+<h2 id="orgf878c1b">配置</h2>
+<div class="outline-text-2" id="text-orgf878c1b">
 <pre class="code"><code>proxychains dropbox proxy <span style="color: #81A1C1;">manual</span> <span style="font-weight: bold;">socks5</span> 127.0.0.1 1080
 proxychains4 dropbox start -i
 </code></pre>

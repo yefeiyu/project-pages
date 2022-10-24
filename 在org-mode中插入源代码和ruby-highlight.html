@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-24 Mon 15:00 -->
+<!-- 2022-10-24 Mon 15:11 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>在org-mode中插入源代码和ruby highlight</title>
@@ -29,7 +29,6 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
 <link rel="stylesheet" href="/style/clip2.css"/>
 <script src="/js/clip2.js"></script>
-<button class="button" id="copy-button" data-clipboard-target="#code">Copy</button>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -50,13 +49,13 @@
 <h1 class="title">在org-mode中插入源代码和ruby highlight</h1>
 </header>
 
-<div id="outline-container-orgf2e2a09" class="outline-2">
-<h2 id="orgf2e2a09">设定</h2>
-<div class="outline-text-2" id="text-orgf2e2a09">
+<div id="outline-container-org02c0298" class="outline-2">
+<h2 id="org02c0298">设定</h2>
+<div class="outline-text-2" id="text-org02c0298">
 <p>
 <code>下述内容copy自wenshan</code>
 </p>
-<div class="HTML" id="orgdea9931">
+<div class="HTML" id="orgde2f9e8">
 <p>
 
 </p>
@@ -72,15 +71,15 @@
 </div>
 </div>
 
-<div id="outline-container-org7f4cc95" class="outline-3">
-<h3 id="org7f4cc95">1 org-mode 中的源代码块</h3>
-<div class="outline-text-3" id="text-org7f4cc95">
+<div id="outline-container-orge94c2a0" class="outline-3">
+<h3 id="orge94c2a0">1 org-mode 中的源代码块</h3>
+<div class="outline-text-3" id="text-orge94c2a0">
 <p>
 这<label for="1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="1" class="margin-toggle"/><span class="sidenote">
 good
 </span>是一个 org-mode 中的 Elisp 代码块（可折叠）： <label for="2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="2" class="margin-toggle"/><span class="sidenote"></span>
 </p>
-<pre class="example" id="org98961bb">
+<pre class="example" id="org8ea334b">
 #+BEGIN_SRC emacs-lisp
   (message "天地玄黄，鸟生鱼汤")
 #+END_SRC
@@ -117,9 +116,9 @@ eval 之，按 M-x org-insert-src-block ，然后输入代码类型（如 emacs-
 </p>
 </div>
 </div>
-<div id="outline-container-org8f6761e" class="outline-3">
-<h3 id="org8f6761e">3  绑定快捷键</h3>
-<div class="outline-text-3" id="text-org8f6761e">
+<div id="outline-container-orgdbc3af0" class="outline-3">
+<h3 id="orgdbc3af0">3  绑定快捷键</h3>
+<div class="outline-text-3" id="text-orgdbc3af0">
 <p>
 把 `C-c s i’ 绑定到这个函数，我的 org-mode-hook 设置如下： 
 </p>
@@ -141,9 +140,9 @@ eval 之，按 M-x org-insert-src-block ，然后输入代码类型（如 emacs-
 </code></pre>
 </div>
 </div>
-<div id="outline-container-org350a5a4" class="outline-3">
-<h3 id="org350a5a4">4 代码块中的语法高亮</h3>
-<div class="outline-text-3" id="text-org350a5a4">
+<div id="outline-container-org0938d25" class="outline-3">
+<h3 id="org0938d25">4 代码块中的语法高亮</h3>
+<div class="outline-text-3" id="text-org0938d25">
 <p>
 把 org-src-fontify-natively 这个变量设为 t, 这样代码块里也会语法高亮 (需要 revert-buffer 来重新加载一下当前的 org 文件). 
 </p>
@@ -155,21 +154,21 @@ org2blog 是利用 org-mode 的 export 引擎来把 org 文件转换成 HTML, �
 </p>
 </div>
 </div>
-<div id="outline-container-org03b71ea" class="outline-3">
-<h3 id="org03b71ea">5 org-mode 支持的语言</h3>
+<div id="outline-container-orga55963d" class="outline-3">
+<h3 id="orga55963d">5 org-mode 支持的语言</h3>
 </div>
-<div id="outline-container-orgb29b086" class="outline-3">
-<h3 id="orgb29b086">6 其他方案</h3>
-<div class="outline-text-3" id="text-orgb29b086">
+<div id="outline-container-orga5d9d70" class="outline-3">
+<h3 id="orga5d9d70">6 其他方案</h3>
+<div class="outline-text-3" id="text-orga5d9d70">
 <p>
 感谢 Celad Evra 的提醒，org-mode 自带的 Easy Templates 也提供了快速插入代码块的功能： 输入 &lt;s TAB 即可（但不提供语言标识符的补全），具体细节请见 org-mode 的文档。 
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org100260b" class="outline-2">
-<h2 id="org100260b">修改</h2>
-<div class="outline-text-2" id="text-org100260b">
+<div id="outline-container-org4c2b0f8" class="outline-2">
+<h2 id="org4c2b0f8">修改</h2>
+<div class="outline-text-2" id="text-org4c2b0f8">
 <p>
 简单的修改成highlight能认出的标记，添加文件头和尾。第一部分改成下述：<label for="4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="4" class="margin-toggle"/><span class="sidenote">
 换成英文%符号
@@ -203,9 +202,9 @@ org2blog 是利用 org-mode 的 export 引擎来把 org 文件转换成 HTML, �
 </code></pre>
 </div>
 </div>
-<div id="outline-container-orgb89eb61" class="outline-2">
-<h2 id="orgb89eb61">其他方案</h2>
-<div class="outline-text-2" id="text-orgb89eb61">
+<div id="outline-container-orgfbc906d" class="outline-2">
+<h2 id="orgfbc906d">其他方案</h2>
+<div class="outline-text-2" id="text-orgfbc906d">
 <p>
 如果安装htmlize,则可以不用highlight控制颜色，使用org导出html的颜色。安装方法
 </p>
