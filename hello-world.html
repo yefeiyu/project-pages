@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-24 Mon 02:53 -->
+<!-- 2022-10-24 Mon 03:21 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hello World</title>
@@ -16,6 +16,8 @@
 <link rel="stylesheet" href="/style/toc.css"/>
 <link rel="stylesheet" href="/style/tufte.css"/>
 <link rel="stylesheet" href="/style/main.css"/>
+<link rel="stylesheet" href="/style/clipboard.css"/>
+<link rel="stylesheet" href="/style/copy-pre.css"/>
 <link rel="alternate" type="application/rss+xml" href="https://gongzhitaao.org/orgcss/org.css"/>
 <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
 
@@ -27,6 +29,7 @@
 {{ end }}
 <link rel="stylesheet" href="/css/clipboard.css">
 <script src="/js/clipboard.js"></script>
+<script src="/js/copy-pre.js"></script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -49,7 +52,7 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org463b66e">Source Code</a></li>
+<li><a href="#org1b55984">Source Code</a></li>
 </ul>
 </div>
 </nav>
@@ -58,9 +61,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 </p>
 
 
-<div id="outline-container-org463b66e" class="outline-2">
-<h2 id="org463b66e">Source Code</h2>
-<div class="outline-text-2" id="text-org463b66e">
+<div id="outline-container-org1b55984" class="outline-2">
+<h2 id="org1b55984">Source Code</h2>
+<div class="outline-text-2" id="text-org1b55984">
 <pre class="code"><code><span style="color: #81A1C1;">trait</span> <span style="color: #81A1C1;">AlgInterp</span>[<span style="color: #81A1C1;">F</span>[<span style="color: #81A1C1;">_</span>]] {
   <span style="color: #81A1C1;">val</span> <span style="font-weight: bold;">state</span><span style="color: #81A1C1;">:</span> <span style="color: #81A1C1;">F</span>[<span style="color: #81A1C1;">Int</span>]
   <span style="color: #81A1C1;">def</span> <span style="font-weight: bold;">log</span>(msg<span style="color: #81A1C1;">:</span> <span style="color: #81A1C1;">String</span>)<span style="color: #81A1C1;">:</span> <span style="color: #81A1C1;">F</span>[<span style="color: #81A1C1;">Unit</span>]
