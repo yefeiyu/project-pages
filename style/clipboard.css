@@ -34,4 +34,11 @@
   opacity: 1;
   transition: 0.2s;
 }
+pre.code {
+  position: relative;
+}
+pre.code:hover > .clipboard-button {
+  opacity: 1;
+  transition: 0.2s;
+}
 
