@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-24 Mon 02:26 -->
+<!-- 2022-10-24 Mon 02:38 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>通过css修改org-mode生成的begin_src代码颜色</title>
@@ -21,6 +21,11 @@
 {{ if (findRE "<pre" .Content 1) }}
     <link rel="stylesheet" href="/css/clipboard.css">
 {{ end }}
+{{ if (findRE "<pre" .Content 1) }}
+    <script src="/js/clipboard.js"></script>
+{{ end }}
+<link rel="stylesheet" href="/css/clipboard.css">
+<script src="/js/clipboard.js"></script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -40,13 +45,13 @@
 <header>
 <h1 class="title">通过css修改org-mode生成的begin_src代码颜色</h1>
 </header>
-<div id="outline-container-orgc44eab9" class="outline-2">
-<h2 id="orgc44eab9"><span class="section-number-2">1.</span> 通过babel方式在org-mode中插入代码</h2>
+<div id="outline-container-org95e11f1" class="outline-2">
+<h2 id="org95e11f1"><span class="section-number-2">1.</span> 通过babel方式在org-mode中插入代码</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 譬如 &lt;s-Tab可以生成
 </p>
-<pre class="example" id="org88db829">
+<pre class="example" id="org69ae522">
 #+BEGIN_SRC c (or css or lisp or ruby)
 
 #+END_SRC
@@ -57,8 +62,8 @@
 </div>
 </div>
 
-<div id="outline-container-org69f022c" class="outline-2">
-<h2 id="org69f022c"><span class="section-number-2">2.</span> 通过M-x org-html-htmlize-generate-css在emacs中找到适合的颜色控制</h2>
+<div id="outline-container-orgec4f38f" class="outline-2">
+<h2 id="orgec4f38f"><span class="section-number-2">2.</span> 通过M-x org-html-htmlize-generate-css在emacs中找到适合的颜色控制</h2>
 <div class="outline-text-2" id="text-2">
 <pre class="code"><code><span style="font-weight: bold;">&lt;style type=</span><span style="color: #D08770;">"text/css"</span><span style="font-weight: bold;">&gt;</span>
 <span style="font-weight: bold;">    &lt;!--</span>
@@ -86,8 +91,8 @@
 </div>
 </div>
 
-<div id="outline-container-org6b8c769" class="outline-2">
-<h2 id="org6b8c769"><span class="section-number-2">3.</span> 可以进一步修改code基本颜色，</h2>
+<div id="outline-container-org87b6283" class="outline-2">
+<h2 id="org87b6283"><span class="section-number-2">3.</span> 可以进一步修改code基本颜色，</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 在/home/xx/gh/yefeiyu.github.io/_app/assets/themes/curtana/_less/variables.less文件中。
@@ -95,8 +100,8 @@
 </div>
 </div>
 
-<div id="outline-container-org224ee38" class="outline-2">
-<h2 id="org224ee38"><span class="section-number-2">4.</span> 附加一个短引用的格式，org-mode中使用的</h2>
+<div id="outline-container-orgeb82235" class="outline-2">
+<h2 id="orgeb82235"><span class="section-number-2">4.</span> 附加一个短引用的格式，org-mode中使用的</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 <code>hello</code> Renders as verbatim
@@ -104,7 +109,7 @@
 <code>hello'</code> Fails to render as verbatim
 <code>hello'</code> Fails to render as code
 </p>
-<pre class="example" id="org0809f80">
+<pre class="example" id="org061efe8">
 
 =hello= Renders as verbatim
 ~hello~ Renders as code

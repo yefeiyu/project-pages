@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-24 Mon 02:26 -->
+<!-- 2022-10-24 Mon 02:38 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>重拾kindle dxg，做第二显示屏</title>
@@ -21,6 +21,11 @@
 {{ if (findRE "<pre" .Content 1) }}
     <link rel="stylesheet" href="/css/clipboard.css">
 {{ end }}
+{{ if (findRE "<pre" .Content 1) }}
+    <script src="/js/clipboard.js"></script>
+{{ end }}
+<link rel="stylesheet" href="/css/clipboard.css">
+<script src="/js/clipboard.js"></script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -42,8 +47,8 @@
 </header><p>
 主机使用debian
 </p>
-<div id="outline-container-org2c0f78d" class="outline-2">
-<h2 id="org2c0f78d"><span class="section-number-2">1.</span> vnc第二显示屏</h2>
+<div id="outline-container-org9034457" class="outline-2">
+<h2 id="org9034457"><span class="section-number-2">1.</span> vnc第二显示屏</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 安装x11vnc
@@ -79,8 +84,8 @@ connect debian with Shift X X
 </p>
 </div>
 </div>
-<div id="outline-container-org4d6e15d" class="outline-2">
-<h2 id="org4d6e15d"><span class="section-number-2">2.</span> sent book to dxg</h2>
+<div id="outline-container-org85e6c0e" class="outline-2">
+<h2 id="org85e6c0e"><span class="section-number-2">2.</span> sent book to dxg</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 download kindlegen from Amazon.com 

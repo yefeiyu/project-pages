@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-24 Mon 02:26 -->
+<!-- 2022-10-24 Mon 02:38 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>About fonts antialias</title>
@@ -21,6 +21,11 @@
 {{ if (findRE "<pre" .Content 1) }}
     <link rel="stylesheet" href="/css/clipboard.css">
 {{ end }}
+{{ if (findRE "<pre" .Content 1) }}
+    <script src="/js/clipboard.js"></script>
+{{ end }}
+<link rel="stylesheet" href="/css/clipboard.css">
+<script src="/js/clipboard.js"></script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -161,7 +166,7 @@ RUN bundle install <span style="color: #81A1C1;">&amp;&amp;</span> \
 <p>
 ;;e	#+beginexample	…	#+endexample
 </p>
-<pre class="example" id="org8e5d291">
+<pre class="example" id="orgcc289f9">
 
 FROM starefossen/ruby-node
 
@@ -273,7 +278,7 @@ RUN bundle install &amp;&amp; \
 <p>
 ;;l	#+beginlatex	…	#+endlatex
 </p>
-<div class="LaTeX" id="org74d4e75">
+<div class="LaTeX" id="org6e28685">
 <p>
 
 </p>
@@ -330,7 +335,7 @@ RUN bundle install &amp;&amp; \
 <p>
 ;;h	#+beginhtml	…	#+endhtml
 </p>
-<div class="HTML" id="org8a4060e">
+<div class="HTML" id="orgd75a785">
 <p>
 
 </p>
@@ -386,7 +391,7 @@ RUN bundle install &amp;&amp; \
     rm *
 ;;a	#+beginascii	…	#+endascii
 </p>
-<div class="ASCII" id="orga221d65">
+<div class="ASCII" id="org60223cd">
 <p>
 
 </p>

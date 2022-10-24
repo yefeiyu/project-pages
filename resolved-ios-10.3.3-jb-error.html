@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-24 Mon 02:26 -->
+<!-- 2022-10-24 Mon 02:38 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>resolved iOS 10.3.3 JB error</title>
@@ -20,6 +20,11 @@
 {{ if (findRE "<pre" .Content 1) }}
     <link rel="stylesheet" href="/css/clipboard.css">
 {{ end }}
+{{ if (findRE "<pre" .Content 1) }}
+    <script src="/js/clipboard.js"></script>
+{{ end }}
+<link rel="stylesheet" href="/css/clipboard.css">
+<script src="/js/clipboard.js"></script>
 </head>
 <body>
 <div id="preamble" class="status">

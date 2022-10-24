@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-24 Mon 02:26 -->
+<!-- 2022-10-24 Mon 02:38 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Debian modify recorder</title>
@@ -21,6 +21,11 @@
 {{ if (findRE "<pre" .Content 1) }}
     <link rel="stylesheet" href="/css/clipboard.css">
 {{ end }}
+{{ if (findRE "<pre" .Content 1) }}
+    <script src="/js/clipboard.js"></script>
+{{ end }}
+<link rel="stylesheet" href="/css/clipboard.css">
+<script src="/js/clipboard.js"></script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -39,21 +44,21 @@
 <div id="content" class="content">
 <header>
 <h1 class="title">Debian modify recorder</h1>
-</header><div id="outline-container-orgbc15e40" class="outline-2">
-<h2 id="orgbc15e40"><span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-17 Thu&gt;</span></span></h2>
-<div class="outline-text-2" id="text-orgbc15e40">
+</header><div id="outline-container-org9fbdcfa" class="outline-2">
+<h2 id="org9fbdcfa"><span class="timestamp-wrapper"><span class="timestamp">&lt;2018-05-17 Thu&gt;</span></span></h2>
+<div class="outline-text-2" id="text-org9fbdcfa">
 </div>
-<div id="outline-container-orgc418b91" class="outline-3">
-<h3 id="orgc418b91">;;off words break</h3>
-<div class="outline-text-3" id="text-orgc418b91">
+<div id="outline-container-orge495b67" class="outline-3">
+<h3 id="orge495b67">;;off words break</h3>
+<div class="outline-text-3" id="text-orge495b67">
 <p>
 <code>(global-visual-line-mode t)</code>
 </p>
 </div>
 </div>
-<div id="outline-container-orgd34f397" class="outline-3">
-<h3 id="orgd34f397">use pandoc convert html to org-mode file</h3>
-<div class="outline-text-3" id="text-orgd34f397">
+<div id="outline-container-org60a2bd7" class="outline-3">
+<h3 id="org60a2bd7">use pandoc convert html to org-mode file</h3>
+<div class="outline-text-3" id="text-org60a2bd7">
 <pre class="code"><code>% pandoc -o cheatsheet.org -f html -t org <span style="color: #D08770;">'</span>http:<span style="color: #677691;">//</span><span style="color: #677691;">sce2.umkc.edu/BIT/burrise/pl/modeling/qanda.html'</span>
  Fetching http:<span style="color: #677691;">//</span><span style="color: #677691;">sce2.umkc.edu/BIT/burrise/pl/modeling/qanda.html...</span>
  pandoc: Cannot decode <span style="color: #81A1C1;">byte</span> <span style="color: #D08770;">'\x92'</span>: <span style="color: #81A1C1;">Data</span>.<span style="color: #81A1C1;">Text</span>.<span style="color: #81A1C1;">Internal</span>.<span style="color: #81A1C1;">Encoding</span>.Fusion.streamUtf8: Invalid UTF-8 stream
@@ -70,13 +75,13 @@ UPDATE: It looks like the problem was with web-page it self! I tried it with ano
 </div>
 </div>
 
-<div id="outline-container-org87834f2" class="outline-2">
-<h2 id="org87834f2"><span class="timestamp-wrapper"><span class="timestamp">&lt;2018-04-11 Wed&gt;</span></span></h2>
-<div class="outline-text-2" id="text-org87834f2">
+<div id="outline-container-org84c31c6" class="outline-2">
+<h2 id="org84c31c6"><span class="timestamp-wrapper"><span class="timestamp">&lt;2018-04-11 Wed&gt;</span></span></h2>
+<div class="outline-text-2" id="text-org84c31c6">
 </div>
-<div id="outline-container-orgb6e99a6" class="outline-3">
-<h3 id="orgb6e99a6">modify the fcitx didn't work under openbox OS.</h3>
-<div class="outline-text-3" id="text-orgb6e99a6">
+<div id="outline-container-org2f3fc46" class="outline-3">
+<h3 id="org2f3fc46">modify the fcitx didn't work under openbox OS.</h3>
+<div class="outline-text-3" id="text-org2f3fc46">
 <pre class="code"><code>cd /usr/share/applications
 ;;pay attention to the folder <span style="color: #81A1C1;">is</span> <span style="font-weight: bold;">application</span>, <span style="font-weight: bold;">not</span> applications.
 ls fc*
@@ -84,9 +89,9 @@ cp fcitx.desktop ~/.config/autostart/
 </code></pre>
 </div>
 </div>
-<div id="outline-container-org044dbfc" class="outline-3">
-<h3 id="org044dbfc">Modify the problem of the wifi 固件缺失</h3>
-<div class="outline-text-3" id="text-org044dbfc">
+<div id="outline-container-org151931f" class="outline-3">
+<h3 id="org151931f">Modify the problem of the wifi 固件缺失</h3>
+<div class="outline-text-3" id="text-org151931f">
 <p>
 sai firmware-linux-free
 git clone git://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
@@ -102,26 +107,26 @@ sai firmware-brcm80211
 </div>
 </div>
 
-<div id="outline-container-org1ea8469" class="outline-2">
-<h2 id="org1ea8469"><span class="timestamp-wrapper"><span class="timestamp">&lt;2018-04-10 Tue&gt;</span></span></h2>
-<div class="outline-text-2" id="text-org1ea8469">
+<div id="outline-container-org18a88a2" class="outline-2">
+<h2 id="org18a88a2"><span class="timestamp-wrapper"><span class="timestamp">&lt;2018-04-10 Tue&gt;</span></span></h2>
+<div class="outline-text-2" id="text-org18a88a2">
 </div>
-<div id="outline-container-org423cf86" class="outline-3">
-<h3 id="org423cf86">How to execute command on startup (rc.local alternative)</h3>
-<div class="outline-text-3" id="text-org423cf86">
+<div id="outline-container-org42153f9" class="outline-3">
+<h3 id="org42153f9">How to execute command on startup (rc.local alternative)</h3>
+<div class="outline-text-3" id="text-org42153f9">
 <p>
 which involves use of systemd here:
 </p>
 </div>
 <ul class="org-ul">
-<li><a id="org2523c0f"></a>Create a service:<br>
-<div class="outline-text-4" id="text-org2523c0f">
+<li><a id="org763c72a"></a>Create a service:<br>
+<div class="outline-text-4" id="text-org763c72a">
 <pre class="code"><code><span style="color: #81A1C1;">sudo</span> <span style="font-weight: bold;">vi</span> /etc/systemd/system/rc-local.service
 </code></pre>
 </div>
 </li>
-<li><a id="orge500572"></a>Add your code there:<br>
-<div class="outline-text-4" id="text-orge500572">
+<li><a id="org639c6d8"></a>Add your code there:<br>
+<div class="outline-text-4" id="text-org639c6d8">
 <pre class="code"><code>[Unit]
 <span style="font-weight: bold;">Description</span>=/etc/rc.local Compatibility
 <span style="font-weight: bold;">ConditionPathExists</span>=/etc/rc.local
@@ -139,8 +144,8 @@ which involves use of systemd here:
 </code></pre>
 </div>
 </li>
-<li><a id="orgf7b9e33"></a>Create and make sure /etc/rc.local is executable and add this code inside it:<br>
-<div class="outline-text-4" id="text-orgf7b9e33">
+<li><a id="org4398380"></a>Create and make sure /etc/rc.local is executable and add this code inside it:<br>
+<div class="outline-text-4" id="text-org4398380">
 <pre class="code"><code><span style="color: #81A1C1;">sudo</span> <span style="font-weight: bold;">chmod</span> +x /etc/rc.local
 </code></pre>
 <pre class="code"><code><span style="color: #677691;">#</span><span style="color: #677691;">!/bin/</span><span style="color: #81A1C1;">sh</span><span style="color: #677691;"> -e</span>
@@ -160,14 +165,14 @@ which involves use of systemd here:
 </code></pre>
 </div>
 </li>
-<li><a id="org0bad660"></a>Enable the service:<br>
-<div class="outline-text-4" id="text-org0bad660">
+<li><a id="orgb01790d"></a>Enable the service:<br>
+<div class="outline-text-4" id="text-orgb01790d">
 <pre class="code"><code>sudo systemctl <span style="color: #81A1C1;">enable</span> <span style="font-weight: bold;">rc</span>-local
 </code></pre>
 </div>
 </li>
-<li><a id="org4f4cbad"></a>Start service and check status:<br>
-<div class="outline-text-4" id="text-org4f4cbad">
+<li><a id="orgf969ecc"></a>Start service and check status:<br>
+<div class="outline-text-4" id="text-orgf969ecc">
 <pre class="code"><code>sudo systemctl <span style="color: #81A1C1;">start</span> <span style="font-weight: bold;">rc</span>-local.service
 sudo systemctl status rc-local.service
 
@@ -181,9 +186,9 @@ If all goes well you can add your code to the /etc/rc.local file then restart it
 </ul>
 </div>
 
-<div id="outline-container-org6cb4019" class="outline-3">
-<h3 id="org6cb4019">openbox close sleep and screensaver</h3>
-<div class="outline-text-3" id="text-org6cb4019">
+<div id="outline-container-org2c85dc9" class="outline-3">
+<h3 id="org2c85dc9">openbox close sleep and screensaver</h3>
+<div class="outline-text-3" id="text-org2c85dc9">
 <pre class="code"><code>
 <span style="color: #677691;">#</span><span style="color: #677691;">xset s 300      #&#35774;&#32622;&#23631;&#20445;&#26102;&#38388;&#20026;300&#31186;&#65292;&#26102;&#38388;&#21333;&#20301;&#20026;&#31186;</span>
 <span style="color: #677691;">#</span><span style="color: #677691;">xset s 0        #&#20851;&#38381;&#23631;&#24149;&#20445;&#25252;</span>
@@ -193,9 +198,9 @@ If all goes well you can add your code to the /etc/rc.local file then restart it
 </code></pre>
 </div>
 </div>
-<div id="outline-container-org79aadb7" class="outline-3">
-<h3 id="org79aadb7">openbox environment setup</h3>
-<div class="outline-text-3" id="text-org79aadb7">
+<div id="outline-container-org2f8f588" class="outline-3">
+<h3 id="org2f8f588">openbox environment setup</h3>
+<div class="outline-text-3" id="text-org2f8f588">
 <p>
 Setting up your environment
 </p>
@@ -217,9 +222,9 @@ If you would like to set environment variables that will affect everything run i
 </div>
 </div>
 
-<div id="outline-container-orga098d6c" class="outline-3">
-<h3 id="orga098d6c">openbox keyblinding setup, ~/.config/openbox/rc.xml</h3>
-<div class="outline-text-3" id="text-orga098d6c">
+<div id="outline-container-org96e7995" class="outline-3">
+<h3 id="org96e7995">openbox keyblinding setup, ~/.config/openbox/rc.xml</h3>
+<div class="outline-text-3" id="text-org96e7995">
 <pre class="code"><code>&lt;!-- Keybindings <span style="color: #81A1C1;">for</span> running applications --&gt;
 &lt;keybind key=<span style="color: #D08770;">"W-e"</span>&gt;
   &lt;action name=<span style="color: #D08770;">"Execute"</span>&gt;
@@ -235,9 +240,9 @@ If you would like to set environment variables that will affect everything run i
 </div>
 </div>
 
-<div id="outline-container-org312a597" class="outline-2">
-<h2 id="org312a597"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-01 Thu&gt;</span></span></h2>
-<div class="outline-text-2" id="text-org312a597">
+<div id="outline-container-org6d69da5" class="outline-2">
+<h2 id="org6d69da5"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-01 Thu&gt;</span></span></h2>
+<div class="outline-text-2" id="text-org6d69da5">
 <p>
 chane the _app/assets/themes/curtana/_less/common.less
 </p>
@@ -263,9 +268,9 @@ and then the TABLE had 横拉滚动条
 </p>
 </div>
 </div>
-<div id="outline-container-org57c242b" class="outline-2">
-<h2 id="org57c242b"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-04-14 Fri&gt;</span></span></h2>
-<div class="outline-text-2" id="text-org57c242b">
+<div id="outline-container-org1cb9146" class="outline-2">
+<h2 id="org1cb9146"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-04-14 Fri&gt;</span></span></h2>
+<div class="outline-text-2" id="text-org1cb9146">
 <p>
 A friend sent me an email with a JPEG photo in the middle of the text. The picture is so big, most of it is outside the screen and I want to view it with an outside image viewer and not in Gnus. How do I save an image that is included in the email in Gnus, if it's not just an ordinary attachment?
 </p>
@@ -284,9 +289,9 @@ CHROMIUM_FLAGS='&#x2013;enable-remote-extensions'
 </div>
 </div>
 
-<div id="outline-container-org0ceeabf" class="outline-2">
-<h2 id="org0ceeabf"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-04-13 Thu&gt;</span></span></h2>
-<div class="outline-text-2" id="text-org0ceeabf">
+<div id="outline-container-org1d1eea9" class="outline-2">
+<h2 id="org1d1eea9"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-04-13 Thu&gt;</span></span></h2>
+<div class="outline-text-2" id="text-org1d1eea9">
 <p>
 export WINEARCH=win32
 export WINEPREFIX=$HOME/.mynewwine32prefix/
@@ -310,9 +315,9 @@ s apt-get install -f
 </div>
 </div>
 
-<div id="outline-container-orgcbaa50a" class="outline-2">
-<h2 id="orgcbaa50a"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-02 Thu&gt;</span></span></h2>
-<div class="outline-text-2" id="text-orgcbaa50a">
+<div id="outline-container-org053529e" class="outline-2">
+<h2 id="org053529e"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-02 Thu&gt;</span></span></h2>
+<div class="outline-text-2" id="text-org053529e">
 <p>
 install wine-qq on debian
 <a href="http://www.longene.org/forum/viewtopic.php?f=6&amp;t=30516">http://www.longene.org/forum/viewtopic.php?f=6&amp;t=30516</a>
@@ -320,9 +325,9 @@ install wine-qq on debian
 </div>
 </div>
 
-<div id="outline-container-org11c5460" class="outline-2">
-<h2 id="org11c5460"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-01-24 Tue&gt;</span></span></h2>
-<div class="outline-text-2" id="text-org11c5460">
+<div id="outline-container-org05794ad" class="outline-2">
+<h2 id="org05794ad"><span class="timestamp-wrapper"><span class="timestamp">&lt;2017-01-24 Tue&gt;</span></span></h2>
+<div class="outline-text-2" id="text-org05794ad">
 <p>
 change emacs' color in terminator, add this line to .bashrc
 export TERM=xterm-256color
@@ -343,9 +348,9 @@ define the font by #gnome-tweak-tool
 </div>
 </div>
 
-<div id="outline-container-orge31daf1" class="outline-2">
-<h2 id="orge31daf1"><span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-19 Mon&gt;</span></span></h2>
-<div class="outline-text-2" id="text-orge31daf1">
+<div id="outline-container-org5f890b2" class="outline-2">
+<h2 id="org5f890b2"><span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-19 Mon&gt;</span></span></h2>
+<div class="outline-text-2" id="text-org5f890b2">
 <p>
 #spni -g n ;; to install npm's extension n
 #s n 7.2.1 ;;to install nodejs v7.2.1
@@ -353,9 +358,9 @@ define the font by #gnome-tweak-tool
 </div>
 </div>
 
-<div id="outline-container-orgc58974b" class="outline-2">
-<h2 id="orgc58974b"><span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-23 Tue&gt;</span></span></h2>
-<div class="outline-text-2" id="text-orgc58974b">
+<div id="outline-container-org63f7098" class="outline-2">
+<h2 id="org63f7098"><span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-23 Tue&gt;</span></span></h2>
+<div class="outline-text-2" id="text-org63f7098">
 <p>
 .emacs
 L625
@@ -363,9 +368,9 @@ L625
 </p>
 </div>
 </div>
-<div id="outline-container-org6f3bec1" class="outline-2">
-<h2 id="org6f3bec1"><span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-25 Thu&gt;</span></span></h2>
-<div class="outline-text-2" id="text-org6f3bec1">
+<div id="outline-container-orgba322eb" class="outline-2">
+<h2 id="orgba322eb"><span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-25 Thu&gt;</span></span></h2>
+<div class="outline-text-2" id="text-orgba322eb">
 <p>
 sudo apt-get install bleachbit
 sudo apt-get install sweeper 
