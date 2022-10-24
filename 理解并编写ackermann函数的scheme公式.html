@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-24 Mon 12:40 -->
+<!-- 2022-10-24 Mon 15:00 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>理解并编写ackermann函数的scheme公式</title>
@@ -24,10 +24,12 @@
 <script src="/js/clipboard.js"></script>
 <script src="/js/custom.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.js" integrity="sha512-ePtegHW811NTnZd0Er1UxtBb8dizKEdSzANYy/UhxM40FC2yCWwb1CQrj03BPbrs6XdUkcHuyVn9Xq9q0Lm34g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
 <link rel="stylesheet" href="/style/clip2.css"/>
 <script src="/js/clip2.js"></script>
+<button class="button" id="copy-button" data-clipboard-target="#code">Copy</button>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "center",
@@ -173,7 +175,7 @@ A(m,n)={\begin{cases}n+1&amp;{\mbox{if }}m=0\\A(m-1,1)&amp;{\mbox{if }}m&gt;0{\m
 </tbody>
 </table>
 
-<pre class="example" id="org62112df">
+<pre class="example" id="orgac096ec">
 | m\n |  0 |     1 |        2 |      3 |         4 | n                     |
 |   0 |  1 |     2 |        3 |      4 |         5 | n+1                   |
 |   1 |  2 |     3 |        4 |      5 |         6 | n+2=2+(n+3)-3         |

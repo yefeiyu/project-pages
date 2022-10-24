@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-24 Mon 12:40 -->
+<!-- 2022-10-24 Mon 15:00 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hello World</title>
@@ -26,10 +26,12 @@
 <script src="/js/clipboard.js"></script>
 <script src="/js/custom.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.js" integrity="sha512-ePtegHW811NTnZd0Er1UxtBb8dizKEdSzANYy/UhxM40FC2yCWwb1CQrj03BPbrs6XdUkcHuyVn9Xq9q0Lm34g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
 <link rel="stylesheet" href="/style/clip2.css"/>
 <script src="/js/clip2.js"></script>
+<button class="button" id="copy-button" data-clipboard-target="#code">Copy</button>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -52,7 +54,7 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orga62d2e4">Source Code</a></li>
+<li><a href="#org2e7e3f9">Source Code</a></li>
 </ul>
 </div>
 </nav>
@@ -60,12 +62,10 @@
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </p>
 
-<input id="post-shortlink" value="https://ac.me/qmE_jpnYXFo">
-<button class="button" id="copy-button" data-clipboard-target="#post-shortlink">Copy</button>
 
-<div id="outline-container-orga62d2e4" class="outline-2">
-<h2 id="orga62d2e4">Source Code</h2>
-<div class="outline-text-2" id="text-orga62d2e4">
+<div id="outline-container-org2e7e3f9" class="outline-2">
+<h2 id="org2e7e3f9">Source Code</h2>
+<div class="outline-text-2" id="text-org2e7e3f9">
 <pre class="code"><code><span style="color: #81A1C1;">trait</span> <span style="color: #81A1C1;">AlgInterp</span>[<span style="color: #81A1C1;">F</span>[<span style="color: #81A1C1;">_</span>]] {
   <span style="color: #81A1C1;">val</span> <span style="font-weight: bold;">state</span><span style="color: #81A1C1;">:</span> <span style="color: #81A1C1;">F</span>[<span style="color: #81A1C1;">Int</span>]
   <span style="color: #81A1C1;">def</span> <span style="font-weight: bold;">log</span>(msg<span style="color: #81A1C1;">:</span> <span style="color: #81A1C1;">String</span>)<span style="color: #81A1C1;">:</span> <span style="color: #81A1C1;">F</span>[<span style="color: #81A1C1;">Unit</span>]

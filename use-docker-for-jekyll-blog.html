@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-24 Mon 12:40 -->
+<!-- 2022-10-24 Mon 15:00 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Use docker for jekyll blog, which is the 在github中搭建用org-mode和org2jekyll发布及用lunr.js中文搜索的jekyll静态独立博客 II</title>
@@ -25,10 +25,12 @@
 <script src="/js/clipboard.js"></script>
 <script src="/js/custom.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.js" integrity="sha512-ePtegHW811NTnZd0Er1UxtBb8dizKEdSzANYy/UhxM40FC2yCWwb1CQrj03BPbrs6XdUkcHuyVn9Xq9q0Lm34g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
 <link rel="stylesheet" href="/style/clip2.css"/>
 <script src="/js/clip2.js"></script>
+<button class="button" id="copy-button" data-clipboard-target="#code">Copy</button>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -52,9 +54,9 @@ For a long time ago, I writed the blog [<a href="https://yefeiyu.github.io/soft/
 Let's start.
 Install the new stretch OS of Debian 9, If we to configurate the blog environment of Ruby, Node, NPM, Grunt&#x2026;, it will waste too many times. So We use Docker.
 </p>
-<div id="outline-container-orgc6c51f5" class="outline-2">
-<h2 id="orgc6c51f5">Install docker CE through Docker's official tutorial. The address is</h2>
-<div class="outline-text-2" id="text-orgc6c51f5">
+<div id="outline-container-org71083c1" class="outline-2">
+<h2 id="org71083c1">Install docker CE through Docker's official tutorial. The address is</h2>
+<div class="outline-text-2" id="text-org71083c1">
 <p>
 [<a href="https://docs.docker.com/install/linux/docker-ce/debian/#install-using-the-repository">https://docs.docker.com/install/linux/docker-ce/debian/#install-using-the-repository</a>](Get Docker CE for Debian)
 </p>
@@ -69,9 +71,9 @@ sudo apt-get install docker-ce
 </code></pre>
 </div>
 </div>
-<div id="outline-container-orgb8c45fa" class="outline-2">
-<h2 id="orgb8c45fa">Pull my docker repository</h2>
-<div class="outline-text-2" id="text-orgb8c45fa">
+<div id="outline-container-org46da7b0" class="outline-2">
+<h2 id="org46da7b0">Pull my docker repository</h2>
+<div class="outline-text-2" id="text-org46da7b0">
 <pre class="code"><code>s docker <span style="color: #81A1C1;">pull</span> <span style="font-weight: bold;">xxmm</span>/ruby-node-grunt:v1
 </code></pre>
 <p>
@@ -101,9 +103,9 @@ As we seen, which add the user of xx, and created the environment needed for the
 </p>
 </div>
 </div>
-<div id="outline-container-org16722c3" class="outline-2">
-<h2 id="org16722c3">Use docker for jekyll blog</h2>
-<div class="outline-text-2" id="text-org16722c3">
+<div id="outline-container-org6ba4bbe" class="outline-2">
+<h2 id="org6ba4bbe">Use docker for jekyll blog</h2>
+<div class="outline-text-2" id="text-org6ba4bbe">
 <pre class="code"><code><span style="color: #81A1C1;">docker</span> <span style="font-weight: bold;">run</span> -ti --rm -u 0 -p 4321:4321 -p 35729:35729 -v /home/xx/gh/yefeiyu.github.io/:/home/xx/gh/yefeiyu.github.io/ -v /home/xx/.ssh/:/home/xx/.ssh/ xxmm/ruby-node-grunt:v1 grunt serve
 </code></pre>
 
@@ -113,9 +115,9 @@ If we want to use docker under Windows 10, which need to OPEN the hyper-V in win
 </p>
 </div>
 </div>
-<div id="outline-container-orgba9e756" class="outline-2">
-<h2 id="orgba9e756">Because I mount github.io folder by -v, I need git clone the git repository first, and write the blog at local.</h2>
-<div class="outline-text-2" id="text-orgba9e756">
+<div id="outline-container-org4533866" class="outline-2">
+<h2 id="org4533866">Because I mount github.io folder by -v, I need git clone the git repository first, and write the blog at local.</h2>
+<div class="outline-text-2" id="text-org4533866">
 <p>
 The local need the node_modules folder.
 </p>

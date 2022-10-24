@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-24 Mon 12:40 -->
+<!-- 2022-10-24 Mon 15:00 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Terminal无法代理的解决</title>
@@ -24,10 +24,12 @@
 <script src="/js/clipboard.js"></script>
 <script src="/js/custom.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.js" integrity="sha512-ePtegHW811NTnZd0Er1UxtBb8dizKEdSzANYy/UhxM40FC2yCWwb1CQrj03BPbrs6XdUkcHuyVn9Xq9q0Lm34g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
 <link rel="stylesheet" href="/style/clip2.css"/>
 <script src="/js/clip2.js"></script>
+<button class="button" id="copy-button" data-clipboard-target="#code">Copy</button>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -47,9 +49,9 @@
 <header>
 <h1 class="title">Terminal无法代理的解决</h1>
 </header>
-<div id="outline-container-org75cf47b" class="outline-2">
-<h2 id="org75cf47b">install proxychains-ng 4</h2>
-<div class="outline-text-2" id="text-org75cf47b">
+<div id="outline-container-org5b86854" class="outline-2">
+<h2 id="org5b86854">install proxychains-ng 4</h2>
+<div class="outline-text-2" id="text-org5b86854">
 <p>
 通过git获取源码
 git clone git@github.com:rofl0r/proxychains-ng.git
@@ -57,8 +59,8 @@ git clone git@github.com:rofl0r/proxychains-ng.git
 </p>
 </div>
 <ul class="org-ul">
-<li><a id="orga706eed"></a>Installation <b>*</b><br>
-<div class="outline-text-4" id="text-orga706eed">
+<li><a id="org254551c"></a>Installation <b>*</b><br>
+<div class="outline-text-4" id="text-org254551c">
 <pre class="code"><code># needs a working C compiler, preferably gcc
 ./configure --prefix=/usr --sysconfdir=/etc
 make
@@ -72,9 +74,9 @@ like this: ./proxychains4 -f src/proxychains.conf telnet google.com 80
 </li>
 </ul>
 </div>
-<div id="outline-container-orgd3c6b2a" class="outline-2">
-<h2 id="orgd3c6b2a">修改配置文件</h2>
-<div class="outline-text-2" id="text-orgd3c6b2a">
+<div id="outline-container-org8eea038" class="outline-2">
+<h2 id="org8eea038">修改配置文件</h2>
+<div class="outline-text-2" id="text-org8eea038">
 <pre class="code"><code>emacs /etc/proxychains.conf
 </code></pre>
 <p>
@@ -82,9 +84,9 @@ like this: ./proxychains4 -f src/proxychains.conf telnet google.com 80
 </p>
 </div>
 </div>
-<div id="outline-container-org50d1ea8" class="outline-2">
-<h2 id="org50d1ea8">使用</h2>
-<div class="outline-text-2" id="text-org50d1ea8">
+<div id="outline-container-org77956e6" class="outline-2">
+<h2 id="org77956e6">使用</h2>
+<div class="outline-text-2" id="text-org77956e6">
 <p>
 将需要代理的命令行前输入proxychains4或sudo proxychains4走代理通道
 </p>

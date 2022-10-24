@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-24 Mon 12:40 -->
+<!-- 2022-10-24 Mon 15:00 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>通过css修改org-mode生成的begin_src代码颜色</title>
@@ -25,10 +25,12 @@
 <script src="/js/clipboard.js"></script>
 <script src="/js/custom.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.js" integrity="sha512-ePtegHW811NTnZd0Er1UxtBb8dizKEdSzANYy/UhxM40FC2yCWwb1CQrj03BPbrs6XdUkcHuyVn9Xq9q0Lm34g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
 <link rel="stylesheet" href="/style/clip2.css"/>
 <script src="/js/clip2.js"></script>
+<button class="button" id="copy-button" data-clipboard-target="#code">Copy</button>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -48,13 +50,13 @@
 <header>
 <h1 class="title">通过css修改org-mode生成的begin_src代码颜色</h1>
 </header>
-<div id="outline-container-orgbdb977c" class="outline-2">
-<h2 id="orgbdb977c"><span class="section-number-2">1.</span> 通过babel方式在org-mode中插入代码</h2>
+<div id="outline-container-orge6f0db9" class="outline-2">
+<h2 id="orge6f0db9"><span class="section-number-2">1.</span> 通过babel方式在org-mode中插入代码</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 譬如 &lt;s-Tab可以生成
 </p>
-<pre class="example" id="org737bb56">
+<pre class="example" id="orge3f02fb">
 #+BEGIN_SRC c (or css or lisp or ruby)
 
 #+END_SRC
@@ -65,8 +67,8 @@
 </div>
 </div>
 
-<div id="outline-container-org8020291" class="outline-2">
-<h2 id="org8020291"><span class="section-number-2">2.</span> 通过M-x org-html-htmlize-generate-css在emacs中找到适合的颜色控制</h2>
+<div id="outline-container-orgcd4287f" class="outline-2">
+<h2 id="orgcd4287f"><span class="section-number-2">2.</span> 通过M-x org-html-htmlize-generate-css在emacs中找到适合的颜色控制</h2>
 <div class="outline-text-2" id="text-2">
 <pre class="code"><code><span style="font-weight: bold;">&lt;style type=</span><span style="color: #D08770;">"text/css"</span><span style="font-weight: bold;">&gt;</span>
 <span style="font-weight: bold;">    &lt;!--</span>
@@ -94,8 +96,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgc789bef" class="outline-2">
-<h2 id="orgc789bef"><span class="section-number-2">3.</span> 可以进一步修改code基本颜色，</h2>
+<div id="outline-container-org7d90e9d" class="outline-2">
+<h2 id="org7d90e9d"><span class="section-number-2">3.</span> 可以进一步修改code基本颜色，</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 在/home/xx/gh/yefeiyu.github.io/_app/assets/themes/curtana/_less/variables.less文件中。
@@ -103,8 +105,8 @@
 </div>
 </div>
 
-<div id="outline-container-org009a0cc" class="outline-2">
-<h2 id="org009a0cc"><span class="section-number-2">4.</span> 附加一个短引用的格式，org-mode中使用的</h2>
+<div id="outline-container-org9b22361" class="outline-2">
+<h2 id="org9b22361"><span class="section-number-2">4.</span> 附加一个短引用的格式，org-mode中使用的</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 <code>hello</code> Renders as verbatim
@@ -112,7 +114,7 @@
 <code>hello'</code> Fails to render as verbatim
 <code>hello'</code> Fails to render as code
 </p>
-<pre class="example" id="orgc0d0ccb">
+<pre class="example" id="orge428b86">
 
 =hello= Renders as verbatim
 ~hello~ Renders as code
