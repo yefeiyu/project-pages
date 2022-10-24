@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-23 Sun 15:38 -->
+<!-- 2022-10-24 Mon 02:26 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hello World</title>
@@ -18,6 +18,10 @@
 <link rel="stylesheet" href="/style/main.css"/>
 <link rel="alternate" type="application/rss+xml" href="https://gongzhitaao.org/orgcss/org.css"/>
 <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
+
+{{ if (findRE "<pre" .Content 1) }}
+    <link rel="stylesheet" href="/css/clipboard.css">
+{{ end }}
 </head>
 <body>
 <div id="preamble" class="status">
@@ -40,7 +44,7 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org2c07f3c">Source Code</a></li>
+<li><a href="#orgda1bf06">Source Code</a></li>
 </ul>
 </div>
 </nav>
@@ -49,9 +53,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 </p>
 
 
-<div id="outline-container-org2c07f3c" class="outline-2">
-<h2 id="org2c07f3c">Source Code</h2>
-<div class="outline-text-2" id="text-org2c07f3c">
+<div id="outline-container-orgda1bf06" class="outline-2">
+<h2 id="orgda1bf06">Source Code</h2>
+<div class="outline-text-2" id="text-orgda1bf06">
 <pre class="code"><code><span style="color: #81A1C1;">trait</span> <span style="color: #81A1C1;">AlgInterp</span>[<span style="color: #81A1C1;">F</span>[<span style="color: #81A1C1;">_</span>]] {
   <span style="color: #81A1C1;">val</span> <span style="font-weight: bold;">state</span><span style="color: #81A1C1;">:</span> <span style="color: #81A1C1;">F</span>[<span style="color: #81A1C1;">Int</span>]
   <span style="color: #81A1C1;">def</span> <span style="font-weight: bold;">log</span>(msg<span style="color: #81A1C1;">:</span> <span style="color: #81A1C1;">String</span>)<span style="color: #81A1C1;">:</span> <span style="color: #81A1C1;">F</span>[<span style="color: #81A1C1;">Unit</span>]

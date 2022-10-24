@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-23 Sun 15:38 -->
+<!-- 2022-10-24 Mon 02:26 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Terminal无法代理的解决</title>
@@ -16,6 +16,10 @@
 <link rel="stylesheet" href="/style/main.css"/>
 <link rel="alternate" type="application/rss+xml" href="https://gongzhitaao.org/orgcss/org.css"/>
 <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
+
+{{ if (findRE "<pre" .Content 1) }}
+    <link rel="stylesheet" href="/css/clipboard.css">
+{{ end }}
 </head>
 <body>
 <div id="preamble" class="status">
@@ -35,9 +39,9 @@
 <header>
 <h1 class="title">Terminal无法代理的解决</h1>
 </header>
-<div id="outline-container-org3104c4f" class="outline-2">
-<h2 id="org3104c4f">install proxychains-ng 4</h2>
-<div class="outline-text-2" id="text-org3104c4f">
+<div id="outline-container-orga45ccd0" class="outline-2">
+<h2 id="orga45ccd0">install proxychains-ng 4</h2>
+<div class="outline-text-2" id="text-orga45ccd0">
 <p>
 通过git获取源码
 git clone git@github.com:rofl0r/proxychains-ng.git
@@ -45,8 +49,8 @@ git clone git@github.com:rofl0r/proxychains-ng.git
 </p>
 </div>
 <ul class="org-ul">
-<li><a id="orge84ff6b"></a>Installation <b>*</b><br>
-<div class="outline-text-4" id="text-orge84ff6b">
+<li><a id="orge3142a2"></a>Installation <b>*</b><br>
+<div class="outline-text-4" id="text-orge3142a2">
 <pre class="code"><code># needs a working C compiler, preferably gcc
 ./configure --prefix=/usr --sysconfdir=/etc
 make
@@ -60,9 +64,9 @@ like this: ./proxychains4 -f src/proxychains.conf telnet google.com 80
 </li>
 </ul>
 </div>
-<div id="outline-container-org23491ed" class="outline-2">
-<h2 id="org23491ed">修改配置文件</h2>
-<div class="outline-text-2" id="text-org23491ed">
+<div id="outline-container-org67ac74c" class="outline-2">
+<h2 id="org67ac74c">修改配置文件</h2>
+<div class="outline-text-2" id="text-org67ac74c">
 <pre class="code"><code>emacs /etc/proxychains.conf
 </code></pre>
 <p>
@@ -70,9 +74,9 @@ like this: ./proxychains4 -f src/proxychains.conf telnet google.com 80
 </p>
 </div>
 </div>
-<div id="outline-container-orga31be19" class="outline-2">
-<h2 id="orga31be19">使用</h2>
-<div class="outline-text-2" id="text-orga31be19">
+<div id="outline-container-orgb039b56" class="outline-2">
+<h2 id="orgb039b56">使用</h2>
+<div class="outline-text-2" id="text-orgb039b56">
 <p>
 将需要代理的命令行前输入proxychains4或sudo proxychains4走代理通道
 </p>

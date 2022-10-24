@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-23 Sun 15:38 -->
+<!-- 2022-10-24 Mon 02:26 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>与苹果为敌——无法激活绕过icloud验证进入iOS系统</title>
@@ -17,6 +17,10 @@
 <link rel="stylesheet" href="/style/main.css"/>
 <link rel="alternate" type="application/rss+xml" href="https://gongzhitaao.org/orgcss/org.css"/>
 <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
+
+{{ if (findRE "<pre" .Content 1) }}
+    <link rel="stylesheet" href="/css/clipboard.css">
+{{ end }}
 </head>
 <body>
 <div id="preamble" class="status">
@@ -36,8 +40,8 @@
 <header>
 <h1 class="title">与苹果为敌——无法激活绕过icloud验证进入iOS系统</h1>
 </header>
-<div id="outline-container-org2b6f8c1" class="outline-2">
-<h2 id="org2b6f8c1"><span class="section-number-2">1.</span> 无法激活状态的前情</h2>
+<div id="outline-container-org449f784" class="outline-2">
+<h2 id="org449f784"><span class="section-number-2">1.</span> 无法激活状态的前情</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 一直越狱使用iOS9.0.2的手机，上周摔了屏幕，想到天才吧花点贵钱换个原装屏。天才吧的政策是手机必须非越狱状态才提供维修服务，不得已只好搜索一下越狱擦除工具。开始的时候使用Cydia eraser（原Cydia Impactor），提供无ota无法使用；继尔使用SemiRestore，成功擦除。
@@ -45,18 +49,18 @@
 </p>
 </div>
 </div>
-<div id="outline-container-org82c2afb" class="outline-2">
-<h2 id="org82c2afb"><span class="section-number-2">2.</span> 绕过激活开启手机</h2>
+<div id="outline-container-org43a1083" class="outline-2">
+<h2 id="org43a1083"><span class="section-number-2">2.</span> 绕过激活开启手机</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 SemiRestore擦除保留了越狱系统，擦除时强制要求在Cydia下载Openssh。这一措施为下述这方案提供ssh控制手机的支持。
 </p>
 </div>
-<div id="outline-container-org571a717" class="outline-3">
-<h3 id="org571a717"><span class="section-number-3">2.1.</span> 开始使用bypass iCloud activation修改DNS后网页版，得到safari网页版系统，能使用部分手机功能。</h3>
+<div id="outline-container-org0454692" class="outline-3">
+<h3 id="org0454692"><span class="section-number-3">2.1.</span> 开始使用bypass iCloud activation修改DNS后网页版，得到safari网页版系统，能使用部分手机功能。</h3>
 </div>
-<div id="outline-container-org17510a8" class="outline-3">
-<h3 id="org17510a8"><span class="section-number-3">2.2.</span> 然后看到这个贴子</h3>
+<div id="outline-container-orgb8798cc" class="outline-3">
+<h3 id="orgb8798cc"><span class="section-number-3">2.2.</span> 然后看到这个贴子</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 <a href="https://www.reddit.com/r/jailbreak/comments/82y50o/question_cant_activate_after_semi_restore_on_902/">{Question} Can't activate after Semi Restore on 9.0.2. What are my options for jailbreaking?</a>
@@ -83,8 +87,8 @@ if the string nvram com.apple.System.boot-nonce=0xxx is appear, then good, your 
 </p>
 </div>
 </div>
-<div id="outline-container-org82abb00" class="outline-3">
-<h3 id="org82abb00"><span class="section-number-3">2.3.</span> others</h3>
+<div id="outline-container-orgad41850" class="outline-3">
+<h3 id="orgad41850"><span class="section-number-3">2.3.</span> others</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 然后看到这个贴子，<a href="https://www.reddit.com/r/jailbreak/comments/8bjs2k/discussion_dont_attempt_semirestorecydia/">{Discussion} Don't attempt semi-restore/Cydia Eraser/Reset on ios 9 to 9.1/wont activate!!!!</a>, 这个网页的回贴中，似乎只有facetime和imessage不能使用。但是的我手机是涉及icloud的整个系统不能使用。可能是该贴主要讨论的是5s之前的手机。在苹果新64位系统中，已经作了相关补丁，即不通过icloud注册，无法打开通讯录等。而原本旧版手机是锁机状态下通过盲人模式进入通讯录可以激活系统的。
@@ -92,12 +96,12 @@ if the string nvram com.apple.System.boot-nonce=0xxx is appear, then good, your 
 </div>
 </div>
 </div>
-<div id="outline-container-org622e75b" class="outline-2">
-<h2 id="org622e75b"><span class="section-number-2">3.</span> 使用手机能流畅使用的具体方法</h2>
+<div id="outline-container-org1a6ec82" class="outline-2">
+<h2 id="org1a6ec82"><span class="section-number-2">3.</span> 使用手机能流畅使用的具体方法</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org04c8849" class="outline-3">
-<h3 id="org04c8849"><span class="section-number-3">3.1.</span> 无法使用app store</h3>
+<div id="outline-container-org8af5739" class="outline-3">
+<h3 id="org8af5739"><span class="section-number-3">3.1.</span> 无法使用app store</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 在cydia下载kstore。凡是app store中打开app的页面显示“K”标志的，可以下载使用。
@@ -106,8 +110,8 @@ if the string nvram com.apple.System.boot-nonce=0xxx is appear, then good, your 
 </p>
 </div>
 </div>
-<div id="outline-container-org301580a" class="outline-3">
-<h3 id="org301580a"><span class="section-number-3">3.2.</span> 无法使用通讯录</h3>
+<div id="outline-container-org2b493ab" class="outline-3">
+<h3 id="org2b493ab"><span class="section-number-3">3.2.</span> 无法使用通讯录</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 appcake搜索下载allcontacts pro，同步google联系人至手机。
@@ -115,30 +119,30 @@ appcake搜索下载allcontacts pro，同步google联系人至手机。
 </p>
 </div>
 </div>
-<div id="outline-container-org06b6fba" class="outline-3">
-<h3 id="org06b6fba"><span class="section-number-3">3.3.</span> 无法使用自带备忘录、提醒事项等</h3>
+<div id="outline-container-org9640a9a" class="outline-3">
+<h3 id="org9640a9a"><span class="section-number-3">3.3.</span> 无法使用自带备忘录、提醒事项等</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 使用google keep代替。
 </p>
 </div>
 </div>
-<div id="outline-container-org2ee347d" class="outline-3">
-<h3 id="org2ee347d"><span class="section-number-3">3.4.</span> 其他方法，目前看未发现不便之处。</h3>
+<div id="outline-container-org7f5e5e6" class="outline-3">
+<h3 id="org7f5e5e6"><span class="section-number-3">3.4.</span> 其他方法，目前看未发现不便之处。</h3>
 </div>
 </div>
-<div id="outline-container-orgbee16a9" class="outline-2">
-<h2 id="orgbee16a9"><span class="section-number-2">4.</span> 脱壳</h2>
+<div id="outline-container-org906c119" class="outline-2">
+<h2 id="org906c119"><span class="section-number-2">4.</span> 脱壳</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 一般说来，需要在电脑端操作（未实验），或者在其他越狱手机上操作。下面以手机为例。
 </p>
 </div>
-<div id="outline-container-org3b7b38b" class="outline-3">
-<h3 id="org3b7b38b"><span class="section-number-3">4.1.</span> cydia下载NewTerm 2, (源<a href="https://cydia.hbang.ws">https://cydia.hbang.ws</a>)</h3>
+<div id="outline-container-orgff9ca24" class="outline-3">
+<h3 id="orgff9ca24"><span class="section-number-3">4.1.</span> cydia下载NewTerm 2, (源<a href="https://cydia.hbang.ws">https://cydia.hbang.ws</a>)</h3>
 </div>
-<div id="outline-container-org9ee843d" class="outline-3">
-<h3 id="org9ee843d"><span class="section-number-3">4.2.</span> cydia下载clutch 2，（源cydia.ichitaso.com）</h3>
+<div id="outline-container-orgafa286f" class="outline-3">
+<h3 id="orgafa286f"><span class="section-number-3">4.2.</span> cydia下载clutch 2，（源cydia.ichitaso.com）</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 clutch -i查看app编号
@@ -147,8 +151,8 @@ clutch -d 01脱壳01号app，默认保存路径为/var/mobile/Documents/Dumped
 </p>
 </div>
 </div>
-<div id="outline-container-org1204cac" class="outline-3">
-<h3 id="org1204cac"><span class="section-number-3">4.3.</span> imovie</h3>
+<div id="outline-container-orgbd19a66" class="outline-3">
+<h3 id="orgbd19a66"><span class="section-number-3">4.3.</span> imovie</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 这个软件也许用的人不多，其中用到icloud的一点是导入背景音乐库。
@@ -157,8 +161,8 @@ clutch -d 01脱壳01号app，默认保存路径为/var/mobile/Documents/Dumped
 </p>
 </div>
 </div>
-<div id="outline-container-org4c578cb" class="outline-3">
-<h3 id="org4c578cb"><span class="section-number-3">4.4.</span> cydia安装App Admin</h3>
+<div id="outline-container-orgddae4f9" class="outline-3">
+<h3 id="orgddae4f9"><span class="section-number-3">4.4.</span> cydia安装App Admin</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
 部分app的新版本无法成功脱壳，如腾迅系、阿里系，使用本插件下载旧版本脱壳（不知道其他脱壳工具是否可以脱新版本）。
@@ -166,40 +170,40 @@ clutch -d 01脱壳01号app，默认保存路径为/var/mobile/Documents/Dumped
 </div>
 </div>
 </div>
-<div id="outline-container-orgdd4ac58" class="outline-2">
-<h2 id="orgdd4ac58"><span class="section-number-2">5.</span> 和电脑互拷文件</h2>
+<div id="outline-container-org2eecc3a" class="outline-2">
+<h2 id="org2eecc3a"><span class="section-number-2">5.</span> 和电脑互拷文件</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 如果单纯在手机上使用文件操作，则使用cydia下载Filza即可（由于无法使用icloud，我的正版ifile也无法验证注册）
 如果想使用电脑更方便的操作，那么就借助SemiRestore时强制安装的Openssh。在pc上安装winscp，或者cygwin等命令行工具，在linux下可以直接操作。
 </p>
 </div>
-<div id="outline-container-org48efa6d" class="outline-3">
-<h3 id="org48efa6d"><span class="section-number-3">5.1.</span> 登陆、操作手机：</h3>
+<div id="outline-container-org262f8f8" class="outline-3">
+<h3 id="org262f8f8"><span class="section-number-3">5.1.</span> 登陆、操作手机：</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 ssh root@192.168.xxx.xxx（手机ip地址）
 </p>
 </div>
 </div>
-<div id="outline-container-orga7f09ea" class="outline-3">
-<h3 id="orga7f09ea"><span class="section-number-3">5.2.</span> 拷贝文件到手机：</h3>
+<div id="outline-container-org8266471" class="outline-3">
+<h3 id="org8266471"><span class="section-number-3">5.2.</span> 拷贝文件到手机：</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 scp -r /localhost/xx.mp3 root@192.168.xxx.xxx
 </p>
 </div>
 </div>
-<div id="outline-container-org39b4e97" class="outline-3">
-<h3 id="org39b4e97"><span class="section-number-3">5.3.</span> 已经登陆手机，从电脑往手机上拷贝：</h3>
+<div id="outline-container-org2da92ff" class="outline-3">
+<h3 id="org2da92ff"><span class="section-number-3">5.3.</span> 已经登陆手机，从电脑往手机上拷贝：</h3>
 <div class="outline-text-3" id="text-5-3">
 <p>
 scp -r xxx@192.168.xxx.xxx(电脑ip) <i>localhost</i>.（手机所在文件夹位置）
 </p>
 </div>
 </div>
-<div id="outline-container-org0d05a9e" class="outline-3">
-<h3 id="org0d05a9e"><span class="section-number-3">5.4.</span> 将mp3文件拷贝到imovie</h3>
+<div id="outline-container-org8517466" class="outline-3">
+<h3 id="org8517466"><span class="section-number-3">5.4.</span> 将mp3文件拷贝到imovie</h3>
 <div class="outline-text-3" id="text-5-4">
 <p>
 先使用google drive或dropbox网盘工具下载mp3，如BusyBaby.mp3，导入到imove中。

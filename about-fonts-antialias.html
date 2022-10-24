@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-23 Sun 15:38 -->
+<!-- 2022-10-24 Mon 02:26 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>About fonts antialias</title>
@@ -17,6 +17,10 @@
 <link rel="stylesheet" href="/style/main.css"/>
 <link rel="alternate" type="application/rss+xml" href="https://gongzhitaao.org/orgcss/org.css"/>
 <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
+
+{{ if (findRE "<pre" .Content 1) }}
+    <link rel="stylesheet" href="/css/clipboard.css">
+{{ end }}
 </head>
 <body>
 <div id="preamble" class="status">
@@ -157,7 +161,7 @@ RUN bundle install <span style="color: #81A1C1;">&amp;&amp;</span> \
 <p>
 ;;e	#+beginexample	…	#+endexample
 </p>
-<pre class="example" id="org9ee65aa">
+<pre class="example" id="org8e5d291">
 
 FROM starefossen/ruby-node
 
@@ -269,7 +273,7 @@ RUN bundle install &amp;&amp; \
 <p>
 ;;l	#+beginlatex	…	#+endlatex
 </p>
-<div class="LaTeX" id="org3bac3a4">
+<div class="LaTeX" id="org74d4e75">
 <p>
 
 </p>
@@ -326,7 +330,7 @@ RUN bundle install &amp;&amp; \
 <p>
 ;;h	#+beginhtml	…	#+endhtml
 </p>
-<div class="HTML" id="org0e01662">
+<div class="HTML" id="org8a4060e">
 <p>
 
 </p>
@@ -382,7 +386,7 @@ RUN bundle install &amp;&amp; \
     rm *
 ;;a	#+beginascii	…	#+endascii
 </p>
-<div class="ASCII" id="org1bb35cc">
+<div class="ASCII" id="orga221d65">
 <p>
 
 </p>
