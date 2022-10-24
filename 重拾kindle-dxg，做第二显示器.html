@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-24 Mon 03:21 -->
+<!-- 2022-10-24 Mon 12:40 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>重拾kindle dxg，做第二显示屏</title>
@@ -15,20 +15,20 @@
 <link rel="stylesheet" href="/style/toc.css"/>
 <link rel="stylesheet" href="/style/tufte.css"/>
 <link rel="stylesheet" href="/style/main.css"/>
-<link rel="stylesheet" href="/style/clipboard.css"/>
-<link rel="stylesheet" href="/style/copy-pre.css"/>
 <link rel="alternate" type="application/rss+xml" href="https://gongzhitaao.org/orgcss/org.css"/>
 <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
 
-{{ if (findRE "<pre" .Content 1) }}
-    <link rel="stylesheet" href="/css/clipboard.css">
-{{ end }}
-{{ if (findRE "<pre" .Content 1) }}
-    <script src="/js/clipboard.js"></script>
-{{ end }}
-<link rel="stylesheet" href="/css/clipboard.css">
-<script src="/js/clipboard.js"></script>
+<link rel="stylesheet" href="/style/copy-pre.css"/>
+<link rel="stylesheet" href="/style/clipboard.css">
+<link rel="stylesheet" href="/style/custom.css">
 <script src="/js/copy-pre.js"></script>
+<script src="/js/clipboard.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
+<link rel="stylesheet" href="/style/clip2.css"/>
+<script src="/js/clip2.js"></script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -50,8 +50,8 @@
 </header><p>
 主机使用debian
 </p>
-<div id="outline-container-org89ecef3" class="outline-2">
-<h2 id="org89ecef3"><span class="section-number-2">1.</span> vnc第二显示屏</h2>
+<div id="outline-container-org2886adb" class="outline-2">
+<h2 id="org2886adb"><span class="section-number-2">1.</span> vnc第二显示屏</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 安装x11vnc
@@ -87,8 +87,8 @@ connect debian with Shift X X
 </p>
 </div>
 </div>
-<div id="outline-container-orgb87cf9b" class="outline-2">
-<h2 id="orgb87cf9b"><span class="section-number-2">2.</span> sent book to dxg</h2>
+<div id="outline-container-org185d5a6" class="outline-2">
+<h2 id="org185d5a6"><span class="section-number-2">2.</span> sent book to dxg</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 download kindlegen from Amazon.com 

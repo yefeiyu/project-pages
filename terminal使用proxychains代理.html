@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-24 Mon 03:21 -->
+<!-- 2022-10-24 Mon 12:40 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Terminal无法代理的解决</title>
@@ -14,20 +14,20 @@
 <link rel="stylesheet" href="/style/toc.css"/>
 <link rel="stylesheet" href="/style/tufte.css"/>
 <link rel="stylesheet" href="/style/main.css"/>
-<link rel="stylesheet" href="/style/clipboard.css"/>
-<link rel="stylesheet" href="/style/copy-pre.css"/>
 <link rel="alternate" type="application/rss+xml" href="https://gongzhitaao.org/orgcss/org.css"/>
 <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
 
-{{ if (findRE "<pre" .Content 1) }}
-    <link rel="stylesheet" href="/css/clipboard.css">
-{{ end }}
-{{ if (findRE "<pre" .Content 1) }}
-    <script src="/js/clipboard.js"></script>
-{{ end }}
-<link rel="stylesheet" href="/css/clipboard.css">
-<script src="/js/clipboard.js"></script>
+<link rel="stylesheet" href="/style/copy-pre.css"/>
+<link rel="stylesheet" href="/style/clipboard.css">
+<link rel="stylesheet" href="/style/custom.css">
 <script src="/js/copy-pre.js"></script>
+<script src="/js/clipboard.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
+<link rel="stylesheet" href="/style/clip2.css"/>
+<script src="/js/clip2.js"></script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -47,9 +47,9 @@
 <header>
 <h1 class="title">Terminal无法代理的解决</h1>
 </header>
-<div id="outline-container-orgb3250d5" class="outline-2">
-<h2 id="orgb3250d5">install proxychains-ng 4</h2>
-<div class="outline-text-2" id="text-orgb3250d5">
+<div id="outline-container-org75cf47b" class="outline-2">
+<h2 id="org75cf47b">install proxychains-ng 4</h2>
+<div class="outline-text-2" id="text-org75cf47b">
 <p>
 通过git获取源码
 git clone git@github.com:rofl0r/proxychains-ng.git
@@ -57,8 +57,8 @@ git clone git@github.com:rofl0r/proxychains-ng.git
 </p>
 </div>
 <ul class="org-ul">
-<li><a id="org137a4f8"></a>Installation <b>*</b><br>
-<div class="outline-text-4" id="text-org137a4f8">
+<li><a id="orga706eed"></a>Installation <b>*</b><br>
+<div class="outline-text-4" id="text-orga706eed">
 <pre class="code"><code># needs a working C compiler, preferably gcc
 ./configure --prefix=/usr --sysconfdir=/etc
 make
@@ -72,9 +72,9 @@ like this: ./proxychains4 -f src/proxychains.conf telnet google.com 80
 </li>
 </ul>
 </div>
-<div id="outline-container-org6f44ac5" class="outline-2">
-<h2 id="org6f44ac5">修改配置文件</h2>
-<div class="outline-text-2" id="text-org6f44ac5">
+<div id="outline-container-orgd3c6b2a" class="outline-2">
+<h2 id="orgd3c6b2a">修改配置文件</h2>
+<div class="outline-text-2" id="text-orgd3c6b2a">
 <pre class="code"><code>emacs /etc/proxychains.conf
 </code></pre>
 <p>
@@ -82,9 +82,9 @@ like this: ./proxychains4 -f src/proxychains.conf telnet google.com 80
 </p>
 </div>
 </div>
-<div id="outline-container-org0c14ec8" class="outline-2">
-<h2 id="org0c14ec8">使用</h2>
-<div class="outline-text-2" id="text-org0c14ec8">
+<div id="outline-container-org50d1ea8" class="outline-2">
+<h2 id="org50d1ea8">使用</h2>
+<div class="outline-text-2" id="text-org50d1ea8">
 <p>
 将需要代理的命令行前输入proxychains4或sudo proxychains4走代理通道
 </p>

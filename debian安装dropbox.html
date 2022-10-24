@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-24 Mon 03:21 -->
+<!-- 2022-10-24 Mon 12:40 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>debian安装dropbox</title>
@@ -14,20 +14,20 @@
 <link rel="stylesheet" href="/style/toc.css"/>
 <link rel="stylesheet" href="/style/tufte.css"/>
 <link rel="stylesheet" href="/style/main.css"/>
-<link rel="stylesheet" href="/style/clipboard.css"/>
-<link rel="stylesheet" href="/style/copy-pre.css"/>
 <link rel="alternate" type="application/rss+xml" href="https://gongzhitaao.org/orgcss/org.css"/>
 <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
 
-{{ if (findRE "<pre" .Content 1) }}
-    <link rel="stylesheet" href="/css/clipboard.css">
-{{ end }}
-{{ if (findRE "<pre" .Content 1) }}
-    <script src="/js/clipboard.js"></script>
-{{ end }}
-<link rel="stylesheet" href="/css/clipboard.css">
-<script src="/js/clipboard.js"></script>
+<link rel="stylesheet" href="/style/copy-pre.css"/>
+<link rel="stylesheet" href="/style/clipboard.css">
+<link rel="stylesheet" href="/style/custom.css">
 <script src="/js/copy-pre.js"></script>
+<script src="/js/clipboard.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
+<link rel="stylesheet" href="/style/clip2.css"/>
+<script src="/js/clip2.js"></script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -47,21 +47,21 @@
 <header>
 <h1 class="title">debian安装dropbox</h1>
 </header>
-<div id="outline-container-org97ec5fa" class="outline-2">
-<h2 id="org97ec5fa">安装准备</h2>
-<div class="outline-text-2" id="text-org97ec5fa">
+<div id="outline-container-org5c1db40" class="outline-2">
+<h2 id="org5c1db40">安装准备</h2>
+<div class="outline-text-2" id="text-org5c1db40">
 <p>
 因为国内防火墙(GFW)对云盘提供商dropbox进行了屏弊,因为terminal无法直接下载安装,需要使用proxychains走代理。这一部分参见上篇文章《terminal通过proxychains翻墙》。
 </p>
 </div>
 </div>
-<div id="outline-container-org4dd9609" class="outline-2">
-<h2 id="org4dd9609">安装</h2>
-<div class="outline-text-2" id="text-org4dd9609">
+<div id="outline-container-org2dfc66c" class="outline-2">
+<h2 id="org2dfc66c">安装</h2>
+<div class="outline-text-2" id="text-org2dfc66c">
 </div>
-<div id="outline-container-org27b04a3" class="outline-3">
-<h3 id="org27b04a3">通过deb包</h3>
-<div class="outline-text-3" id="text-org27b04a3">
+<div id="outline-container-org4db2a84" class="outline-3">
+<h3 id="org4db2a84">通过deb包</h3>
+<div class="outline-text-3" id="text-org4db2a84">
 <pre class="code"><code>cd ~
 proxychains4 wget https://www.dropbox.com/download?dl=packages/debian/dropbox_2015.10.28_amd64.deb
 sudo dpkg -i dropbox*.deb
@@ -70,9 +70,9 @@ sudo dpkg -i dropbox*.deb
 </div>
 </div>
 
-<div id="outline-container-orgf7b888a" class="outline-3">
-<h3 id="orgf7b888a">通过命令行安装无外设模式的 Dropbox</h3>
-<div class="outline-text-3" id="text-orgf7b888a">
+<div id="outline-container-orgc541bbe" class="outline-3">
+<h3 id="orgc541bbe">通过命令行安装无外设模式的 Dropbox</h3>
+<div class="outline-text-3" id="text-orgc541bbe">
 <pre class="code"><code> cd ~
 wget -O - <span style="color: #D08770;">"https://www.dropbox.com/download?plat=lnx.x86_64"</span> | tar xzf -
 </code></pre>
@@ -85,9 +85,9 @@ wget -O - <span style="color: #D08770;">"https://www.dropbox.com/download?plat=l
 </div>
 </div>
 
-<div id="outline-container-org69590bc" class="outline-2">
-<h2 id="org69590bc">配置</h2>
-<div class="outline-text-2" id="text-org69590bc">
+<div id="outline-container-org87c6686" class="outline-2">
+<h2 id="org87c6686">配置</h2>
+<div class="outline-text-2" id="text-org87c6686">
 <pre class="code"><code>proxychains dropbox proxy <span style="color: #81A1C1;">manual</span> <span style="font-weight: bold;">socks5</span> 127.0.0.1 1080
 proxychains4 dropbox start -i
 </code></pre>

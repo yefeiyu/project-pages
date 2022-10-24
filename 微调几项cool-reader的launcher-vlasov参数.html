@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-24 Mon 03:21 -->
+<!-- 2022-10-24 Mon 12:40 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>微调几项cool reader的launcher vlasov参数</title>
@@ -14,20 +14,20 @@
 <link rel="stylesheet" href="/style/toc.css"/>
 <link rel="stylesheet" href="/style/tufte.css"/>
 <link rel="stylesheet" href="/style/main.css"/>
-<link rel="stylesheet" href="/style/clipboard.css"/>
-<link rel="stylesheet" href="/style/copy-pre.css"/>
 <link rel="alternate" type="application/rss+xml" href="https://gongzhitaao.org/orgcss/org.css"/>
 <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
 
-{{ if (findRE "<pre" .Content 1) }}
-    <link rel="stylesheet" href="/css/clipboard.css">
-{{ end }}
-{{ if (findRE "<pre" .Content 1) }}
-    <script src="/js/clipboard.js"></script>
-{{ end }}
-<link rel="stylesheet" href="/css/clipboard.css">
-<script src="/js/clipboard.js"></script>
+<link rel="stylesheet" href="/style/copy-pre.css"/>
+<link rel="stylesheet" href="/style/clipboard.css">
+<link rel="stylesheet" href="/style/custom.css">
 <script src="/js/copy-pre.js"></script>
+<script src="/js/clipboard.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
+<link rel="stylesheet" href="/style/clip2.css"/>
+<script src="/js/clip2.js"></script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -47,8 +47,8 @@
 <header>
 <h1 class="title">微调几项cool reader的launcher vlasov参数</h1>
 </header>
-<div id="outline-container-org05f9c1d" class="outline-2">
-<h2 id="org05f9c1d"><span class="section-number-2">1.</span> </h2>
+<div id="outline-container-orgf3f8661" class="outline-2">
+<h2 id="orgf3f8661"><span class="section-number-2">1.</span> </h2>
 <div class="outline-text-2" id="text-1">
 <p>
 下面这行是最新版coolreader发行网址。直接解压到kobo 根文件夹中的.add文件夹中。替换原vlasovsoft文件夹。
@@ -56,8 +56,8 @@
 </p>
 </div>
 </div>
-<div id="outline-container-org90b55c3" class="outline-2">
-<h2 id="org90b55c3"><span class="section-number-2">2.</span> </h2>
+<div id="outline-container-org191ad65" class="outline-2">
+<h2 id="org191ad65"><span class="section-number-2">2.</span> </h2>
 <div class="outline-text-2" id="text-2">
 <p>
 下面这部分是修改dictionary字体。这里只提供了修改所有字体的方法。
@@ -73,8 +73,8 @@ CODE: SELECT ALL
 </p>
 </div>
 </div>
-<div id="outline-container-orge9e4bbe" class="outline-2">
-<h2 id="orge9e4bbe"><span class="section-number-2">3.</span> {</h2>
+<div id="outline-container-org3ceb66a" class="outline-2">
+<h2 id="org3ceb66a"><span class="section-number-2">3.</span> {</h2>
 <div class="outline-text-2" id="text-3">
 <p>
     font-size: 9pt;
@@ -83,16 +83,16 @@ CODE: SELECT ALL
 </p>
 </div>
 </div>
-<div id="outline-container-org079ecfd" class="outline-2">
-<h2 id="org079ecfd"><span class="section-number-2">4.</span> </h2>
+<div id="outline-container-orgd7546c9" class="outline-2">
+<h2 id="orgd7546c9"><span class="section-number-2">4.</span> </h2>
 <div class="outline-text-2" id="text-4">
 <p>
 字典使用stardict的字典，解压字典文件后放到vlasovsoft/dictionary中。
 </p>
 </div>
 </div>
-<div id="outline-container-orgf9ce627" class="outline-2">
-<h2 id="orgf9ce627"><span class="section-number-2">5.</span> </h2>
+<div id="outline-container-org239d5a6" class="outline-2">
+<h2 id="org239d5a6"><span class="section-number-2">5.</span> </h2>
 <div class="outline-text-2" id="text-5">
 <p>
 阅读的字体可以共享kobo原装字体。在kobo根文件夹的fonts中。

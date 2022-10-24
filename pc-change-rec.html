@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-24 Mon 03:21 -->
+<!-- 2022-10-24 Mon 12:40 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>pc change rec</title>
@@ -15,20 +15,20 @@
 <link rel="stylesheet" href="/style/toc.css"/>
 <link rel="stylesheet" href="/style/tufte.css"/>
 <link rel="stylesheet" href="/style/main.css"/>
-<link rel="stylesheet" href="/style/clipboard.css"/>
-<link rel="stylesheet" href="/style/copy-pre.css"/>
 <link rel="alternate" type="application/rss+xml" href="https://gongzhitaao.org/orgcss/org.css"/>
 <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
 
-{{ if (findRE "<pre" .Content 1) }}
-    <link rel="stylesheet" href="/css/clipboard.css">
-{{ end }}
-{{ if (findRE "<pre" .Content 1) }}
-    <script src="/js/clipboard.js"></script>
-{{ end }}
-<link rel="stylesheet" href="/css/clipboard.css">
-<script src="/js/clipboard.js"></script>
+<link rel="stylesheet" href="/style/copy-pre.css"/>
+<link rel="stylesheet" href="/style/clipboard.css">
+<link rel="stylesheet" href="/style/custom.css">
 <script src="/js/copy-pre.js"></script>
+<script src="/js/clipboard.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
+<link rel="stylesheet" href="/style/clip2.css"/>
+<script src="/js/clip2.js"></script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -48,25 +48,25 @@
 <header>
 <h1 class="title">pc change rec</h1>
 </header>
-<div id="outline-container-org2f45a11" class="outline-2">
-<h2 id="org2f45a11"><span class="section-number-2">1.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-04-10 Tue&gt;</span></span></h2>
+<div id="outline-container-org8f5b8f6" class="outline-2">
+<h2 id="org8f5b8f6"><span class="section-number-2">1.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-04-10 Tue&gt;</span></span></h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orga984d60" class="outline-3">
-<h3 id="orga984d60"><span class="section-number-3">1.1.</span> How to execute command on startup (rc.local alternative)</h3>
+<div id="outline-container-org2250f0b" class="outline-3">
+<h3 id="org2250f0b"><span class="section-number-3">1.1.</span> How to execute command on startup (rc.local alternative)</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 which involves use of systemd here:
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="orga994ccd"></a>Create a service:<br>
+<li><a id="orga5f651d"></a>Create a service:<br>
 <div class="outline-text-4" id="text-1-1-1">
 <pre class="code"><code>sudo vi /etc/systemd/system/rc-local.service
 </code></pre>
 </div>
 </li>
-<li><a id="org6b061c7"></a>Add your code there:<br>
+<li><a id="org941d8c3"></a>Add your code there:<br>
 <div class="outline-text-4" id="text-1-1-2">
 <pre class="code"><code>[Unit]
 Description=/etc/rc.local Compatibility
@@ -85,7 +85,7 @@ WantedBy=multi-user.target
 </code></pre>
 </div>
 </li>
-<li><a id="org925a33a"></a>Create and make sure /etc/rc.local is executable and add this code inside it:<br>
+<li><a id="org2d66ff8"></a>Create and make sure /etc/rc.local is executable and add this code inside it:<br>
 <div class="outline-text-4" id="text-1-1-3">
 <pre class="code"><code>sudo chmod +x /etc/rc.local
 </code></pre>
@@ -106,13 +106,13 @@ exit 0
 </code></pre>
 </div>
 </li>
-<li><a id="org3f6fdcb"></a>Enable the service:<br>
+<li><a id="org708c736"></a>Enable the service:<br>
 <div class="outline-text-4" id="text-1-1-4">
 <pre class="code"><code>sudo systemctl enable rc-local
 </code></pre>
 </div>
 </li>
-<li><a id="org2e042bc"></a>Start service and check status:<br>
+<li><a id="org2588b4f"></a>Start service and check status:<br>
 <div class="outline-text-4" id="text-1-1-5">
 <pre class="code"><code>sudo systemctl start rc-local.service
 sudo systemctl status rc-local.service
@@ -127,8 +127,8 @@ If all goes well you can add your code to the /etc/rc.local file then restart it
 </ol>
 </div>
 
-<div id="outline-container-org61fe4b5" class="outline-3">
-<h3 id="org61fe4b5"><span class="section-number-3">1.2.</span> openbox close sleep and screensaver</h3>
+<div id="outline-container-org23377ed" class="outline-3">
+<h3 id="org23377ed"><span class="section-number-3">1.2.</span> openbox close sleep and screensaver</h3>
 <div class="outline-text-3" id="text-1-2">
 <pre class="code"><code>
 #xset s 300      #设置屏保时间为300秒，时间单位为秒
@@ -139,8 +139,8 @@ If all goes well you can add your code to the /etc/rc.local file then restart it
 </code></pre>
 </div>
 </div>
-<div id="outline-container-org8c96904" class="outline-3">
-<h3 id="org8c96904"><span class="section-number-3">1.3.</span> openbox environment setup</h3>
+<div id="outline-container-orgbb7d0de" class="outline-3">
+<h3 id="orgbb7d0de"><span class="section-number-3">1.3.</span> openbox environment setup</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 Setting up your environment
@@ -163,8 +163,8 @@ export QT_IM_MODULE=scim
 </div>
 </div>
 
-<div id="outline-container-orge5e92f3" class="outline-3">
-<h3 id="orge5e92f3"><span class="section-number-3">1.4.</span> openbox keyblinding setup, ~/.config/openbox/rc.xml</h3>
+<div id="outline-container-orgd0a34d8" class="outline-3">
+<h3 id="orgd0a34d8"><span class="section-number-3">1.4.</span> openbox keyblinding setup, ~/.config/openbox/rc.xml</h3>
 <div class="outline-text-3" id="text-1-4">
 <pre class="code"><code>&lt;!-- Keybindings for running applications --&gt;
 &lt;keybind key="W-e"&gt;
@@ -181,8 +181,8 @@ export QT_IM_MODULE=scim
 </div>
 </div>
 
-<div id="outline-container-org24314be" class="outline-2">
-<h2 id="org24314be"><span class="section-number-2">2.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-01 Thu&gt;</span></span></h2>
+<div id="outline-container-org564041c" class="outline-2">
+<h2 id="org564041c"><span class="section-number-2">2.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-06-01 Thu&gt;</span></span></h2>
 <div class="outline-text-2" id="text-2">
 <p>
 chane the _app/assets/themes/curtana/_less/common.less
@@ -214,8 +214,8 @@ and then the TABLE had 横拉滚动条
 </p>
 </div>
 </div>
-<div id="outline-container-org7109fe6" class="outline-2">
-<h2 id="org7109fe6"><span class="section-number-2">3.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-04-14 Fri&gt;</span></span></h2>
+<div id="outline-container-org54486d0" class="outline-2">
+<h2 id="org54486d0"><span class="section-number-2">3.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-04-14 Fri&gt;</span></span></h2>
 <div class="outline-text-2" id="text-3">
 <p>
 A friend sent me an email with a JPEG photo in the middle of the text. The picture is so big, most of it is outside the screen and I want to view it with an outside image viewer and not in Gnus. How do I save an image that is included in the email in Gnus, if it's not just an ordinary attachment?
@@ -238,8 +238,8 @@ CHROMIUM_FLAGS='&#x2013;enable-remote-extensions'
 </div>
 </div>
 
-<div id="outline-container-org45a70ac" class="outline-2">
-<h2 id="org45a70ac"><span class="section-number-2">4.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-04-13 Thu&gt;</span></span></h2>
+<div id="outline-container-orgbb40ca6" class="outline-2">
+<h2 id="orgbb40ca6"><span class="section-number-2">4.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-04-13 Thu&gt;</span></span></h2>
 <div class="outline-text-2" id="text-4">
 <p>
 export WINEARCH=win32
@@ -264,8 +264,8 @@ s apt-get install -f
 </div>
 </div>
 
-<div id="outline-container-org420d531" class="outline-2">
-<h2 id="org420d531"><span class="section-number-2">5.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-02 Thu&gt;</span></span></h2>
+<div id="outline-container-org95c345c" class="outline-2">
+<h2 id="org95c345c"><span class="section-number-2">5.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-03-02 Thu&gt;</span></span></h2>
 <div class="outline-text-2" id="text-5">
 <p>
 install wine-qq on debian
@@ -274,8 +274,8 @@ install wine-qq on debian
 </div>
 </div>
 
-<div id="outline-container-org79d3b78" class="outline-2">
-<h2 id="org79d3b78"><span class="section-number-2">6.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-01-24 Tue&gt;</span></span></h2>
+<div id="outline-container-org212af25" class="outline-2">
+<h2 id="org212af25"><span class="section-number-2">6.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-01-24 Tue&gt;</span></span></h2>
 <div class="outline-text-2" id="text-6">
 <p>
 change emacs' color in terminator, add this line to .bashrc
@@ -297,8 +297,8 @@ define the font by #gnome-tweak-tool
 </div>
 </div>
 
-<div id="outline-container-org2bbf059" class="outline-2">
-<h2 id="org2bbf059"><span class="section-number-2">7.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-19 Mon&gt;</span></span></h2>
+<div id="outline-container-orgb2b7213" class="outline-2">
+<h2 id="orgb2b7213"><span class="section-number-2">7.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-12-19 Mon&gt;</span></span></h2>
 <div class="outline-text-2" id="text-7">
 <p>
 #spni -g n ;; to install npm's extension n
@@ -307,8 +307,8 @@ define the font by #gnome-tweak-tool
 </div>
 </div>
 
-<div id="outline-container-org0173fe8" class="outline-2">
-<h2 id="org0173fe8"><span class="section-number-2">8.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-23 Tue&gt;</span></span></h2>
+<div id="outline-container-orge87a059" class="outline-2">
+<h2 id="orge87a059"><span class="section-number-2">8.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-23 Tue&gt;</span></span></h2>
 <div class="outline-text-2" id="text-8">
 <p>
 .emacs
@@ -317,8 +317,8 @@ L625
 </p>
 </div>
 </div>
-<div id="outline-container-org1897066" class="outline-2">
-<h2 id="org1897066"><span class="section-number-2">9.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-25 Thu&gt;</span></span></h2>
+<div id="outline-container-org78da42b" class="outline-2">
+<h2 id="org78da42b"><span class="section-number-2">9.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-08-25 Thu&gt;</span></span></h2>
 <div class="outline-text-2" id="text-9">
 <p>
 sudo apt-get install bleachbit
