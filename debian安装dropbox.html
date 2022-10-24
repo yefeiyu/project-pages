@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<!-- 2022-10-24 Mon 02:38 -->
+<!-- 2022-10-24 Mon 02:53 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>debian安装dropbox</title>
@@ -44,21 +44,21 @@
 <header>
 <h1 class="title">debian安装dropbox</h1>
 </header>
-<div id="outline-container-orga310d36" class="outline-2">
-<h2 id="orga310d36">安装准备</h2>
-<div class="outline-text-2" id="text-orga310d36">
+<div id="outline-container-orga7de623" class="outline-2">
+<h2 id="orga7de623">安装准备</h2>
+<div class="outline-text-2" id="text-orga7de623">
 <p>
 因为国内防火墙(GFW)对云盘提供商dropbox进行了屏弊,因为terminal无法直接下载安装,需要使用proxychains走代理。这一部分参见上篇文章《terminal通过proxychains翻墙》。
 </p>
 </div>
 </div>
-<div id="outline-container-org6263b19" class="outline-2">
-<h2 id="org6263b19">安装</h2>
-<div class="outline-text-2" id="text-org6263b19">
+<div id="outline-container-orgcd3ff93" class="outline-2">
+<h2 id="orgcd3ff93">安装</h2>
+<div class="outline-text-2" id="text-orgcd3ff93">
 </div>
-<div id="outline-container-org20ccc3e" class="outline-3">
-<h3 id="org20ccc3e">通过deb包</h3>
-<div class="outline-text-3" id="text-org20ccc3e">
+<div id="outline-container-org2611250" class="outline-3">
+<h3 id="org2611250">通过deb包</h3>
+<div class="outline-text-3" id="text-org2611250">
 <pre class="code"><code>cd ~
 proxychains4 wget https://www.dropbox.com/download?dl=packages/debian/dropbox_2015.10.28_amd64.deb
 sudo dpkg -i dropbox*.deb
@@ -67,9 +67,9 @@ sudo dpkg -i dropbox*.deb
 </div>
 </div>
 
-<div id="outline-container-org9960e43" class="outline-3">
-<h3 id="org9960e43">通过命令行安装无外设模式的 Dropbox</h3>
-<div class="outline-text-3" id="text-org9960e43">
+<div id="outline-container-org5522a45" class="outline-3">
+<h3 id="org5522a45">通过命令行安装无外设模式的 Dropbox</h3>
+<div class="outline-text-3" id="text-org5522a45">
 <pre class="code"><code> cd ~
 wget -O - <span style="color: #D08770;">"https://www.dropbox.com/download?plat=lnx.x86_64"</span> | tar xzf -
 </code></pre>
@@ -82,9 +82,9 @@ wget -O - <span style="color: #D08770;">"https://www.dropbox.com/download?plat=l
 </div>
 </div>
 
-<div id="outline-container-org2af456f" class="outline-2">
-<h2 id="org2af456f">配置</h2>
-<div class="outline-text-2" id="text-org2af456f">
+<div id="outline-container-org44fa86c" class="outline-2">
+<h2 id="org44fa86c">配置</h2>
+<div class="outline-text-2" id="text-org44fa86c">
 <pre class="code"><code>proxychains dropbox proxy <span style="color: #81A1C1;">manual</span> <span style="font-weight: bold;">socks5</span> 127.0.0.1 1080
 proxychains4 dropbox start -i
 </code></pre>
