@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<!-- 2022-10-28 Fri 13:32 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>python将段落分割成句子</title>
+<meta name="author" content="unknown" />
+<meta name="description" content="dividing novel to sentences" />
+<meta name="generator" content="Org Mode" />
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#ffffff">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/style/toc.css"/>
+<link rel="stylesheet" href="/style/tufte.css"/>
+<link rel="stylesheet" href="/style/main.css"/>
+<link rel="alternate" type="application/rss+xml" href="https://gongzhitaao.org/orgcss/org.css"/>
+<link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
+
+<link rel="stylesheet" href="/style/copy-pre.css"/>
+<link rel="stylesheet" href="/style/clipboard.css">
+<link rel="stylesheet" href="/style/custom.css">
+<script src="/js/copy-pre.js"></script>
+<script src="/js/clipboard.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.js" integrity="sha512-ePtegHW811NTnZd0Er1UxtBb8dizKEdSzANYy/UhxM40FC2yCWwb1CQrj03BPbrs6XdUkcHuyVn9Xq9q0Lm34g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
+<link rel="stylesheet" href="/style/clip2.css"/>
+<script src="/js/clip2.js"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJRFJGX"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header>
+    <a accesskey="h" href="/index.html"> HOME </a> |
+    <a href="#" id="edit-in-github">EDIT</a> |
+    <a href="https://yefeiyu.github.io/index.xml">RSS</a> |
+    <a accesskey="H" href="/about.html">ABOUT</a> |
+    <a href="https://github.com/yefeiyu">GITHUB</a>
+</header>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">python将段落分割成句子</h1>
+</header><p>
+分割完后用emacs替换".ctrl-q ctrl-j"为".&lt;/p&gt;c-qc-r&lt;p&gt;"
+</p>
+<pre class="code"><code><span style="color: #677691;"># </span><span style="color: #677691;">This is a sample Python script.</span>
+<span style="color: #81A1C1;">import</span> nltk
+<span style="font-weight: bold;">filename</span> = <span style="color: #D08770;">"a.html"</span>
+<span style="color: #81A1C1;">file</span> = <span style="color: #81A1C1;">open</span>(filename, <span style="color: #D08770;">"r"</span>, encoding=<span style="color: #D08770;">"utf-8"</span>)
+text = <span style="color: #81A1C1;">file</span>.read()
+text = text.replace(<span style="color: #D08770;">"\n"</span>, <span style="color: #D08770;">" "</span>)
+tokenizer = nltk.data.load(<span style="color: #D08770;">"tokenizers/punkt/english.pickle"</span>)
+sentences = tokenizer.tokenize(text)
+<span style="color: #677691;"># </span><span style="color: #677691;">Press &#8963;R to execute it or replace it with your code.</span>
+<span style="color: #677691;"># </span><span style="color: #677691;">Press Double &#8679; to search everywhere for classes, files, tool windows, actions, and settings.</span>
+<span style="color: #677691;">#</span><span style="color: #677691;">print(sentences)</span>
+
+<span style="color: #81A1C1;">with</span> <span style="color: #81A1C1;">open</span>(
+        <span style="color: #D08770;">'a1.html'</span>
+        , <span style="color: #D08770;">'w'</span>) <span style="color: #81A1C1;">as</span> f:
+    <span style="color: #81A1C1;">for</span> line <span style="color: #81A1C1;">in</span> sentences:
+        f.write(line)
+        f.write(<span style="color: #D08770;">'\n'</span>)
+    f.close()
+
+<span style="color: #81A1C1;">def</span> <span style="font-weight: bold;">print_hi</span>(name):
+    <span style="color: #677691;"># </span><span style="color: #677691;">Use a breakpoint in the code line below to debug your script.</span>
+<span style="color: #677691;">#    </span><span style="color: #677691;">print(f'Hi, {name}')  # Press &#8984;F8 to toggle the breakpoint.</span>
+    <span style="color: #81A1C1;">print</span>(sentences)
+
+<span style="color: #677691;"># </span><span style="color: #677691;">Press the green button in the gutter to run the script.</span>
+<span style="color: #81A1C1;">if</span> <span style="color: #81A1C1;">__name__</span> == <span style="color: #D08770;">'__main__'</span>:
+    print_hi(<span style="color: #D08770;">'PyCharm'</span>)
+
+<span style="color: #677691;"># </span><span style="color: #677691;">See PyCharm help at https://www.jetbrains.com/help/pycharm/</span>
+
+</code></pre>
+</div>
+<div id="postamble" class="status">
+<footer>
+  <p>Author: unknown <a aria-label="Follow @yefeiyu on GitHub" data-count-aria-label="# followers on GitHub" data-count-api="/users/jcouyang#followers" data-count-href="/jcouyang/followers" href="https://github.com/yefeiyu class="github-button">Follow @yefeiyu</a></p>
+  <p>Modified: 2022-10-28 Fri 13:32</p>
+  <p>Generated by: <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.5.3) &#215; <a href="https://github.com/jcouyang/orgpress">OrgPress</a></p>
+</footer>
+</div>
+</body>
+</html>
